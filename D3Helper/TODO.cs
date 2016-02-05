@@ -13,7 +13,7 @@ namespace D3Helper
         - check crash after editing settings
          - check SkillEditor Size, mby make resizable, fix condition allign / overlap
 
-        
+         
 
         */
 

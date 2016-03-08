@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Helper", "D3Helper\D3Helper.csproj", "{070A821F-4207-47C7-9D10-4CE8080597E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Enigma.Libraries", "Enigma.Libraries", "{9DF31B67-6849-4535-B440-B565EC671047}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma.D3.Core", "..\Enigma.D3.Public\2.4.0.35616\Enigma.D3.Core\Enigma.D3.Core.csproj", "{E01F9C34-F404-48DC-92E2-991DA7ADF9EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma.D3.Core", "..\Enigma.D3.Public\Enigma.D3.Core\Enigma.D3.Core.csproj", "{E01F9C34-F404-48DC-92E2-991DA7ADF9EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma.D3.Memory", "..\Enigma.D3.Public\2.4.0.35616\Enigma.D3.Memory\Enigma.D3.Memory.csproj", "{23848103-7DC0-4AB0-958F-B8793FFD1F2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma.D3.Memory", "..\Enigma.D3.Public\Enigma.D3.Memory\Enigma.D3.Memory.csproj", "{23848103-7DC0-4AB0-958F-B8793FFD1F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma.Memory", "..\Enigma.D3.Public\2.4.0.35616\Enigma.Memory\Enigma.Memory.csproj", "{3A385F29-42E2-4CAF-B1F2-2A1A7B90A971}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma.Memory", "..\Enigma.D3.Public\Enigma.Memory\Enigma.Memory.csproj", "{3A385F29-42E2-4CAF-B1F2-2A1A7B90A971}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

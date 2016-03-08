@@ -756,7 +756,7 @@ namespace D3Helper.A_Tools
                 public DamageType _DamageType { get; set; }
             }
 
-            private static string Dir_Definitions = AppDomain.CurrentDomain.BaseDirectory + "\\definitions";
+            private static string Dir_Definitions = path.AppDir + "\\definitions";
 
             public static List<SkillData> Load()
             {

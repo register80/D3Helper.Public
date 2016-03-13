@@ -75,7 +75,7 @@ namespace D3Helper.A_Handler.AutoCube
                             A_Tools.InputSimulator.IS_Mouse.MoveCursor((uint)RX_Cube, (uint)RY_Cube);
                             A_Tools.InputSimulator.IS_Mouse.LeftClick();
 
-                            Thread.Sleep(100);
+                            Thread.Sleep(200);
 
 
                         }
@@ -86,7 +86,7 @@ namespace D3Helper.A_Handler.AutoCube
                                 .Value;
 
                         A_Tools.InputSimulator.IS_Mouse.RightCLick((int)UIRect_item.Left, (int)UIRect_item.Top, (int)UIRect_item.Right, (int)UIRect_item.Bottom);
-                        Thread.Sleep(100);
+                        Thread.Sleep(200);
 
                         foreach (var material in Materials)
                         {
@@ -96,17 +96,21 @@ namespace D3Helper.A_Handler.AutoCube
                                 .Value;
 
                             A_Tools.InputSimulator.IS_Mouse.RightCLick((int)UIRect_material.Left, (int)UIRect_material.Top, (int)UIRect_material.Right, (int)UIRect_material.Bottom);
-                            Thread.Sleep(100);
+                            Thread.Sleep(200);
                         }
 
                         UIRect Transmute = A_Tools.T_D3UI.UIElement.getRect(BTN_Transmute);
 
                         A_Tools.InputSimulator.IS_Mouse.LeftClick((int)Transmute.Left, (int)Transmute.Top, (int)Transmute.Right, (int)Transmute.Bottom);
-                        Thread.Sleep(100);
+                        Thread.Sleep(1000);
 
                         while (Tools.IsVendorPage_Visible())
+                        {
                             A_Tools.InputSimulator.IS_Keyboard.Close_AllWindows();
+                            Thread.Sleep(500);
+                        }
 
+                        
                         Count_Enchants++;
                     }
 

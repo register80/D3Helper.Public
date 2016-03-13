@@ -756,7 +756,7 @@ namespace D3Helper.A_Tools
                 public DamageType _DamageType { get; set; }
             }
 
-            private static string Dir_Definitions = path.AppDir + "\\definitions";
+            private static string Dir_Definitions = path.AppDir + @"\definitions";
 
             public static List<SkillData> Load()
             {
@@ -884,10 +884,10 @@ namespace D3Helper.A_Tools
 
                         _SkillData data = Convert_ToStruct(definition);
 
-                        BinaryFile.WriteToFile<_SkillData>(Dir_Definitions + "\\" + data.Name + ".bin", data);
+                        BinaryFile.WriteToFile<_SkillData>(Dir_Definitions + @"\" + data.Name + ".bin", data);
                     }
                     catch
-                    {
+                     {
                     }
                 }
             }

@@ -34,9 +34,9 @@ namespace D3Helper.A_Handler.Log
     }
     class Exception
     {
-        private static string ExceptionsFilePath = path.AppDir + @"logs\exceptions.txt";
-        private static string HandlerFilePath = path.AppDir + @"logs\log_handler.txt";
-        private static string LogFolderPath = path.AppDir + @"logs";
+        private static string ExceptionsFilePath = path.AppDir + @"\logs\exceptions.txt";
+        private static string HandlerFilePath = path.AppDir + @"\logs\log_handler.txt";
+        private static string LogFolderPath = path.AppDir + @"\logs";
 
         public static List<ExceptionLogEntry> ExceptionLog = new List<ExceptionLogEntry>();
         public static List<LogEntry> HandlerLog = new List<LogEntry>();

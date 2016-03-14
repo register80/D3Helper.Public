@@ -82,8 +82,7 @@ namespace D3Helper.A_Handler.AutoCube
 
                         UIRect UIRect_item =
                             A_Collection.D3UI.InventoryItemUIRectMesh.FirstOrDefault(
-                                x => x.Key.ItemSlotX == item.x118_ItemSlotX && x.Key.ItemSlotY == item.x11C_ItemSlotY)
-                                .Value;
+                                x => x.Key.ItemSlotX == item.x118_ItemSlotX && x.Key.ItemSlotY == item.x11C_ItemSlotY).Value;
 
                         A_Tools.InputSimulator.IS_Mouse.RightCLick((int)UIRect_item.Left, (int)UIRect_item.Top, (int)UIRect_item.Right, (int)UIRect_item.Bottom);
                         Thread.Sleep(200);

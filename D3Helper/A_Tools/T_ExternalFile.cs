@@ -871,7 +871,7 @@ namespace D3Helper.A_Tools
                 if (files.Any())
                     foreach (var file in files)
                     {
-                        var m = Regex.Match(file, @"definitions\(.*)", RegexOptions.Singleline);
+                        var m = Regex.Match(file, @"definitions\\(.*)", RegexOptions.Singleline);
                         string filename = m.Groups[1].Value;
                         if (CustomDefinitions.FirstOrDefault(x => x.Name == filename.Replace(".bin", "")) == null)
                             File.Delete((file));

@@ -102,7 +102,7 @@ namespace D3Helper.A_Collection
         public class ParagonPointSpender
         {
             //--
-            public static string ParagonPoints_FilePath = path.AppDir + @"paragonpoints.txt";
+            public static string ParagonPoints_FilePath = path.AppDir + @"\paragonpoints.txt";
             public static bool ReloadSetups = true;                                                 // default: true
             public static bool Is_SpendingPoints = false;                                           // default: false
             public static int SelectedParagonPoints_Setup = 0;                                      // default: 0 min: 0 max: 4
@@ -113,7 +113,7 @@ namespace D3Helper.A_Collection
         public class GearSwap
         {
             //--
-            public static string GearSwaps_FilePath = path.AppDir + @"gearswaps.txt";
+            public static string GearSwaps_FilePath = path.AppDir + @"\gearswaps.txt";
             public static List<GearSwapItem> GearSwaps = new List<GearSwapItem>();
             public static int Selected_SwapId = 1;                                                  // default: 1 min: 1 max: 4
             public static bool isEditing = false;
@@ -123,7 +123,7 @@ namespace D3Helper.A_Collection
         public class AutoCastOverrides
         {
             //--
-            public static string FilePath = path.AppDir + @"overrides.txt";
+            public static string FilePath = path.AppDir + @"\overrides.txt";
             public static List<Override> _Overrides = new List<Override>();
             public static bool AutoCast1Override = false;
             public static bool AutoCast2Override = false;
@@ -136,7 +136,7 @@ namespace D3Helper.A_Collection
 
         public class SkillBuilds
         {
-            public static string SkillBuilds_FilePath = path.AppDir + @"skillbuilds.txt";
+            public static string SkillBuilds_FilePath = path.AppDir + @"\skillbuilds.txt";
             public static Dictionary<SkillBuildSwap.SkillBuild, long> Builds = new Dictionary<SkillBuildSwap.SkillBuild, long>();
             public static bool Is_SwapingBuild = false;                                           // default: false
             public static int SelectedSkillBuild = 0;                                      // default: 0 min: 0 max: 3

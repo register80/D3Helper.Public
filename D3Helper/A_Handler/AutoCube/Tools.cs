@@ -83,7 +83,7 @@ namespace D3Helper.A_Handler.AutoCube
                 {
                     var quality = item.GetAttributeValue(AttributeId.ItemQualityLevel);
 
-                    if (quality >= 6 || quality <= 8) //Rare
+                    if (quality >= 6 && quality <= 8) //Rare
                         Items.Add(item);
                 }
 

@@ -622,5 +622,20 @@ namespace D3Helper.Properties {
                 this["HotkeyAutoCube_UpgradeRare"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DisableAutocastOnNoOverride
+        {
+            get
+            {
+                return ((bool)(this["DisableAutocastOnNoOverride"]));
+            }
+            set
+            {
+                this["DisableAutocastOnNoOverride"] = value;
+            }
+        }
     }
 }

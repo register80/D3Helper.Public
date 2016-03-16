@@ -396,8 +396,7 @@ namespace D3Helper.A_Tools
                     };
 
                     if (HeroId != 0)
-                    {
-                        bool DisableSkillIfNoOverrideFound = true;
+                    {                        
                         if (A_Collection.Skills.SkillInfos._HotBar1Skill != null)
                         {
                             var tryGetEntry1 =
@@ -411,7 +410,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast1Override = DisableSkillIfNoOverrideFound;
+                                A_Collection.Me.AutoCastOverrides.AutoCast1Override = D3Helper.Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -428,7 +427,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast2Override = DisableSkillIfNoOverrideFound;
+                                A_Collection.Me.AutoCastOverrides.AutoCast2Override = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -445,7 +444,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast3Override = DisableSkillIfNoOverrideFound;
+                                A_Collection.Me.AutoCastOverrides.AutoCast3Override = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -462,7 +461,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast4Override = DisableSkillIfNoOverrideFound;
+                                A_Collection.Me.AutoCastOverrides.AutoCast4Override = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -479,7 +478,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCastRMBOverride = DisableSkillIfNoOverrideFound;
+                                A_Collection.Me.AutoCastOverrides.AutoCastRMBOverride = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -496,7 +495,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCastLMBOverride = DisableSkillIfNoOverrideFound;
+                                A_Collection.Me.AutoCastOverrides.AutoCastLMBOverride = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 

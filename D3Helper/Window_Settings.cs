@@ -168,6 +168,8 @@ namespace D3Helper
             this.CB_AutoPick_Rares.Checked = Properties.Settings.Default.AutoPickSettings_Rares;
             this.TB_AutoPick_PickupRadius.Text = Properties.Settings.Default.AutoPickSettings_PickupRadius.ToString();
 
+            this.cb_DisableAutocastOnNoOverride.Checked = Properties.Settings.Default.DisableAutocastOnNoOverride;
+
         }
 
         private void Tb_assignedAutoCube_UpgradeRare_KeyDown(object sender, KeyEventArgs e)
@@ -1734,8 +1736,13 @@ namespace D3Helper
                 this.tb_assignedAutoCube_UpgradeRare.Text = "";
                 Properties.Settings.Default.HotkeyAutoCube_UpgradeRare = "";
                 Properties.Settings.Default.Save();
-
             }
+        }
+
+        private void cb_DisableAutocastOnNoOverride_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.DisableAutocastOnNoOverride = this.cb_DisableAutocastOnNoOverride.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }

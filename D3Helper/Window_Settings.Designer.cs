@@ -56,6 +56,7 @@
             this.tb_assignedSkillRMB = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.page_General = new System.Windows.Forms.TabPage();
+            this.cb_DisableAutocastOnNoOverride = new System.Windows.Forms.CheckBox();
             this.CB_ExtendedLogging = new System.Windows.Forms.CheckBox();
             this.tb_updaterate = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -381,6 +382,7 @@
             this.page_General.BackColor = System.Drawing.SystemColors.Control;
             this.page_General.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
             this.page_General.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.page_General.Controls.Add(this.cb_DisableAutocastOnNoOverride);
             this.page_General.Controls.Add(this.CB_ExtendedLogging);
             this.page_General.Controls.Add(this.tb_updaterate);
             this.page_General.Controls.Add(this.label1);
@@ -390,6 +392,18 @@
             this.page_General.Size = new System.Drawing.Size(557, 650);
             this.page_General.TabIndex = 9;
             this.page_General.Text = "General";
+            // 
+            // cb_DisableAutocastOnNoOverride
+            // 
+            this.cb_DisableAutocastOnNoOverride.AutoSize = true;
+            this.cb_DisableAutocastOnNoOverride.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cb_DisableAutocastOnNoOverride.Location = new System.Drawing.Point(9, 40);
+            this.cb_DisableAutocastOnNoOverride.Name = "cb_DisableAutocastOnNoOverride";
+            this.cb_DisableAutocastOnNoOverride.Size = new System.Drawing.Size(321, 17);
+            this.cb_DisableAutocastOnNoOverride.TabIndex = 34;
+            this.cb_DisableAutocastOnNoOverride.Text = "Disable skill Autocast on new hero/skill (no data in override.txt)";
+            this.cb_DisableAutocastOnNoOverride.UseVisualStyleBackColor = true;
+            this.cb_DisableAutocastOnNoOverride.CheckedChanged += new System.EventHandler(this.cb_DisableAutocastOnNoOverride_CheckedChanged);
             // 
             // CB_ExtendedLogging
             // 
@@ -1533,5 +1547,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button bt_delete_hotkey_autocube_upgradeRare;
         private System.Windows.Forms.TextBox tb_assignedAutoCube_UpgradeRare;
+        private System.Windows.Forms.CheckBox cb_DisableAutocastOnNoOverride;
     }
 }

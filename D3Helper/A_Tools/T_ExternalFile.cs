@@ -396,7 +396,7 @@ namespace D3Helper.A_Tools
                     };
 
                     if (HeroId != 0)
-                    {
+                    {                        
                         if (A_Collection.Skills.SkillInfos._HotBar1Skill != null)
                         {
                             var tryGetEntry1 =
@@ -410,7 +410,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast1Override = false;
+                                A_Collection.Me.AutoCastOverrides.AutoCast1Override = D3Helper.Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -427,7 +427,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast2Override = false;
+                                A_Collection.Me.AutoCastOverrides.AutoCast2Override = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -444,7 +444,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast3Override = false;
+                                A_Collection.Me.AutoCastOverrides.AutoCast3Override = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -461,7 +461,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCast4Override = false;
+                                A_Collection.Me.AutoCastOverrides.AutoCast4Override = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -478,7 +478,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCastRMBOverride = false;
+                                A_Collection.Me.AutoCastOverrides.AutoCastRMBOverride = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 
@@ -495,7 +495,7 @@ namespace D3Helper.A_Tools
                             }
                             else
                             {
-                                A_Collection.Me.AutoCastOverrides.AutoCastLMBOverride = false;
+                                A_Collection.Me.AutoCastOverrides.AutoCastLMBOverride = Properties.Settings.Default.DisableAutocastOnNoOverride;
                             }
                         }
 

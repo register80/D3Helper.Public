@@ -170,7 +170,7 @@
 266627	5	6	1160	-1	-1	15	Crusader_Condemn	Unleashed
 273941	0	-1	-1	-1	-1	30	Crusader_Consecration	No Rune
 273941	1	-1	-1	-1	-1	30	Crusader_Consecration	Aegis Purgatory
-273941	2	-1	-1	-1	-1	30	Crusader_Consecration	Frozen Ground
+273941	2	-1	-1	-1	-1	30	Crusader_Consecration	Bed of Nails
 273941	3	-1	-1	-1	-1	30	Crusader_Consecration	Bathed in Light
 273941	4	1	155	10	-1	30	Crusader_Consecration	Shattered Ground
 273941	5	-1	-1	-1	-1	30	Crusader_Consecration	Fearful
@@ -271,7 +271,7 @@
 286510	4	6	175	-1	-1	-1	Crusader_Smite	Reaping
 286510	5	6	175	-1	-1	-1	Crusader_Smite	Surge
 243853	0	-1	-1	-1	-1	16	Crusader_SteedCharge	No Rune
-243853	1	0	515	-1	-1	16	Crusader_SteedCharge	Ramming Speed
+243853	1	0	515	-1	-1	16	Crusader_SteedCharge	Spiked Barding
 243853	2	-1	-1	-1	-1	16	Crusader_SteedCharge	Endurance
 243853	3	-1	-1	-1	-1	16	Crusader_SteedCharge	Rejuvenation
 243853	4	1	550	-1	-1	16	Crusader_SteedCharge	Nightmare

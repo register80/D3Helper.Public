@@ -63,7 +63,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                     A_Collection.Me.SkillBuilds.Builds.FirstOrDefault(
                         x => x.Value == A_Collection.Me.HeroGlobals.HeroID && x.Key.Id == BuildId);
 
-                bool SkillsRemoved = false;
+                // bool SkillsRemoved = false;
 
                 if (Build.Key != null)
                 {

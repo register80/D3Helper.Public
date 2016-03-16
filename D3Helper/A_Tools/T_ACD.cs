@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Enigma.D3;
+using Enigma.D3.Enums;
 using Enigma.D3.Helpers;
 
 using D3Helper.A_Collector;
 using D3Helper.A_Collection;
-using Enigma.D3.Enums;
-using Enigma.D3.Helpers;
+
 using DamageType = D3Helper.A_Enums.DamageType;
 
 namespace D3Helper.A_Tools

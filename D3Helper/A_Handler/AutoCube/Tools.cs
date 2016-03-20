@@ -62,8 +62,9 @@ namespace D3Helper.A_Handler.AutoCube
             {
                 string Text = "KANAI'S CUBE";
                 string vendor_mainpage = "Root.NormalLayer.vendor_dialog_mainPage.text_category";
+                string last_vendor_text = UXHelper.GetControl<UXLabel>(vendor_mainpage).xA20_Text_StructStart_Min84Bytes;
 
-                return UXHelper.GetControl<UXLabel>(vendor_mainpage).xA20_Text_StructStart_Min84Bytes == Text;
+                return last_vendor_text == Text;
             }
             catch (Exception)
             {
@@ -81,7 +82,9 @@ namespace D3Helper.A_Handler.AutoCube
 
                 foreach (var item in inventory)
                 {
+                    var name = item.x004_Name; // not needed but nice for debug
                     var quality = item.GetAttributeValue(AttributeId.ItemQualityLevel);
+                    
 
                     if (quality >= 6 && quality <= 8) //Rare
                         Items.Add(item);

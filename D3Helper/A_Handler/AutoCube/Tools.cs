@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using D3Helper.A_Collector;
 using Enigma.D3;
@@ -72,6 +73,76 @@ namespace D3Helper.A_Handler.AutoCube
             }
         }
 
+        public static List<ActorCommonData> Get_Items(string inputQuality)
+        {
+            int QualityRange1 = 0;
+            int QualityRange2 = 0;
+
+            List<ActorCommonData> Items = new List<ActorCommonData>();
+
+            switch (inputQuality)
+            {
+                case "normal":
+                    QualityRange1 = 0;
+                    QualityRange2 = 2;
+                    break;
+                case "magic":
+                    QualityRange1 = 3;
+                    QualityRange2 = 5;
+                    break;
+                case "rare":
+                    QualityRange1 = 6;
+                    QualityRange2 = 8;
+                    break;
+            }
+
+            try
+            {
+                var inventory = ActorCommonDataHelper.EnumerateInventoryItems();
+
+                foreach (var item in inventory)
+                {
+                    switch (item.x090_ActorSnoId)
+                    {
+                        case 361988:    //Crafting_Legendary_05
+                        case 361989:    //Crafting_Looted_Reagent_05
+                        case 361986:    //Crafting_Rare_05
+                        case 361985:    //Crafting_Magic_05
+                        case 361984:    //Crafting_AssortedParts_05
+                        case 137958:    //CraftingMaterials_Flippy_Global
+                        case 365020:    //CraftingReagent_Legendary_Set_Borns_X1
+                        case 364281:    //CraftingReagent_Legendary_Set_Cains_X1
+                        case 364290:    //CraftingReagent_Legendary_Set_Demon_X1
+                        case 364305:    //CraftingReagent_Legendary_Set_Hallowed_X1
+                        case 364975:    //CraftingReagent_Legendary_Set_CaptainCrimsons_X1
+                        case 364725:    //DemonOrgan_Diablo_x1
+                        case 364723:    //DemonOrgan_Ghom_x1
+                        case 364724:    //DemonOrgan_SiegeBreaker_x1
+                        case 364722:    //DemonOrgan_SkeletonKing_x1
+                        case 366949:    //InfernalMachine_Diablo_x1
+                        case 366947:    //InfernalMachine_Ghom_x1
+                        case 366948:    //InfernalMachine_SiegeBreaker_x1
+                        case 366946:    //InfernalMachine_SkeletonKing_x1
+                        case 359504:    //HoradricRelic                            
+                            break;
+                        default:
+                            var name = item.x004_Name; // not needed but nice for debug    
+                            var quality = item.GetAttributeValue(AttributeId.ItemQualityLevel);
+                            if (quality >= QualityRange1 && quality <= QualityRange2) // Magic
+                                Items.Add(item);
+                            break;
+                    }
+
+                }
+
+                return Items;
+            }
+            catch (Exception)
+            {
+                return Items;
+            }
+        }
+
         public static List<ActorCommonData> Get_RareUpgradableItems()
         {
             List<ActorCommonData> Items = new List<ActorCommonData>();
@@ -84,7 +155,7 @@ namespace D3Helper.A_Handler.AutoCube
                 {
                     var name = item.x004_Name; // not needed but nice for debug
                     var quality = item.GetAttributeValue(AttributeId.ItemQualityLevel);
-                    
+
 
                     if (quality >= 6 && quality <= 8) //Rare
                         Items.Add(item);
@@ -98,7 +169,7 @@ namespace D3Helper.A_Handler.AutoCube
             }
         }
 
-        private static int[] Costs_UpgradeRare = new int[] {25,50,50,50}; // Deaths Breath | Reusable Parts | Arcane Dust | Veiled Crystal
+        private static int[] Costs_UpgradeRare = new int[] { 25, 50, 50, 50 }; // Deaths Breath | Reusable Parts | Arcane Dust | Veiled Crystal
 
         public static double Get_AvailableEnchants_UpgradeRare(out List<ActorCommonData> Materials)
         {
@@ -121,16 +192,60 @@ namespace D3Helper.A_Handler.AutoCube
                 int Count_VC = GetMaterial_VeiledCrystal(inventory, out acd);
                 Materials.Add(acd);
 
-                double Enchants_DB = Count_DB/Costs_UpgradeRare[0];
-                double Enchants_RP = Count_RP/Costs_UpgradeRare[1];
-                double Enchants_AD = Count_AD/Costs_UpgradeRare[2];
-                double Enchants_VC = Count_VC/Costs_UpgradeRare[3];
+                double Enchants_DB = Count_DB / Costs_UpgradeRare[0];
+                double Enchants_RP = Count_RP / Costs_UpgradeRare[1];
+                double Enchants_AD = Count_AD / Costs_UpgradeRare[2];
+                double Enchants_VC = Count_VC / Costs_UpgradeRare[3];
 
-                double[] x = new[] {Enchants_DB, Enchants_RP, Enchants_AD, Enchants_VC};
+                double[] x = new[] { Enchants_DB, Enchants_RP, Enchants_AD, Enchants_VC };
 
                 double possibleEnchants = x.OrderBy(y => y).First();
 
                 return possibleEnchants;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        public static double Get_AvailableMaterial_Convert(string inputQuality, out List<ActorCommonData> Materials)
+        {
+            Materials = new List<ActorCommonData>();
+            try
+            {
+                int ConvertMaterialCost = 100;
+                int ConvertMaterialDBCost = 1;
+                int CountMaterial = 0;
+
+                var inventory = ActorCommonDataHelper.EnumerateInventoryItems().ToList();
+                ActorCommonData acd;
+
+                switch (inputQuality)
+                {
+                    case "normal":
+                        CountMaterial = GetMaterial_ReusableParts(inventory, out acd);
+                        Materials.Add(acd);
+                        break;
+                    case "magic":
+                        CountMaterial = GetMaterial_ArcaneDust(inventory, out acd);
+                        Materials.Add(acd);
+                        break;
+                    case "rare":
+                        CountMaterial = GetMaterial_VeiledCrystal(inventory, out acd);
+                        Materials.Add(acd);
+                        break;
+                }
+
+                int Count_DB = GetMaterial_DeathBreath(inventory, out acd);
+                Materials.Add(acd);
+
+                double Enchants_DB = Count_DB / ConvertMaterialDBCost;
+                double Enchants = CountMaterial / ConvertMaterialCost;
+                double[] x = new[] { Enchants_DB, Enchants };
+                double possibleEnchants = x.OrderBy(y => y).First();
+
+                return Enchants;
             }
             catch (Exception)
             {
@@ -224,6 +339,42 @@ namespace D3Helper.A_Handler.AutoCube
             {
                 return 0;
             }
+        }
+
+        public static bool ClickOnCube(ActorCommonData inputCubeStand)
+        {
+            bool FoundCube = false;
+            int LoopCounter = 0;
+
+            // Attempt to click on Cube, wait 2 sec (10x200ms)
+            while (!FoundCube && LoopCounter <= 10)
+            {
+                float RX_Cube, RY_Cube;
+
+                LoopCounter += 1;
+
+                // Try to find where the cube is?
+                A_Tools.T_World.ToScreenCoordinate(inputCubeStand.x0D0_WorldPosX, inputCubeStand.x0D4_WorldPosY, inputCubeStand.x0D8_WorldPosZ, out RX_Cube, out RY_Cube);
+
+                // If vendor page or kanai page is not already visible, click it
+                bool IsVendorPageVisible = Tools.IsVendorPage_Visible();
+                bool IsKanaiCubeMainPageVisible = Tools.IsKanaisCube_MainPage_Visible();
+
+                if (!IsVendorPageVisible)
+                {
+                    // Move mouse cursor to the cube location coord and click it
+                    A_Tools.InputSimulator.IS_Mouse.MoveCursor((uint)RX_Cube, (uint)RY_Cube);
+                    A_Tools.InputSimulator.IS_Mouse.LeftClick();
+
+                    Thread.Sleep(200);
+                }
+
+                if (IsVendorPageVisible && IsKanaiCubeMainPageVisible)
+                {
+                    FoundCube = true;
+                }
+            }
+            return FoundCube;
         }
     }
 }

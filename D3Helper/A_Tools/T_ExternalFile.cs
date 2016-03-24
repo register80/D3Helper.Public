@@ -129,7 +129,8 @@ namespace D3Helper.A_Tools
                 try
                 {
                     List<string> AllLines =
-                        Properties.Resources.power_stats.Split(new[] {System.Environment.NewLine},
+                        // Properties.Resources.power_stats.Split(new[] {System.Environment.NewLine}, // original code by r3peat
+                        Properties.Resources.power_stats.Split(new[] { "\n" }, // modified code by d3bug1
                             StringSplitOptions.RemoveEmptyEntries).ToList();
 
                     for (int i = 1; i < AllLines.Count(); i++)
@@ -184,7 +185,8 @@ namespace D3Helper.A_Tools
                 try
                 {
                     List<string> AllLines =
-                        Properties.Resources.Powers.Split(new[] {System.Environment.NewLine},
+                        // Properties.Resources.Powers.Split(new[] {System.Environment.NewLine}, // original code by r3peat
+                        Properties.Resources.Powers.Split(new[] { "\n" }, // modified code by d3bug1                       
                             StringSplitOptions.RemoveEmptyEntries).ToList();
 
                     for (int i = 1; i < AllLines.Count(); i++)

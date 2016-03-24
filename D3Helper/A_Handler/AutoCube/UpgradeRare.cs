@@ -17,42 +17,6 @@ namespace D3Helper.A_Handler.AutoCube
         private const string BTN_Transmute =
             "Root.NormalLayer.vendor_dialog_mainPage.transmute_dialog.LayoutRoot.transmute_button";
 
-        public static bool ClickOnCube(ActorCommonData inputCubeStand)
-        {
-            bool FoundCube = false;
-            int LoopCounter = 0;
-
-            // Attempt to click on Cube, wait 2 sec (10x200ms)
-            while (!FoundCube && LoopCounter<=10)
-            {
-                float RX_Cube, RY_Cube;
-
-                LoopCounter += 1;
-
-                // Try to find where the cube is?
-                A_Tools.T_World.ToScreenCoordinate(inputCubeStand.x0D0_WorldPosX, inputCubeStand.x0D4_WorldPosY, inputCubeStand.x0D8_WorldPosZ, out RX_Cube, out RY_Cube);
-
-                // If vendor page or kanai page is not already visible, click it
-                bool IsVendorPageVisible = Tools.IsVendorPage_Visible();
-                bool IsKanaiCubeMainPageVisible = Tools.IsKanaisCube_MainPage_Visible();
-
-                if (!IsVendorPageVisible)
-                {
-                    // Move mouse cursor to the cube location coord and click it
-                    A_Tools.InputSimulator.IS_Mouse.MoveCursor((uint)RX_Cube, (uint)RY_Cube);
-                    A_Tools.InputSimulator.IS_Mouse.LeftClick();
-
-                    Thread.Sleep(200);
-                }
-
-                if (IsVendorPageVisible && IsKanaiCubeMainPageVisible)
-                {
-                    FoundCube = true;                  
-                }
-            }
-            return FoundCube;
-        }
-
         public static void DoUpgrade()
         {
             try
@@ -65,12 +29,12 @@ namespace D3Helper.A_Handler.AutoCube
 
                 if (CubeNearby)
                 {
-                    if (ClickOnCube(CubeStand))
+                    if (Tools.ClickOnCube(CubeStand))
                     {
                         Stopwatch s1 = new Stopwatch(); /////////
                         s1.Start(); ///////////
 
-                        var UpgradableItems = Tools.Get_RareUpgradableItems();
+                        var UpgradableItems = Tools.Get_Items("rare");
                         List<ActorCommonData> Materials;
                         var Count_AvailableEnchants = Tools.Get_AvailableEnchants_UpgradeRare(out Materials);
 
@@ -81,7 +45,7 @@ namespace D3Helper.A_Handler.AutoCube
                             if (Count_Enchants == Count_AvailableEnchants)
                                 break;
 
-                            if (ClickOnCube(CubeStand))
+                            if (Tools.ClickOnCube(CubeStand))
                             {
                                 UIRect UIRect_item =
                                     A_Collection.D3UI.InventoryItemUIRectMesh.FirstOrDefault(

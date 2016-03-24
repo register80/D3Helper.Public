@@ -90,8 +90,10 @@ namespace D3Helper
             this.tb_assignedSkillBuild2.ReadOnly = true;
             this.tb_assignedSkillBuild3.ReadOnly = true;
             this.tb_assignedSkillBuild4.ReadOnly = true;
-            tb_assignedAutoPick.ReadOnly = true;
-            tb_assignedAutoCube_UpgradeRare.ReadOnly = true;
+            this.tb_assignedAutoPick.ReadOnly = true;
+            this.tb_assignedAutoCube_UpgradeRare.ReadOnly = true;
+            this.tb_assignedAutoCube_ConvertMaterial.ReadOnly = true;
+
 
             this.tb_assignedSkill1.KeyDown += tb_assignedSkill1_KeyDown;
             this.tb_assignedSkill2.KeyDown += tb_assignedSkill2_KeyDown;
@@ -113,8 +115,9 @@ namespace D3Helper
             this.tb_assignedSkillBuild2.KeyDown += Tb_assignedSkillBuild2_KeyDown;
             this.tb_assignedSkillBuild3.KeyDown += Tb_assignedSkillBuild3_KeyDown;
             this.tb_assignedSkillBuild4.KeyDown += Tb_assignedSkillBuild4_KeyDown;
-            tb_assignedAutoPick.KeyDown += Tb_assignedAutoPick_KeyDown;
-            tb_assignedAutoCube_UpgradeRare.KeyDown += Tb_assignedAutoCube_UpgradeRare_KeyDown;
+            this.tb_assignedAutoPick.KeyDown += Tb_assignedAutoPick_KeyDown;
+            this.tb_assignedAutoCube_UpgradeRare.KeyDown += Tb_assignedAutoCube_UpgradeRare_KeyDown;
+            this.tb_assignedAutoCube_ConvertMaterial.KeyDown += Tb_assignedAutoCube_ConvertMaterial_KeyDown;
 
             this.tb_assignedSkill1.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeySlot1).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeySlot1).Modifiers);
             this.tb_assignedSkill2.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeySlot2).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeySlot2).Modifiers);
@@ -138,6 +141,7 @@ namespace D3Helper
             this.tb_assignedSkillBuild4.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeySkillBuild4).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeySkillBuild4).Modifiers);
             this.tb_assignedAutoPick.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoPick).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoPick).Modifiers);
             this.tb_assignedAutoCube_UpgradeRare.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_UpgradeRare).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_UpgradeRare).Modifiers);
+            this.tb_assignedAutoCube_ConvertMaterial.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_ConvertMaterial).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_ConvertMaterial).Modifiers);
 
 
             this.cb_autopotion.Checked = Properties.Settings.Default.AutoPotionBool;
@@ -187,10 +191,28 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-
-
             this.tb_assignedAutoCube_UpgradeRare.Text = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.HotkeyAutoCube_UpgradeRare = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
+        }
+
+        private void Tb_assignedAutoCube_ConvertMaterial_KeyDown(object sender, KeyEventArgs e)
+        {
+            Keys Key = e.KeyCode;
+
+            SlimDX.DirectInput.Key key = A_Tools.InputSimulator.IS_Keyboard.convert_KeysToKey(Key);
+
+            List<SlimDX.DirectInput.Key> Modifiers = new List<Key>();
+
+            if (e.Alt)
+                Modifiers.Add(SlimDX.DirectInput.Key.LeftAlt);
+            if (e.Control)
+                Modifiers.Add(SlimDX.DirectInput.Key.LeftControl);
+            if (e.Shift)
+                Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
+
+            this.tb_assignedAutoCube_ConvertMaterial.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyAutoCube_ConvertMaterial = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.Save();
         }
 
@@ -777,8 +799,8 @@ namespace D3Helper
             Properties.Settings.Default.Save();
         }
 
-       
-                
+
+
         private void tb_assignedEditMode_TextChanged(object sender, EventArgs e)
         {
 
@@ -1083,7 +1105,7 @@ namespace D3Helper
             Populate_ParagonPoints_DefaultValues(TabControl_ParagonPoints.TabPages.OfType<TabPage>().Last());
         }
 
-        private static List<string> ComboboxContent = new List<string>() { "core0", "core1", "core2", "core3", "offense0", "offense1", "offense2", "offense3", "defense0", "defense1", "defense2", "defense3", "utility0", "utility1", "utility2", "utility3" };
+        private static List<string> ComboboxContent = new List<string>() { "core0", "core1", "core2", "core3", "offense0", "offense1", "offense2", "offense3", "defense0", "defense1", "defense2", "defense3", "utility0", "utility1", "utility2", "utility3" };        
 
         private void Populate_ParagonPoints_DefaultValues(TabPage _this)
         {
@@ -1731,10 +1753,20 @@ namespace D3Helper
 
         private void bt_delete_hotkey_autocube_upgradeRare_Click(object sender, EventArgs e)
         {
-            if (this.tb_assignedAutoCube_UpgradeRare.Text.Length > 1)
+            if (tb_assignedAutoCube_UpgradeRare.Text.Length > 1)
             {
-                this.tb_assignedAutoCube_UpgradeRare.Text = "";
+                tb_assignedAutoCube_UpgradeRare.Text = "";
                 Properties.Settings.Default.HotkeyAutoCube_UpgradeRare = "";
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void delete_hotkey_autocube_ConvertMaterial_Click(object sender, EventArgs e)
+        {
+            if (this.tb_assignedAutoCube_ConvertMaterial.Text.Length > 1)
+            {
+                this.tb_assignedAutoCube_ConvertMaterial.Text = "";
+                Properties.Settings.Default.HotkeyAutoCube_ConvertMaterial = "";
                 Properties.Settings.Default.Save();
             }
         }

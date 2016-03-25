@@ -56,6 +56,8 @@
             this.tb_assignedSkillRMB = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.page_General = new System.Windows.Forms.TabPage();
+            this.label28 = new System.Windows.Forms.Label();
+            this.cbox_ConvertMaterialFromTo = new System.Windows.Forms.ComboBox();
             this.cb_DisableAutocastOnNoOverride = new System.Windows.Forms.CheckBox();
             this.CB_ExtendedLogging = new System.Windows.Forms.CheckBox();
             this.tb_updaterate = new System.Windows.Forms.TextBox();
@@ -377,7 +379,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(565, 714);
+            this.tabControl1.Size = new System.Drawing.Size(565, 679);
             this.tabControl1.TabIndex = 33;
             // 
             // page_General
@@ -385,6 +387,8 @@
             this.page_General.BackColor = System.Drawing.SystemColors.Control;
             this.page_General.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
             this.page_General.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.page_General.Controls.Add(this.label28);
+            this.page_General.Controls.Add(this.cbox_ConvertMaterialFromTo);
             this.page_General.Controls.Add(this.cb_DisableAutocastOnNoOverride);
             this.page_General.Controls.Add(this.CB_ExtendedLogging);
             this.page_General.Controls.Add(this.tb_updaterate);
@@ -392,9 +396,35 @@
             this.page_General.Location = new System.Drawing.Point(4, 25);
             this.page_General.Name = "page_General";
             this.page_General.Padding = new System.Windows.Forms.Padding(3);
-            this.page_General.Size = new System.Drawing.Size(557, 685);
+            this.page_General.Size = new System.Drawing.Size(557, 650);
             this.page_General.TabIndex = 9;
             this.page_General.Text = "General";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 72);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(129, 13);
+            this.label28.TabIndex = 36;
+            this.label28.Text = "Autocube Convert is from ";
+            // 
+            // cbox_ConvertMaterialFromTo
+            // 
+            this.cbox_ConvertMaterialFromTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_ConvertMaterialFromTo.FormattingEnabled = true;
+            this.cbox_ConvertMaterialFromTo.Items.AddRange(new object[] {
+            "White (Reusable Parts) to Blue (Arcane Dust)",
+            "White (Reusable Parts) to Yellow (Veiled Crystal)",
+            "Blue (Arcane Dust) to White (Reusable Parts)",
+            "Blue (Arcane Dust) to Yellow (Veiled Crystal)",
+            "Yellow (Veiled Crystal) to White (Reusable Parts)",
+            "Yellow (Veiled Crystal) to Blue (Arcane Dust)"});
+            this.cbox_ConvertMaterialFromTo.Location = new System.Drawing.Point(135, 72);
+            this.cbox_ConvertMaterialFromTo.Name = "cbox_ConvertMaterialFromTo";
+            this.cbox_ConvertMaterialFromTo.Size = new System.Drawing.Size(283, 21);
+            this.cbox_ConvertMaterialFromTo.TabIndex = 35;
+            this.cbox_ConvertMaterialFromTo.SelectedIndexChanged += new System.EventHandler(this.cbox_ConvertMaterialFromTo_SelectedIndexChanged);
             // 
             // cb_DisableAutocastOnNoOverride
             // 
@@ -515,7 +545,7 @@
             this.page_Hotkeys.Location = new System.Drawing.Point(4, 25);
             this.page_Hotkeys.Name = "page_Hotkeys";
             this.page_Hotkeys.Padding = new System.Windows.Forms.Padding(3);
-            this.page_Hotkeys.Size = new System.Drawing.Size(557, 685);
+            this.page_Hotkeys.Size = new System.Drawing.Size(557, 650);
             this.page_Hotkeys.TabIndex = 0;
             this.page_Hotkeys.Text = "Hotkeys";
             // 
@@ -1034,7 +1064,7 @@
             this.page_Overlay.Location = new System.Drawing.Point(4, 25);
             this.page_Overlay.Name = "page_Overlay";
             this.page_Overlay.Padding = new System.Windows.Forms.Padding(3);
-            this.page_Overlay.Size = new System.Drawing.Size(557, 685);
+            this.page_Overlay.Size = new System.Drawing.Size(557, 650);
             this.page_Overlay.TabIndex = 1;
             this.page_Overlay.Text = "Overlay";
             // 
@@ -1151,7 +1181,7 @@
             this.page_Auto.Controls.Add(this.label7);
             this.page_Auto.Location = new System.Drawing.Point(4, 25);
             this.page_Auto.Name = "page_Auto";
-            this.page_Auto.Size = new System.Drawing.Size(557, 685);
+            this.page_Auto.Size = new System.Drawing.Size(557, 650);
             this.page_Auto.TabIndex = 2;
             this.page_Auto.Text = "Auto";
             // 
@@ -1175,7 +1205,7 @@
             this.page_SkillEditor.Location = new System.Drawing.Point(4, 25);
             this.page_SkillEditor.Name = "page_SkillEditor";
             this.page_SkillEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.page_SkillEditor.Size = new System.Drawing.Size(557, 685);
+            this.page_SkillEditor.Size = new System.Drawing.Size(557, 650);
             this.page_SkillEditor.TabIndex = 10;
             this.page_SkillEditor.Text = "SkillEditor";
             // 
@@ -1192,7 +1222,7 @@
             this.page_ParagonPoints.Location = new System.Drawing.Point(4, 25);
             this.page_ParagonPoints.Name = "page_ParagonPoints";
             this.page_ParagonPoints.Padding = new System.Windows.Forms.Padding(3);
-            this.page_ParagonPoints.Size = new System.Drawing.Size(557, 685);
+            this.page_ParagonPoints.Size = new System.Drawing.Size(557, 650);
             this.page_ParagonPoints.TabIndex = 11;
             this.page_ParagonPoints.Text = "ParagonPoints";
             this.page_ParagonPoints.UseVisualStyleBackColor = true;
@@ -1261,7 +1291,7 @@
             this.page_SkillBuilds.Controls.Add(this.Panel_SkillBuilds_View);
             this.page_SkillBuilds.Location = new System.Drawing.Point(4, 25);
             this.page_SkillBuilds.Name = "page_SkillBuilds";
-            this.page_SkillBuilds.Size = new System.Drawing.Size(557, 685);
+            this.page_SkillBuilds.Size = new System.Drawing.Size(557, 650);
             this.page_SkillBuilds.TabIndex = 12;
             this.page_SkillBuilds.Text = "SkillBuilds";
             this.page_SkillBuilds.UseVisualStyleBackColor = true;
@@ -1316,7 +1346,7 @@
             this.page_AutoPick.Controls.Add(this.CB_AutoPick_Gem);
             this.page_AutoPick.Location = new System.Drawing.Point(4, 25);
             this.page_AutoPick.Name = "page_AutoPick";
-            this.page_AutoPick.Size = new System.Drawing.Size(557, 685);
+            this.page_AutoPick.Size = new System.Drawing.Size(557, 650);
             this.page_AutoPick.TabIndex = 13;
             this.page_AutoPick.Text = "AutoPick";
             this.page_AutoPick.UseVisualStyleBackColor = true;
@@ -1440,7 +1470,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
-            this.ClientSize = new System.Drawing.Size(589, 738);
+            this.ClientSize = new System.Drawing.Size(589, 698);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1586,5 +1616,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button bt_delete_hotkey_autocube_ConvertMaterial;
         private System.Windows.Forms.TextBox tb_assignedAutoCube_ConvertMaterial;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox cbox_ConvertMaterialFromTo;
     }
 }

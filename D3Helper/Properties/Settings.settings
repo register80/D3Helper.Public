@@ -158,5 +158,14 @@
     <Setting Name="DisableAutocastOnNoOverride" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ConvertMaterialText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Yellow (Veiled Crystal) to White (Reusable Parts)</Value>
+    </Setting>
+    <Setting Name="ConvertMaterialFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rare</Value>
+    </Setting>
+    <Setting Name="ConvertMaterialTo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">normal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

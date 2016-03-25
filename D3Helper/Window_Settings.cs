@@ -29,47 +29,33 @@ namespace D3Helper
 
         public Window_Settings()
         {
-            
-
             InitializeComponent();
 
             this.FormClosed += FormClose;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
-           
-
         }
-        
+
         private void FormClose(Object sender, FormClosedEventArgs e)
         {
-           
             _this = null;
         }
-       
-       
-       
+
         private void Settings_Load(object sender, EventArgs e)
         {
             _this = this;
 
-            typeof(Panel).InvokeMember("DoubleBuffered",
-    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
-    null, Panel_SkillBuilds_View, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, Panel_SkillBuilds_View, new object[] { true });
 
             Load_Setups();
 
             TabControl_ParagonPoints.BackColor = Color.Transparent;
 
             tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
-            
 
             this.Top = Properties.Settings.Default.D3Helper_MainForm_StartPosition.Y;
             this.Left = Properties.Settings.Default.D3Helper_MainForm_StartPosition.X;
 
-            
             // -----------
-
-
-            
             this.tb_assignedSkill1.ReadOnly = true;
             this.tb_assignedSkill2.ReadOnly = true;
             this.tb_assignedSkill3.ReadOnly = true;
@@ -93,7 +79,6 @@ namespace D3Helper
             this.tb_assignedAutoPick.ReadOnly = true;
             this.tb_assignedAutoCube_UpgradeRare.ReadOnly = true;
             this.tb_assignedAutoCube_ConvertMaterial.ReadOnly = true;
-
 
             this.tb_assignedSkill1.KeyDown += tb_assignedSkill1_KeyDown;
             this.tb_assignedSkill2.KeyDown += tb_assignedSkill2_KeyDown;
@@ -143,10 +128,8 @@ namespace D3Helper
             this.tb_assignedAutoCube_UpgradeRare.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_UpgradeRare).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_UpgradeRare).Modifiers);
             this.tb_assignedAutoCube_ConvertMaterial.Text = get_HotkeyText(H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_ConvertMaterial).Key, H_Keyboard.get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_ConvertMaterial).Modifiers);
 
-
             this.cb_autopotion.Checked = Properties.Settings.Default.AutoPotionBool;
             this.tb_autopotionhpvalue.Text = Properties.Settings.Default.AutoPotionValue.ToString();
-            
 
             this.cb_fps.Checked = Properties.Settings.Default.overlayfps;
             this.cb_xptracker.Checked = Properties.Settings.Default.overlayxptracker;
@@ -173,7 +156,7 @@ namespace D3Helper
             this.TB_AutoPick_PickupRadius.Text = Properties.Settings.Default.AutoPickSettings_PickupRadius.ToString();
 
             this.cb_DisableAutocastOnNoOverride.Checked = Properties.Settings.Default.DisableAutocastOnNoOverride;
-
+            this.cbox_ConvertMaterialFromTo.Text = Properties.Settings.Default.ConvertMaterialText;
         }
 
         private void Tb_assignedAutoCube_UpgradeRare_KeyDown(object sender, KeyEventArgs e)
@@ -231,8 +214,6 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-
-
             this.tb_assignedAutoPick.Text = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.HotkeyAutoPick = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.Save();
@@ -252,8 +233,6 @@ namespace D3Helper
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftControl);
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
-
-
 
             this.tb_assignedSkillBuild4.Text = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.HotkeySkillBuild4 = get_HotkeyText(key, Modifiers);
@@ -275,8 +254,6 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-
-
             this.tb_assignedSkillBuild3.Text = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.HotkeySkillBuild3 = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.Save();
@@ -296,8 +273,6 @@ namespace D3Helper
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftControl);
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
-
-
 
             this.tb_assignedSkillBuild2.Text = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.HotkeySkillBuild2 = get_HotkeyText(key, Modifiers);
@@ -319,8 +294,6 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-
-
             this.tb_assignedSkillBuild1.Text = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.HotkeySkillBuild1 = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.Save();
@@ -341,8 +314,6 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-
-
             this.tb_assignedAutoGambleHotkey.Text = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.HotkeyAutoGamble = get_HotkeyText(key, Modifiers);
             Properties.Settings.Default.Save();
@@ -350,7 +321,6 @@ namespace D3Helper
 
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
             if (tabControl1.SelectedIndex == 4)
             {
                 tabControl1.SelectedIndex = 0;
@@ -359,15 +329,11 @@ namespace D3Helper
                     Window_SkillEditor SE = new Window_SkillEditor();
                     SE.Show();
                 }
-                
             }
             if (tabControl1.SelectedIndex == 6)
             {
                 SkillBuild_UpdateView();
-
-
             }
-
         }
 
         void tb_assignedSkillLMB_KeyDown(object sender, KeyEventArgs e)
@@ -385,12 +351,10 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
+            this.tb_assignedSkillLMB.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeySlotLmb = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
 
-                this.tb_assignedSkillLMB.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeySlotLmb = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
         }
 
         void tb_assignedParagonPoints4_KeyDown(object sender, KeyEventArgs e)
@@ -408,12 +372,10 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
+            this.tb_assignedParagonPoints4.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyParagonPoints4 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
 
-                this.tb_assignedParagonPoints4.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyParagonPoints4 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
         }
 
         void tb_assignedParagonPoints3_KeyDown(object sender, KeyEventArgs e)
@@ -431,12 +393,10 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-           
+            this.tb_assignedParagonPoints3.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyParagonPoints3 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
 
-                this.tb_assignedParagonPoints3.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyParagonPoints3 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
         }
 
         void tb_assignedParagonPoints2_KeyDown(object sender, KeyEventArgs e)
@@ -454,12 +414,10 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
+            this.tb_assignedParagonPoints2.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyParagonPoints2 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
 
-                this.tb_assignedParagonPoints2.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyParagonPoints2 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
         }
 
         void tb_assignedParagonPoints1_KeyDown(object sender, KeyEventArgs e)
@@ -477,42 +435,37 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
+            this.tb_assignedParagonPoints1.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyParagonPoints1 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
 
-                this.tb_assignedParagonPoints1.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyParagonPoints1 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
         }
-        
+
         void tb_assignedEditMode_KeyDown(object sender, KeyEventArgs e)
         {
             Keys Key = e.KeyCode;
-            
+
             SlimDX.DirectInput.Key key = A_Tools.InputSimulator.IS_Keyboard.convert_KeysToKey(Key);
 
             List<SlimDX.DirectInput.Key> Modifiers = new List<Key>();
 
-            if(e.Alt)
+            if (e.Alt)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftAlt);
-            if(e.Control)
+            if (e.Control)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftControl);
-            if(e.Shift)
+            if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
-            
-            
 
-                this.tb_assignedEditMode.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyEditMode = get_HotkeyText(key,Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedEditMode.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyEditMode = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
-        
+
         private string get_HotkeyText(Key key, List<Key> modifiers)
         {
             string text = "";
-            
+
             foreach (var modifier in modifiers)
             {
                 if (modifier == Key.LeftControl)
@@ -522,7 +475,6 @@ namespace D3Helper
                 if (modifier == Key.LeftShift)
                     text += "SHIFT+";
             }
-
             text += key.ToString();
 
             return text;
@@ -542,12 +494,9 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
-
-                this.tb_assignedSkillRMB.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeySlotRmb = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedSkillRMB.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeySlotRmb = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
         void tb_assignedGearSwap4_KeyDown(object sender, KeyEventArgs e)
@@ -565,12 +514,9 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
-
-                this.tb_assignedGearSwap4.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyGearSwap4 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedGearSwap4.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyGearSwap4 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
         void tb_assignedGearSwap3_KeyDown(object sender, KeyEventArgs e)
@@ -588,12 +534,9 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
-
-                this.tb_assignedGearSwap3.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyGearSwap3 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedGearSwap3.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyGearSwap3 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
         void tb_assignedGearSwap2_KeyDown(object sender, KeyEventArgs e)
@@ -611,12 +554,9 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
-
-                this.tb_assignedGearSwap2.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyGearSwap2 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedGearSwap2.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyGearSwap2 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
         void tb_assignedGearSwap1_KeyDown(object sender, KeyEventArgs e)
@@ -634,12 +574,9 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
-
-                this.tb_assignedGearSwap1.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeyGearSwap1 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedGearSwap1.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeyGearSwap1 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
         void tb_assignedSkill4_KeyDown(object sender, KeyEventArgs e)
@@ -657,10 +594,10 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-             this.tb_assignedSkill4.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeySlot4 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            }
+            this.tb_assignedSkill4.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeySlot4 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
+        }
 
         void tb_assignedSkill3_KeyDown(object sender, KeyEventArgs e)
         {
@@ -677,11 +614,9 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-           
-                this.tb_assignedSkill3.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeySlot3 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedSkill3.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeySlot3 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
         void tb_assignedSkill2_KeyDown(object sender, KeyEventArgs e)
@@ -699,11 +634,9 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
-                this.tb_assignedSkill2.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeySlot2 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
+            this.tb_assignedSkill2.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeySlot2 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
         }
 
         void tb_assignedSkill1_KeyDown(object sender, KeyEventArgs e)
@@ -721,19 +654,11 @@ namespace D3Helper
             if (e.Shift)
                 Modifiers.Add(SlimDX.DirectInput.Key.LeftShift);
 
-            
+            this.tb_assignedSkill1.Text = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.HotkeySlot1 = get_HotkeyText(key, Modifiers);
+            Properties.Settings.Default.Save();
 
-                this.tb_assignedSkill1.Text = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.HotkeySlot1 = get_HotkeyText(key, Modifiers);
-                Properties.Settings.Default.Save();
-            
         }
-                               
-        
-
-        
-
-        
 
         private void cb_autopotion_CheckedChanged(object sender, EventArgs e)
         {
@@ -744,9 +669,9 @@ namespace D3Helper
         private void tb_autopotionhpvalue_TextChanged(object sender, EventArgs e)
         {
             int value;
-            if(int.TryParse(this.tb_autopotionhpvalue.Text, out value))
+            if (int.TryParse(this.tb_autopotionhpvalue.Text, out value))
             {
-                if(value > 0 && value <= 100)
+                if (value > 0 && value <= 100)
                 {
                     Properties.Settings.Default.AutoPotionValue = value;
                     Properties.Settings.Default.Save();
@@ -758,16 +683,12 @@ namespace D3Helper
         {
 
         }
-
         
-
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
-
         
-
         private void tb_assignedSkillRMB_TextChanged(object sender, EventArgs e)
         {
 
@@ -798,9 +719,7 @@ namespace D3Helper
             Properties.Settings.Default.overlayskillbuttons = this.cb_skillbuttons.Checked;
             Properties.Settings.Default.Save();
         }
-
-
-
+        
         private void tb_assignedEditMode_TextChanged(object sender, EventArgs e)
         {
 
@@ -808,15 +727,13 @@ namespace D3Helper
 
         private void bt_delete_hotkey_skillslot1_Click(object sender, EventArgs e)
         {
-            
-            if(this.tb_assignedSkill1.Text.Length > 1)
+
+            if (this.tb_assignedSkill1.Text.Length > 1)
             {
                 this.tb_assignedSkill1.Text = "";
                 Properties.Settings.Default.HotkeySlot1 = "";
                 Properties.Settings.Default.Save();
-
             }
-             
         }
 
         private void bt_delete_hotkey_skillslot2_Click(object sender, EventArgs e)
@@ -826,7 +743,6 @@ namespace D3Helper
                 this.tb_assignedSkill2.Text = "";
                 Properties.Settings.Default.HotkeySlot2 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -837,7 +753,6 @@ namespace D3Helper
                 this.tb_assignedSkill3.Text = "";
                 Properties.Settings.Default.HotkeySlot3 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -848,7 +763,6 @@ namespace D3Helper
                 this.tb_assignedSkill4.Text = "";
                 Properties.Settings.Default.HotkeySlot4 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -859,11 +773,8 @@ namespace D3Helper
                 this.tb_assignedSkillRMB.Text = "";
                 Properties.Settings.Default.HotkeySlotRmb = "";
                 Properties.Settings.Default.Save();
-
             }
         }
-
-        
 
         private void bt_delete_hotkey_gearswap_editmode_Click(object sender, EventArgs e)
         {
@@ -872,7 +783,6 @@ namespace D3Helper
                 this.tb_assignedEditMode.Text = "";
                 Properties.Settings.Default.HotkeyEditMode = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -883,7 +793,6 @@ namespace D3Helper
                 this.tb_assignedGearSwap1.Text = "";
                 Properties.Settings.Default.HotkeyGearSwap1 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -894,7 +803,6 @@ namespace D3Helper
                 this.tb_assignedGearSwap2.Text = "";
                 Properties.Settings.Default.HotkeyGearSwap2 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -905,7 +813,6 @@ namespace D3Helper
                 this.tb_assignedGearSwap3.Text = "";
                 Properties.Settings.Default.HotkeyGearSwap3 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -916,13 +823,8 @@ namespace D3Helper
                 this.tb_assignedGearSwap4.Text = "";
                 Properties.Settings.Default.HotkeyGearSwap4 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
-               
-
-        
-        
 
         private void tb_assignedSkill1_TextChanged(object sender, EventArgs e)
         {
@@ -934,8 +836,6 @@ namespace D3Helper
             Properties.Settings.Default.AutoGambleBool = this.cb_autogamble.Checked;
             Properties.Settings.Default.Save();
         }
-
-         
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
@@ -996,7 +896,7 @@ namespace D3Helper
             }
         }
 
-        
+
 
         private void bt_delete_hotkey_skillslotlmb_Click(object sender, EventArgs e)
         {
@@ -1008,10 +908,7 @@ namespace D3Helper
 
             }
         }
-                
-                
-        
-                
+
         private void tb_updaterate_TextChanged(object sender, EventArgs e)
         {
             int value;
@@ -1066,7 +963,7 @@ namespace D3Helper
 
         private void CB_ExtendedLogging_CheckedChanged(object sender, EventArgs e)
         {
-            
+
             Properties.Settings.Default.Logger_extendedLog = this.CB_ExtendedLogging.Checked;
             Properties.Settings.Default.Save();
         }
@@ -1105,7 +1002,7 @@ namespace D3Helper
             Populate_ParagonPoints_DefaultValues(TabControl_ParagonPoints.TabPages.OfType<TabPage>().Last());
         }
 
-        private static List<string> ComboboxContent = new List<string>() { "core0", "core1", "core2", "core3", "offense0", "offense1", "offense2", "offense3", "defense0", "defense1", "defense2", "defense3", "utility0", "utility1", "utility2", "utility3" };        
+        private static List<string> ComboboxContent = new List<string>() { "core0", "core1", "core2", "core3", "offense0", "offense1", "offense2", "offense3", "defense0", "defense1", "defense2", "defense3", "utility0", "utility1", "utility2", "utility3" };
 
         private void Populate_ParagonPoints_DefaultValues(TabPage _this)
         {
@@ -1115,13 +1012,11 @@ namespace D3Helper
             DG.Width = _this.Width;
             DG.Height = _this.Height;
             DG.CellEndEdit += DG_CellEndEdit; ;
-            
-
 
             DataGridViewComboBoxColumn comboBox = new DataGridViewComboBoxColumn();
             comboBox.Name = "Property";
             comboBox.DataSource = ComboboxContent;
-            
+
             DataGridViewTextBoxColumn value = new DataGridViewTextBoxColumn();
             value.Name = "Value";
 
@@ -1187,7 +1082,7 @@ namespace D3Helper
                 case "utility2":
                 case "utility3":
                     return 50;
-                    
+
                 default:
                     return 0;
             }
@@ -1214,7 +1109,6 @@ namespace D3Helper
                         DG.Width = _this.Width;
                         DG.Height = _this.Height;
                         DG.CellEndEdit += DG_CellEndEdit;
-                        
 
                         DataGridViewComboBoxColumn comboBox = new DataGridViewComboBoxColumn();
                         comboBox.Name = "Property";
@@ -1265,7 +1159,7 @@ namespace D3Helper
                         if (row.Cells["Property"].Value != null)
                         {
                             BonusPoints Type =
-                                (BonusPoints) Enum.Parse(typeof (BonusPoints), row.Cells["Property"].Value as string);
+                                (BonusPoints)Enum.Parse(typeof(BonusPoints), row.Cells["Property"].Value as string);
 
                             int Value = int.Parse(row.Cells["Value"].Value as string);
 
@@ -1276,7 +1170,7 @@ namespace D3Helper
                     Buffer.Add(new ParagonPointSetup(tabpage.TabIndex, tabpage.Name, BonusPoints));
                 }
 
-                if(!A_Collection.Me.ParagonPointSpender.Setups.ContainsKey(A_Collection.Me.HeroGlobals.HeroID))
+                if (!A_Collection.Me.ParagonPointSpender.Setups.ContainsKey(A_Collection.Me.HeroGlobals.HeroID))
                     A_Collection.Me.ParagonPointSpender.Setups.Add(A_Collection.Me.HeroGlobals.HeroID, Buffer);
                 else
                 {
@@ -1301,7 +1195,7 @@ namespace D3Helper
 
         private void BTN_ParagonPointsDeleteTab_Click(object sender, EventArgs e)
         {
-            if(TabControl_ParagonPoints.SelectedIndex >= 0 && TabControl_ParagonPoints.SelectedIndex < TabControl_ParagonPoints.TabCount)
+            if (TabControl_ParagonPoints.SelectedIndex >= 0 && TabControl_ParagonPoints.SelectedIndex < TabControl_ParagonPoints.TabCount)
                 this.TabControl_ParagonPoints.TabPages.RemoveAt(TabControl_ParagonPoints.SelectedIndex);
         }
 
@@ -1401,13 +1295,13 @@ namespace D3Helper
                         {
                             ExistingBuild.PassiveSkills.Add(new SkillBuildSwap.PassiveSkill(passive));
                         }
-                        
+
                     }
                 }
             }
             catch (Exception)
             {
-                
+
             }
         }
 
@@ -1415,7 +1309,7 @@ namespace D3Helper
         {
             var Builds = A_Collection.Me.SkillBuilds.Builds.Where(x => x.Value == A_Collection.Me.HeroGlobals.HeroID);
 
-            
+
 
             foreach (var build in Builds)
             {
@@ -1448,7 +1342,7 @@ namespace D3Helper
 
             return false;
         }
-        
+
         private void SkillBuild_UpdateView()
         {
             try
@@ -1495,7 +1389,7 @@ namespace D3Helper
                         SkillIcon.FlatStyle = FlatStyle.Flat;
                         SkillIcon.BackgroundImage = icon;
                         SkillIcon.FlatAppearance.BorderSize = 0;
-                        SkillIcon.Top = Panel_SkillBuilds_View.Top + SkillIcon.Height*i;
+                        SkillIcon.Top = Panel_SkillBuilds_View.Top + SkillIcon.Height * i;
 
                         ToolTip t = new ToolTip();
                         t.SetToolTip(SkillIcon, "Rune: " + power.Runes.FirstOrDefault(x => x.RuneIndex == active.Rune).Name);
@@ -1536,7 +1430,7 @@ namespace D3Helper
                                 .Value;
 
                         //-- Add Passive Skill Image
-                        
+
                         Image icon =
                             Properties.Resources.ResourceManager.GetObject(powerName) as Image;
 
@@ -1549,7 +1443,7 @@ namespace D3Helper
                         SkillIcon.FlatStyle = FlatStyle.Flat;
                         SkillIcon.BackgroundImage = icon;
                         SkillIcon.FlatAppearance.BorderSize = 0;
-                        SkillIcon.Top = Panel_SkillBuilds_View.Top + SkillIcon.Height*i;
+                        SkillIcon.Top = Panel_SkillBuilds_View.Top + SkillIcon.Height * i;
 
                         if (
                             Panel_SkillBuilds_View.Controls.OfType<Button>()
@@ -1567,7 +1461,7 @@ namespace D3Helper
 
                     // Add Build Name Label
 
-                Label name = new Label();
+                    Label name = new Label();
                     name.BackColor = Color.Transparent;
                     name.AutoSize = true;
                     name.Text = Build.Key.Name;
@@ -1636,7 +1530,6 @@ namespace D3Helper
                 this.tb_assignedSkillBuild1.Text = "";
                 Properties.Settings.Default.HotkeySkillBuild1 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -1647,7 +1540,6 @@ namespace D3Helper
                 this.tb_assignedSkillBuild2.Text = "";
                 Properties.Settings.Default.HotkeySkillBuild2 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -1658,7 +1550,6 @@ namespace D3Helper
                 this.tb_assignedSkillBuild3.Text = "";
                 Properties.Settings.Default.HotkeySkillBuild3 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -1669,7 +1560,6 @@ namespace D3Helper
                 this.tb_assignedSkillBuild4.Text = "";
                 Properties.Settings.Default.HotkeySkillBuild4 = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -1686,7 +1576,6 @@ namespace D3Helper
                 this.tb_assignedAutoPick.Text = "";
                 Properties.Settings.Default.HotkeyAutoPick = "";
                 Properties.Settings.Default.Save();
-
             }
         }
 
@@ -1775,6 +1664,41 @@ namespace D3Helper
         {
             Properties.Settings.Default.DisableAutocastOnNoOverride = this.cb_DisableAutocastOnNoOverride.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void cbox_ConvertMaterialFromTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Change variables accordingly
+            switch (cbox_ConvertMaterialFromTo.Text)
+            {
+                case "White (Reusable Parts) to Blue (Arcane Dust)":
+                    Properties.Settings.Default.ConvertMaterialFrom = "normal";
+                    Properties.Settings.Default.ConvertMaterialTo = "magic";
+                    break;
+                case "White (Reusable Parts) to Yellow (Veiled Crystal)":
+                    Properties.Settings.Default.ConvertMaterialFrom = "normal";
+                    Properties.Settings.Default.ConvertMaterialTo = "rare";
+                    break;
+                case "Blue (Arcane Dust) to White (Reusable Parts)":
+                    Properties.Settings.Default.ConvertMaterialFrom = "magic";
+                    Properties.Settings.Default.ConvertMaterialTo = "normal";
+                    break;
+                case "Blue (Arcane Dust) to Yellow (Veiled Crystal)":
+                    Properties.Settings.Default.ConvertMaterialFrom = "magic";
+                    Properties.Settings.Default.ConvertMaterialTo = "rare";
+                    break;
+                case "Yellow (Veiled Crystal) to White (Reusable Parts)":
+                    Properties.Settings.Default.ConvertMaterialFrom = "rare";
+                    Properties.Settings.Default.ConvertMaterialTo = "normal";
+                    break;
+                case "Yellow (Veiled Crystal) to Blue (Arcane Dust)":
+                    Properties.Settings.Default.ConvertMaterialFrom = "rare";
+                    Properties.Settings.Default.ConvertMaterialTo = "magic";
+                    break;
+            }
+
+            // Save the settings
+            Properties.Settings.Default.ConvertMaterialText = cbox_ConvertMaterialFromTo.Text;
         }
     }
 }

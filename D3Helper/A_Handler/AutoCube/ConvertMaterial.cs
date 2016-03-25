@@ -57,7 +57,7 @@ namespace D3Helper.A_Handler.AutoCube
                                     A_Tools.InputSimulator.IS_Mouse.RightCLick((int)UIRect_item.Left, (int)UIRect_item.Top, (int)UIRect_item.Right, (int)UIRect_item.Bottom);
                                     Thread.Sleep(200);
 
-                                    // RP/AD/VC materials, find the positions and rightclick on materials
+                                    // Find the positions and rightclick on materials (RP/AD/VC)
                                     foreach (var material in Materials)
                                     {
                                         UIRect UIRect_material =

@@ -323,7 +323,7 @@ namespace D3Helper.A_Collector
                                     if (!A_Handler.AutoCube.ConvertMaterial.IsConvertingMaterial)
                                     {
                                         // normal, magic, rare
-                                        A_Handler.AutoCube.ConvertMaterial.DoConvert("rare", "normal");
+                                        A_Handler.AutoCube.ConvertMaterial.DoConvert(Properties.Settings.Default.ConvertMaterialFrom, Properties.Settings.Default.ConvertMaterialTo);
                                     }
                                     break;
 

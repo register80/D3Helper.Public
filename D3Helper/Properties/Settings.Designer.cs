@@ -646,5 +646,41 @@ namespace D3Helper.Properties {
                 this["DisableAutocastOnNoOverride"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Yellow (Veiled Crystal) to White (Reusable Parts)")]
+        public string ConvertMaterialText {
+            get {
+                return ((string)(this["ConvertMaterialText"]));
+            }
+            set {
+                this["ConvertMaterialText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("rare")]
+        public string ConvertMaterialFrom {
+            get {
+                return ((string)(this["ConvertMaterialFrom"]));
+            }
+            set {
+                this["ConvertMaterialFrom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("normal")]
+        public string ConvertMaterialTo {
+            get {
+                return ((string)(this["ConvertMaterialTo"]));
+            }
+            set {
+                this["ConvertMaterialTo"] = value;
+            }
+        }
     }
 }

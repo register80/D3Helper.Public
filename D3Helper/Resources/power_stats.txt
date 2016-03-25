@@ -431,7 +431,7 @@
 136954	2	-1	-1	-1	-1	15	Monk_BlindingFlash	Replenishing Light
 136954	3	-1	-1	-1	-1	15	Monk_BlindingFlash	Mystifying Light
 136954	4	-1	-1	-1	-1	15	Monk_BlindingFlash	Self Reflection
-136954	5	-1	-1	-1	-1	15	Monk_BlindingFlash	Soothing Light
+136954	5	-1	-1	-1	-1	15	Monk_BlindingFlash	Crippling Light
 69130	0	-1	-1	-1	-1	15	Monk_BreathOfHeaven	No Rune
 69130	1	6	505	-1	-1	15	Monk_BreathOfHeaven	Circle of Scorn
 69130	2	-1	-1	-1	-1	15	Monk_BreathOfHeaven	Circle of Life

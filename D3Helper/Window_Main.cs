@@ -66,24 +66,19 @@ namespace D3Helper
                         WO.ShowDialog();
                     }
                     //-- Access Validation
-                    if (!A_Tools.Authentification.Validation.IsValidated()) // !!!!! REENABLE THIS!!!!!!
-                        ;
-                    //
-
-
-
+                    if (!A_Tools.Authentification.Validation.IsValidated())
+                    {
+                        // !!!!! REENABLE THIS!!!!!!
+                    }
+                    
                     System.Timers.Timer UpdateUI = new System.Timers.Timer(250);
                     UpdateUI.Elapsed += RefreshUI;
                     UpdateUI.Start();
-
 
                     d3helperform = this;
 
                     Load_CustomFonts();
                 }
-                
-
-                
             }
             catch (Exception e)
             {
@@ -94,7 +89,6 @@ namespace D3Helper
             }
         }
 
-        
         private bool SupportedProcessVersion()
         {
             if (GetFileVersion() != SupportedVersion)

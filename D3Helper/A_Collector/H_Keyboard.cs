@@ -55,6 +55,7 @@ namespace D3Helper.A_Collector
                 Hotkey skillbuild4 = get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeySkillBuild4);
                 Hotkey autopick = get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoPick);
                 Hotkey autocube_upgraderare = get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_UpgradeRare);
+                Hotkey autocube_convertmaterial = get_HotkeyFromSettingsString(Properties.Settings.Default.HotkeyAutoCube_ConvertMaterial);
 
                 Dictionary<Hotkey, string> hotkeys = new Dictionary<Hotkey, string>();
 
@@ -81,6 +82,7 @@ namespace D3Helper.A_Collector
                 hotkeys.Add(skillbuild4, "skillbuild4");
                 hotkeys.Add(autopick, "autopick");
                 hotkeys.Add(autocube_upgraderare, "autocube_upgraderare");
+                hotkeys.Add(autocube_convertmaterial, "autocube_convertmaterial");
 
                 A_Collection.Hotkeys.D3Helper_Hotkeys = hotkeys;
             }
@@ -314,6 +316,14 @@ namespace D3Helper.A_Collector
                                     if (!A_Handler.AutoCube.UpgradeRare.IsUpgrading_Rare)
                                     {
                                         A_Handler.AutoCube.UpgradeRare.DoUpgrade();
+                                    }
+                                    break;
+
+                                case "autocube_convertmaterial":
+                                    if (!A_Handler.AutoCube.ConvertMaterial.IsConvertingMaterial)
+                                    {
+                                        // normal, magic, rare
+                                        A_Handler.AutoCube.ConvertMaterial.DoConvert(Properties.Settings.Default.ConvertMaterialFrom, Properties.Settings.Default.ConvertMaterialTo);
                                     }
                                     break;
 

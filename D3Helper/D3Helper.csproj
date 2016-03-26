@@ -129,6 +129,7 @@
     <Compile Include="A_Enums\TCPInstructions.cs" />
     <Compile Include="A_Enums\UIElements.cs" />
     <Compile Include="A_Handler\AutoCube\Tools.cs" />
+    <Compile Include="A_Handler\AutoCube\ConvertMaterial.cs" />
     <Compile Include="A_Handler\AutoCube\UpgradeRare.cs" />
     <Compile Include="A_Handler\AutoGamble\AutoGamble.cs" />
     <Compile Include="A_Handler\AutoPick\AutoPick.cs" />

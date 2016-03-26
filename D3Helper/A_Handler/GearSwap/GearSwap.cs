@@ -490,22 +490,18 @@ namespace D3Helper.A_Handler.GearSwap
             }
             else
             {
-                
-                while (true)
+                // Force wait and spam the inventory hotkey, until the inventory is opened
+                bool inventory_visible = false;
+                while (!inventory_visible)
                 {
                     A_Tools.InputSimulator.IS_Keyboard.Inventory();
 
                     Thread.Sleep(100);
 
-                    bool visible = A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.Inventory);
-
-                    if (visible)
-                        return true;
-
-                    
-                    
+                    inventory_visible = A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.Inventory);
                 }
-                
+                if (inventory_visible)
+                    return true;
             }
             return false;
         }

@@ -56,10 +56,16 @@
             this.tb_assignedSkillRMB = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.page_General = new System.Windows.Forms.TabPage();
+            this.label28 = new System.Windows.Forms.Label();
+            this.cbox_ConvertMaterialFromTo = new System.Windows.Forms.ComboBox();
+            this.cb_DisableAutocastOnNoOverride = new System.Windows.Forms.CheckBox();
             this.CB_ExtendedLogging = new System.Windows.Forms.CheckBox();
             this.tb_updaterate = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.page_Hotkeys = new System.Windows.Forms.TabPage();
+            this.bt_delete_hotkey_autocube_ConvertMaterial = new System.Windows.Forms.Button();
+            this.tb_assignedAutoCube_ConvertMaterial = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.bt_delete_hotkey_autocube_upgradeRare = new System.Windows.Forms.Button();
             this.tb_assignedAutoCube_UpgradeRare = new System.Windows.Forms.TextBox();
@@ -381,6 +387,9 @@
             this.page_General.BackColor = System.Drawing.SystemColors.Control;
             this.page_General.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
             this.page_General.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.page_General.Controls.Add(this.label28);
+            this.page_General.Controls.Add(this.cbox_ConvertMaterialFromTo);
+            this.page_General.Controls.Add(this.cb_DisableAutocastOnNoOverride);
             this.page_General.Controls.Add(this.CB_ExtendedLogging);
             this.page_General.Controls.Add(this.tb_updaterate);
             this.page_General.Controls.Add(this.label1);
@@ -390,6 +399,44 @@
             this.page_General.Size = new System.Drawing.Size(557, 650);
             this.page_General.TabIndex = 9;
             this.page_General.Text = "General";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 72);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(129, 13);
+            this.label28.TabIndex = 36;
+            this.label28.Text = "Autocube Convert is from ";
+            // 
+            // cbox_ConvertMaterialFromTo
+            // 
+            this.cbox_ConvertMaterialFromTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_ConvertMaterialFromTo.FormattingEnabled = true;
+            this.cbox_ConvertMaterialFromTo.Items.AddRange(new object[] {
+            "White (Reusable Parts) to Blue (Arcane Dust)",
+            "White (Reusable Parts) to Yellow (Veiled Crystal)",
+            "Blue (Arcane Dust) to White (Reusable Parts)",
+            "Blue (Arcane Dust) to Yellow (Veiled Crystal)",
+            "Yellow (Veiled Crystal) to White (Reusable Parts)",
+            "Yellow (Veiled Crystal) to Blue (Arcane Dust)"});
+            this.cbox_ConvertMaterialFromTo.Location = new System.Drawing.Point(135, 72);
+            this.cbox_ConvertMaterialFromTo.Name = "cbox_ConvertMaterialFromTo";
+            this.cbox_ConvertMaterialFromTo.Size = new System.Drawing.Size(283, 21);
+            this.cbox_ConvertMaterialFromTo.TabIndex = 35;
+            this.cbox_ConvertMaterialFromTo.SelectedIndexChanged += new System.EventHandler(this.cbox_ConvertMaterialFromTo_SelectedIndexChanged);
+            // 
+            // cb_DisableAutocastOnNoOverride
+            // 
+            this.cb_DisableAutocastOnNoOverride.AutoSize = true;
+            this.cb_DisableAutocastOnNoOverride.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cb_DisableAutocastOnNoOverride.Location = new System.Drawing.Point(9, 40);
+            this.cb_DisableAutocastOnNoOverride.Name = "cb_DisableAutocastOnNoOverride";
+            this.cb_DisableAutocastOnNoOverride.Size = new System.Drawing.Size(321, 17);
+            this.cb_DisableAutocastOnNoOverride.TabIndex = 34;
+            this.cb_DisableAutocastOnNoOverride.Text = "Disable skill Autocast on new hero/skill (no data in override.txt)";
+            this.cb_DisableAutocastOnNoOverride.UseVisualStyleBackColor = true;
+            this.cb_DisableAutocastOnNoOverride.CheckedChanged += new System.EventHandler(this.cb_DisableAutocastOnNoOverride_CheckedChanged);
             // 
             // CB_ExtendedLogging
             // 
@@ -426,6 +473,9 @@
             this.page_Hotkeys.BackColor = System.Drawing.SystemColors.Control;
             this.page_Hotkeys.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
             this.page_Hotkeys.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.page_Hotkeys.Controls.Add(this.bt_delete_hotkey_autocube_ConvertMaterial);
+            this.page_Hotkeys.Controls.Add(this.tb_assignedAutoCube_ConvertMaterial);
+            this.page_Hotkeys.Controls.Add(this.label27);
             this.page_Hotkeys.Controls.Add(this.label26);
             this.page_Hotkeys.Controls.Add(this.bt_delete_hotkey_autocube_upgradeRare);
             this.page_Hotkeys.Controls.Add(this.tb_assignedAutoCube_UpgradeRare);
@@ -498,6 +548,35 @@
             this.page_Hotkeys.Size = new System.Drawing.Size(557, 650);
             this.page_Hotkeys.TabIndex = 0;
             this.page_Hotkeys.Text = "Hotkeys";
+            // 
+            // bt_delete_hotkey_autocube_ConvertMaterial
+            // 
+            this.bt_delete_hotkey_autocube_ConvertMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_delete_hotkey_autocube_ConvertMaterial.ForeColor = System.Drawing.Color.Red;
+            this.bt_delete_hotkey_autocube_ConvertMaterial.Location = new System.Drawing.Point(497, 621);
+            this.bt_delete_hotkey_autocube_ConvertMaterial.Name = "bt_delete_hotkey_autocube_ConvertMaterial";
+            this.bt_delete_hotkey_autocube_ConvertMaterial.Size = new System.Drawing.Size(25, 20);
+            this.bt_delete_hotkey_autocube_ConvertMaterial.TabIndex = 83;
+            this.bt_delete_hotkey_autocube_ConvertMaterial.Text = "X";
+            this.bt_delete_hotkey_autocube_ConvertMaterial.UseVisualStyleBackColor = true;
+            this.bt_delete_hotkey_autocube_ConvertMaterial.Click += new System.EventHandler(this.delete_hotkey_autocube_ConvertMaterial_Click);
+            // 
+            // tb_assignedAutoCube_ConvertMaterial
+            // 
+            this.tb_assignedAutoCube_ConvertMaterial.Location = new System.Drawing.Point(241, 621);
+            this.tb_assignedAutoCube_ConvertMaterial.Name = "tb_assignedAutoCube_ConvertMaterial";
+            this.tb_assignedAutoCube_ConvertMaterial.Size = new System.Drawing.Size(250, 20);
+            this.tb_assignedAutoCube_ConvertMaterial.TabIndex = 82;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Location = new System.Drawing.Point(10, 621);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(131, 13);
+            this.label27.TabIndex = 81;
+            this.label27.Text = "AutoCube ConvertMaterial";
             // 
             // label26
             // 
@@ -1391,7 +1470,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
-            this.ClientSize = new System.Drawing.Size(589, 703);
+            this.ClientSize = new System.Drawing.Size(589, 698);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1533,5 +1612,11 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button bt_delete_hotkey_autocube_upgradeRare;
         private System.Windows.Forms.TextBox tb_assignedAutoCube_UpgradeRare;
+        private System.Windows.Forms.CheckBox cb_DisableAutocastOnNoOverride;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button bt_delete_hotkey_autocube_ConvertMaterial;
+        private System.Windows.Forms.TextBox tb_assignedAutoCube_ConvertMaterial;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox cbox_ConvertMaterialFromTo;
     }
 }

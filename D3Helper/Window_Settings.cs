@@ -679,26 +679,6 @@ namespace D3Helper
             }
         }
 
-        private void tb_assignedGearSwap2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void tb_assignedSkillRMB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_assignedSkill4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cb_fps_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.overlayfps = this.cb_fps.Checked;
@@ -835,21 +815,6 @@ namespace D3Helper
         {
             Properties.Settings.Default.AutoGambleBool = this.cb_autogamble.Checked;
             Properties.Settings.Default.Save();
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_assignedGearSwap4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_assignedGearSwap1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void bt_delete_hotkey_paragonpoints1_Click(object sender, EventArgs e)
@@ -1066,7 +1031,6 @@ namespace D3Helper
                 case "core0":
                 case "core1":
                     return -1;
-
                 case "core2":
                 case "core3":
                 case "offense0":
@@ -1480,7 +1444,6 @@ namespace D3Helper
                                 .Right;
 
                     Panel_SkillBuilds_View.Controls.Add(name);
-
                 }
             }
             catch { }

@@ -56,8 +56,6 @@
             this.tb_assignedSkillRMB = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.page_General = new System.Windows.Forms.TabPage();
-            this.label28 = new System.Windows.Forms.Label();
-            this.cbox_ConvertMaterialFromTo = new System.Windows.Forms.ComboBox();
             this.cb_DisableAutocastOnNoOverride = new System.Windows.Forms.CheckBox();
             this.CB_ExtendedLogging = new System.Windows.Forms.CheckBox();
             this.tb_updaterate = new System.Windows.Forms.TextBox();
@@ -148,6 +146,9 @@
             this.CB_AutoPick_Legendary = new System.Windows.Forms.CheckBox();
             this.CB_AutoPick_Material = new System.Windows.Forms.CheckBox();
             this.CB_AutoPick_Gem = new System.Windows.Forms.CheckBox();
+            this.page_Experimental = new System.Windows.Forms.TabPage();
+            this.label28 = new System.Windows.Forms.Label();
+            this.cbox_ConvertMaterialFromTo = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.page_General.SuspendLayout();
             this.page_Hotkeys.SuspendLayout();
@@ -156,6 +157,7 @@
             this.page_ParagonPoints.SuspendLayout();
             this.page_SkillBuilds.SuspendLayout();
             this.page_AutoPick.SuspendLayout();
+            this.page_Experimental.SuspendLayout();
             this.SuspendLayout();
             // 
             // tb_assignedSkill4
@@ -164,7 +166,6 @@
             this.tb_assignedSkill4.Name = "tb_assignedSkill4";
             this.tb_assignedSkill4.Size = new System.Drawing.Size(250, 20);
             this.tb_assignedSkill4.TabIndex = 6;
-            this.tb_assignedSkill4.TextChanged += new System.EventHandler(this.tb_assignedSkill4_TextChanged);
             // 
             // label3
             // 
@@ -262,7 +263,6 @@
             this.tb_assignedGearSwap1.Name = "tb_assignedGearSwap1";
             this.tb_assignedGearSwap1.Size = new System.Drawing.Size(250, 20);
             this.tb_assignedGearSwap1.TabIndex = 18;
-            this.tb_assignedGearSwap1.TextChanged += new System.EventHandler(this.tb_assignedGearSwap1_TextChanged);
             // 
             // cb_autopotion
             // 
@@ -282,7 +282,6 @@
             this.tb_autopotionhpvalue.Name = "tb_autopotionhpvalue";
             this.tb_autopotionhpvalue.Size = new System.Drawing.Size(40, 20);
             this.tb_autopotionhpvalue.TabIndex = 20;
-            this.tb_autopotionhpvalue.TextChanged += new System.EventHandler(this.tb_autopotionhpvalue_TextChanged);
             // 
             // label7
             // 
@@ -300,7 +299,6 @@
             this.tb_assignedGearSwap2.Name = "tb_assignedGearSwap2";
             this.tb_assignedGearSwap2.Size = new System.Drawing.Size(250, 20);
             this.tb_assignedGearSwap2.TabIndex = 22;
-            this.tb_assignedGearSwap2.TextChanged += new System.EventHandler(this.tb_assignedGearSwap2_TextChanged);
             // 
             // tb_assignedGearSwap3
             // 
@@ -315,7 +313,6 @@
             this.tb_assignedGearSwap4.Name = "tb_assignedGearSwap4";
             this.tb_assignedGearSwap4.Size = new System.Drawing.Size(250, 20);
             this.tb_assignedGearSwap4.TabIndex = 24;
-            this.tb_assignedGearSwap4.TextChanged += new System.EventHandler(this.tb_assignedGearSwap4_TextChanged);
             // 
             // label10
             // 
@@ -363,7 +360,6 @@
             this.tb_assignedSkillRMB.Name = "tb_assignedSkillRMB";
             this.tb_assignedSkillRMB.Size = new System.Drawing.Size(250, 20);
             this.tb_assignedSkillRMB.TabIndex = 32;
-            this.tb_assignedSkillRMB.TextChanged += new System.EventHandler(this.tb_assignedSkillRMB_TextChanged);
             // 
             // tabControl1
             // 
@@ -376,6 +372,7 @@
             this.tabControl1.Controls.Add(this.page_ParagonPoints);
             this.tabControl1.Controls.Add(this.page_SkillBuilds);
             this.tabControl1.Controls.Add(this.page_AutoPick);
+            this.tabControl1.Controls.Add(this.page_Experimental);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -387,8 +384,6 @@
             this.page_General.BackColor = System.Drawing.SystemColors.Control;
             this.page_General.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
             this.page_General.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.page_General.Controls.Add(this.label28);
-            this.page_General.Controls.Add(this.cbox_ConvertMaterialFromTo);
             this.page_General.Controls.Add(this.cb_DisableAutocastOnNoOverride);
             this.page_General.Controls.Add(this.CB_ExtendedLogging);
             this.page_General.Controls.Add(this.tb_updaterate);
@@ -399,32 +394,6 @@
             this.page_General.Size = new System.Drawing.Size(557, 650);
             this.page_General.TabIndex = 9;
             this.page_General.Text = "General";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(6, 72);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(129, 13);
-            this.label28.TabIndex = 36;
-            this.label28.Text = "Autocube Convert is from ";
-            // 
-            // cbox_ConvertMaterialFromTo
-            // 
-            this.cbox_ConvertMaterialFromTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbox_ConvertMaterialFromTo.FormattingEnabled = true;
-            this.cbox_ConvertMaterialFromTo.Items.AddRange(new object[] {
-            "White (Reusable Parts) to Blue (Arcane Dust)",
-            "White (Reusable Parts) to Yellow (Veiled Crystal)",
-            "Blue (Arcane Dust) to White (Reusable Parts)",
-            "Blue (Arcane Dust) to Yellow (Veiled Crystal)",
-            "Yellow (Veiled Crystal) to White (Reusable Parts)",
-            "Yellow (Veiled Crystal) to Blue (Arcane Dust)"});
-            this.cbox_ConvertMaterialFromTo.Location = new System.Drawing.Point(135, 72);
-            this.cbox_ConvertMaterialFromTo.Name = "cbox_ConvertMaterialFromTo";
-            this.cbox_ConvertMaterialFromTo.Size = new System.Drawing.Size(283, 21);
-            this.cbox_ConvertMaterialFromTo.TabIndex = 35;
-            this.cbox_ConvertMaterialFromTo.SelectedIndexChanged += new System.EventHandler(this.cbox_ConvertMaterialFromTo_SelectedIndexChanged);
             // 
             // cb_DisableAutocastOnNoOverride
             // 
@@ -1465,12 +1434,47 @@
             this.CB_AutoPick_Gem.UseVisualStyleBackColor = false;
             this.CB_AutoPick_Gem.CheckedChanged += new System.EventHandler(this.CB_AutoPick_Gem_CheckedChanged);
             // 
+            // page_Experimental
+            // 
+            this.page_Experimental.Controls.Add(this.label28);
+            this.page_Experimental.Controls.Add(this.cbox_ConvertMaterialFromTo);
+            this.page_Experimental.Location = new System.Drawing.Point(4, 25);
+            this.page_Experimental.Name = "page_Experimental";
+            this.page_Experimental.Size = new System.Drawing.Size(557, 650);
+            this.page_Experimental.TabIndex = 14;
+            this.page_Experimental.Text = "Experimental";
+            this.page_Experimental.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(14, 11);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(139, 13);
+            this.label28.TabIndex = 38;
+            this.label28.Text = "Autocube ConvertMaterial : ";
+            // 
+            // cbox_ConvertMaterialFromTo
+            // 
+            this.cbox_ConvertMaterialFromTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_ConvertMaterialFromTo.FormattingEnabled = true;
+            this.cbox_ConvertMaterialFromTo.Items.AddRange(new object[] {
+            "White (Reusable Parts) to Blue (Arcane Dust)",
+            "White (Reusable Parts) to Yellow (Veiled Crystal)",
+            "Blue (Arcane Dust) to White (Reusable Parts)",
+            "Blue (Arcane Dust) to Yellow (Veiled Crystal)",
+            "Yellow (Veiled Crystal) to White (Reusable Parts)",
+            "Yellow (Veiled Crystal) to Blue (Arcane Dust)"});
+            this.cbox_ConvertMaterialFromTo.Location = new System.Drawing.Point(159, 11);
+            this.cbox_ConvertMaterialFromTo.Name = "cbox_ConvertMaterialFromTo";
+            this.cbox_ConvertMaterialFromTo.Size = new System.Drawing.Size(257, 21);
+            this.cbox_ConvertMaterialFromTo.TabIndex = 37;
+            // 
             // Window_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::D3Helper.Properties.Resources.Background_Monk_50_Settings;
-            this.ClientSize = new System.Drawing.Size(589, 698);
+            this.ClientSize = new System.Drawing.Size(586, 698);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1495,6 +1499,8 @@
             this.page_SkillBuilds.PerformLayout();
             this.page_AutoPick.ResumeLayout(false);
             this.page_AutoPick.PerformLayout();
+            this.page_Experimental.ResumeLayout(false);
+            this.page_Experimental.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1616,7 +1622,8 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button bt_delete_hotkey_autocube_ConvertMaterial;
         private System.Windows.Forms.TextBox tb_assignedAutoCube_ConvertMaterial;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TabPage page_Experimental;
         private System.Windows.Forms.ComboBox cbox_ConvertMaterialFromTo;
+        private System.Windows.Forms.Label label28;
     }
 }

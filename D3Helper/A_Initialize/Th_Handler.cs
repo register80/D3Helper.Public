@@ -12,7 +12,7 @@ namespace D3Helper.A_Initialize
 {
     class Th_Handler
     {
-        
+
 
         private static int _tick;
         public static List<double> ProcessingTimes = new List<double>();
@@ -28,7 +28,7 @@ namespace D3Helper.A_Initialize
         private static void Execute()
         {
 
-            if(Program.SingleThreaded)
+            if (Program.SingleThreaded)
                 while (Engine.Create() == null) { System.Threading.Thread.Sleep(50); }
 
             while (Engine.Current == null) { System.Threading.Thread.Sleep(1); }
@@ -38,12 +38,11 @@ namespace D3Helper.A_Initialize
             {
                 try
                 {
-                    
                     var tick = Engine.Current.ApplicationLoopCount;
                     if (tick != _tick)
                     {
                         _tick = tick;
-                        
+
                         //--
                         Stopwatch s_handler = new Stopwatch();
                         s_handler.Start();
@@ -75,12 +74,13 @@ namespace D3Helper.A_Initialize
 
                         A_Handler.StatHandler.StatHandler.handleStats();
                         A_Collector.H_ExternalFiles.Collect();
-                        
+
 
                         if (A_Handler.Log.Exception.ExceptionLog.Count > 0)
                         {
                             A_Handler.Log.Exception.log_Exceptions();
                         }
+
                         if (A_Handler.Log.Exception.HandlerLog.Count > 0 && Properties.Settings.Default.Logger_extendedLog)
                         {
                             A_Handler.Log.Exception.log_Handler();
@@ -105,11 +105,7 @@ namespace D3Helper.A_Initialize
                         double TimeLeftToNextTick = ((1000 / Properties.Settings.Default.D3Helper_UpdateRate) - t_handler.TotalMilliseconds);
                         if (TimeLeftToNextTick > 0)
                             System.Threading.Thread.Sleep((int)TimeLeftToNextTick);
-
-                        
                     }
-                    
-                    
                 }
                 catch (Exception e)
                 {

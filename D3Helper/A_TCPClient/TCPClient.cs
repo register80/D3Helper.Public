@@ -149,14 +149,9 @@ namespace D3Helper.A_TCPClient
 
                             case _ObjectType.None:
                                 return null;
-                                
                         }
-
-                       
-
                     }
                 }
-
                 return null;
             }
             catch { return null; }
@@ -169,11 +164,7 @@ namespace D3Helper.A_TCPClient
             {
                 BinaryFormatter bs = new BinaryFormatter();
                 List = bs.Deserialize(ms) as List<string>;
-
-
-
             }
-
             return List;
         }
 

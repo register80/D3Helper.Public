@@ -102,6 +102,7 @@ namespace D3Helper.A_Handler.AutoCube
 
                 foreach (var item in inventory)
                 {
+                    // Ignore these materials (these have "normal" quality)
                     switch (item.x090_ActorSnoId)
                     {
                         case 361988: //Crafting_Legendary_05
@@ -142,9 +143,7 @@ namespace D3Helper.A_Handler.AutoCube
                                 Items.Add(item);
                             break;
                     }
-
                 }
-
                 return Items;
             }
             catch (Exception)

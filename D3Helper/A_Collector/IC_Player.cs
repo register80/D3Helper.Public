@@ -267,7 +267,9 @@ namespace D3Helper.A_Collector
 
                 if (A_Collection.Me.Account.BTag == null)
                 {
-                    A_Collection.Me.Account.BTag = Engine.Current.Memory.Reader.ReadChain<RefString>(0x01E247D8, 0x10, 0x9C + 4, 0x30).x04_PtrText; // ScreenManager Address + chain
+                    A_Collection.Me.Account.BTag = "noBTag"; 
+                    // disabled BTag check cause Ptr chain in ScreenMgr is obviously changed and i dont have time to figure it out
+                    //Engine.Current.Memory.Reader.ReadChain<RefString>(0x01E247D8, 0x10, 0x9C + 4, 0x30).x04_PtrText; // ScreenManager Address + chain
                 }
             }
             catch (Exception e)

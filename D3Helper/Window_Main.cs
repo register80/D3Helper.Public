@@ -37,7 +37,7 @@ namespace D3Helper
         public static DateTime Start = DateTime.Now;
         public static PrivateFontCollection _FontCollection = new PrivateFontCollection();
 
-        public static readonly Version SupportedVersion = new Version(2, 4, 0, 36090);
+        public static readonly Version SupportedVersion = new Version(2, 4, 1, 36595);
         
         public Window_Main()
         {

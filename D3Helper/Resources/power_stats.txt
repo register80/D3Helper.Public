@@ -859,4 +859,3 @@
 243141	3	1	725	2	20	12	Wizard_Wormhole	Blazar
 243141	4	5	700	2	20	12	Wizard_Wormhole	Spellsteal
 243141	5	3	700	2	20	12	Wizard_Wormhole	Absolute Zero
-

@@ -76,7 +76,7 @@ namespace D3Helper.A_Tools.Authentification
         {
             try
             {
-                string name = Engine.Current.Memory.Reader.ReadChain<RefString>(0x01BBB55C, 0x10, 0x9C, 0x18).x04_PtrText;
+                string name = Engine.Current.Memory.Reader.ReadChain<RefString>(0x01E289E0, 0x10, 0x9C, 0x18).x04_PtrText; // ScreenManager Ptr + Ptr Chain
                 return name;
             }
             catch { return ""; }

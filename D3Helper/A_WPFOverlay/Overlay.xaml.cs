@@ -865,7 +865,7 @@ namespace D3Helper.A_WPFOverlay
                 {
                     UIRect SkillButton = A_Tools.T_D3UI.UIElement.getRect(AllSkillButtons[i].ToString());
 
-                    if(AllSkillButtons[i].x166C_PowerSnoId == -1)
+                    if(AllSkillButtons[i].GetPowerSnoId() == -1)
                         continue;
 
                     Rectangle Outline = new Rectangle();
@@ -967,7 +967,7 @@ namespace D3Helper.A_WPFOverlay
                 {
                     UIRect SkillButton = A_Tools.T_D3UI.UIElement.getRect(AllSkillButtons[i].ToString());
 
-                    if (AllSkillButtons[i].x166C_PowerSnoId == -1)
+                    if (AllSkillButtons[i].GetPowerSnoId() == -1)
                         continue;
 
                     Rectangle Outline = new Rectangle();
@@ -1088,7 +1088,7 @@ namespace D3Helper.A_WPFOverlay
                         continue;
 
                     int PowerSNO = equippedSkill.Key;
-                    UXIcon ButtonControl = AllSkillButtons.FirstOrDefault(x => x.x166C_PowerSnoId == PowerSNO);
+                    UXIcon ButtonControl = AllSkillButtons.FirstOrDefault(x => x.GetPowerSnoId() == PowerSNO);
                     if (ButtonControl != null)
                     {
                         string HotbarSlot = ButtonControl.ToString();

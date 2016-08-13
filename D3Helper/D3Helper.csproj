@@ -161,6 +161,7 @@
     <Compile Include="A_Enums\ItemTypes.cs" />
     <Compile Include="A_Enums\PylonName.cs" />
     <Compile Include="A_Web\Web.cs" />
+    <Compile Include="EnigmaAdapter.cs" />
     <Compile Include="Window_ActivePowerView.cs">
       <SubType>Form</SubType>
     </Compile>

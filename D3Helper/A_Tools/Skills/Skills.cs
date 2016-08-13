@@ -57,7 +57,7 @@ namespace D3Helper.A_Tools.Skills
                 {
                     lock(A_Collection.Skills.UI_Controls.SkillControls)
                     {
-                        var isDisabled = A_Collection.Skills.UI_Controls.SkillControls.FirstOrDefault(x => x.x166C_PowerSnoId == PowerSnoId).x1460_IsDisabled;
+                        var isDisabled = A_Collection.Skills.UI_Controls.SkillControls.FirstOrDefault(x => x.GetPowerSnoId() == PowerSnoId).x1460_IsDisabled;
 
                         if (isDisabled == 1)
                         {

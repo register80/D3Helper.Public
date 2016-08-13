@@ -79,20 +79,20 @@ namespace D3Helper.A_Tools.InputSimulator
             switch (Hotkey)
             {
                 case A_Enums.ActionBarSlot.Slot1:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1.Value);
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill1 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill1));
                     else if (A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill1 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill1));
 
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1.Value);
 
                     if (ForceMoveCancel)
                         execute_ForceMove();
@@ -101,20 +101,20 @@ namespace D3Helper.A_Tools.InputSimulator
                     return;
 
                 case A_Enums.ActionBarSlot.Slot2:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2.Value);
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill2 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill2));
                     else if (A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill2 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill2));
 
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2.Value);
 
                     if (ForceMoveCancel)
                         execute_ForceMove();
@@ -123,20 +123,20 @@ namespace D3Helper.A_Tools.InputSimulator
                     return;
 
                 case A_Enums.ActionBarSlot.Slot3:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3.Value);
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill3 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill3));
                     else if (A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill3 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill3));
 
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3.Value);
 
                     if (ForceMoveCancel)
                         execute_ForceMove();
@@ -145,20 +145,20 @@ namespace D3Helper.A_Tools.InputSimulator
                     return;
 
                 case A_Enums.ActionBarSlot.Slot4:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4 != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4 != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4.Value);
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill4 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill4));
                     else if (A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill4 != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_ActionBarSkill4));
 
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4 != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4 != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4.Value);
 
                     if (ForceMoveCancel)
                         execute_ForceMove();
@@ -167,20 +167,20 @@ namespace D3Helper.A_Tools.InputSimulator
                     return;
 
                 case A_Enums.ActionBarSlot.Potion:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_Potion != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_Potion);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_Potion != ModKey.Undefined)
-                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_Potion);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_Potion != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_Potion.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_Potion != null)
+                        PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_Potion.Value);
 
                     if (A_Collection.Preferences.Hotkeys.Key1_Potion != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_Potion));
                     else if (A_Collection.Preferences.Hotkeys.Key2_Potion != Key.Undefined)
                         PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_Potion));
 
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_Potion != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_Potion);
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_Potion != ModKey.Undefined)
-                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_Potion);
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_Potion != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_Potion.Value);
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_Potion != null)
+                        ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_Potion.Value);
 
                     _lastKey = DateTime.Now;
                     return;
@@ -352,10 +352,10 @@ namespace D3Helper.A_Tools.InputSimulator
                     break;
 
                     case ActionBarSlot.Potion:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_Potion != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_Potion));
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_Potion != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_Potion));
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_Potion != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_Potion.Value));
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_Potion != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_Potion.Value));
 
                     if (A_Collection.Preferences.Hotkeys.Key1_Potion != Key.Undefined)
                         Buffer.Add(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_Potion));
@@ -364,10 +364,10 @@ namespace D3Helper.A_Tools.InputSimulator
                     break;
 
                 case ActionBarSlot.Slot1:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1));
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1));
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill1.Value));
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill1.Value));
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill1 != Key.Undefined)
                         Buffer.Add(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill1));
@@ -376,10 +376,10 @@ namespace D3Helper.A_Tools.InputSimulator
                     break;
 
                 case ActionBarSlot.Slot2:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2));
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2));
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill2.Value));
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill2.Value));
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill2 != Key.Undefined)
                         Buffer.Add(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill2));
@@ -388,10 +388,10 @@ namespace D3Helper.A_Tools.InputSimulator
                     break;
 
                 case ActionBarSlot.Slot3:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3));
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3));
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill3.Value));
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill3.Value));
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill3 != Key.Undefined)
                         Buffer.Add(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill3));
@@ -400,10 +400,10 @@ namespace D3Helper.A_Tools.InputSimulator
                     break;
 
                 case ActionBarSlot.Slot4:
-                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4));
-                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4 != ModKey.Undefined)
-                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4));
+                    if (A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey1_ActionBarSkill4.Value));
+                    else if (A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4 != null)
+                        Buffer.AddRange(getVirtualKeyCodes_byModkey(A_Collection.Preferences.Hotkeys.ModKey2_ActionBarSkill4.Value));
 
                     if (A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill4 != Key.Undefined)
                         Buffer.Add(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ActionBarSkill4));
@@ -415,49 +415,16 @@ namespace D3Helper.A_Tools.InputSimulator
             return Buffer;
         }
 
-        private static List<VirtualKeyCode> getVirtualKeyCodes_byModkey(ModKey modkey)
+        private static List<VirtualKeyCode> getVirtualKeyCodes_byModkey(ModifierKeys modkey)
         {
             List<VirtualKeyCode> Buffer = new List<VirtualKeyCode>();
 
-            switch (modkey)
-            {
-                    case ModKey.Alt:
-                    Buffer.Add(VirtualKeyCode.LMENU);
-                    break;
-
-                    case ModKey.Alt_Shift:
-                    Buffer.Add(VirtualKeyCode.LMENU);
-                    Buffer.Add(VirtualKeyCode.LSHIFT);
-                    break;
-
-                    case ModKey.Ctrl:
-                    Buffer.Add(VirtualKeyCode.LCONTROL);
-                    break;
-
-                    case ModKey.Ctrl_Alt:
-                    Buffer.Add(VirtualKeyCode.LCONTROL);
-                    Buffer.Add(VirtualKeyCode.LMENU);
-                    break;
-
-                    case ModKey.Ctrl_Alt_Shift:
-                    Buffer.Add(VirtualKeyCode.LCONTROL);
-                    Buffer.Add(VirtualKeyCode.LMENU);
-                    Buffer.Add(VirtualKeyCode.LSHIFT);
-                    break;
-
-                    case ModKey.Ctrl_Shift:
-                    Buffer.Add(VirtualKeyCode.LCONTROL);
-                    Buffer.Add(VirtualKeyCode.LSHIFT);
-                    break;
-
-                    case ModKey.Shift:
-                    Buffer.Add(VirtualKeyCode.LSHIFT);
-                    break;
-
-                default:
-                    break;
-
-            }
+			if (modkey.HasFlag(ModifierKeys.Alt))
+				Buffer.Add(VirtualKeyCode.LMENU);
+			if (modkey.HasFlag(ModifierKeys.Shift))
+				Buffer.Add(VirtualKeyCode.LSHIFT);
+			if (modkey.HasFlag(ModifierKeys.Ctrl))
+				Buffer.Add(VirtualKeyCode.LCONTROL);
 
             return Buffer;
         } 
@@ -468,20 +435,20 @@ namespace D3Helper.A_Tools.InputSimulator
             lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for open up ParagonWindow"));
             //
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon.Value);
 
             if (A_Collection.Preferences.Hotkeys.Key1_OpenParagon != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_OpenParagon));
             else if (A_Collection.Preferences.Hotkeys.Key2_OpenParagon != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_OpenParagon));
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon.Value);
         }
         public static void Close_AllWindows()
         {
@@ -490,20 +457,20 @@ namespace D3Helper.A_Tools.InputSimulator
                 lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for closing all windows"));
             //
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows.Value);
 
             if (A_Collection.Preferences.Hotkeys.Key1_CloseAllWindows != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_CloseAllWindows));
             else if (A_Collection.Preferences.Hotkeys.Key2_CloseAllWindows != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_CloseAllWindows));
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows.Value);
         }
         public static void SkillsWindow()
         {
@@ -512,20 +479,20 @@ namespace D3Helper.A_Tools.InputSimulator
                 lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for open up SkillsWindow"));
             //
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow.Value);
 
             if (A_Collection.Preferences.Hotkeys.Key1_SkillsWindow != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_SkillsWindow));
             else if (A_Collection.Preferences.Hotkeys.Key2_SkillsWindow != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_SkillsWindow));
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow.Value);
         }
         public static void Inventory()
         {
@@ -534,44 +501,44 @@ namespace D3Helper.A_Tools.InputSimulator
             lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for open up Inventory"));
             //
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory.Value);
 
             if (A_Collection.Preferences.Hotkeys.Key1_OpenInventory != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_OpenInventory));
             else if (A_Collection.Preferences.Hotkeys.Key2_OpenInventory != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_OpenInventory));
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory.Value);
         }
         private static void execute_ForceMove()
         {
-            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceMove != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceMove);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceMove != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceMove);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceMove != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceMove.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceMove != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceMove.Value);
 
             if (A_Collection.Preferences.Hotkeys.Key1_ForceMove != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ForceMove));
             else if (A_Collection.Preferences.Hotkeys.Key2_ForceMove != Key.Undefined)
                 PressKey(convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_ForceMove));
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceMove != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceMove);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceMove != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceMove);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceMove != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceMove.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceMove != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceMove.Value);
         }
         private static void execute_StandStill_LeftClick()
         {
-            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill != ModKey.Undefined)
-                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill != null)
+                PressModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill.Value);
 
             if (A_Collection.Preferences.Hotkeys.Key1_ForceStandStill != Key.Undefined)
             {
@@ -596,10 +563,10 @@ namespace D3Helper.A_Tools.InputSimulator
 
             IS_Mouse.LeftClick();
 
-            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill);
-            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill != ModKey.Undefined)
-                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill);
+            if (A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill.Value);
+            else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill != null)
+                ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceStandStill.Value);
 
             if (A_Collection.Preferences.Hotkeys.Key1_ForceStandStill != Key.Undefined)
             {
@@ -642,59 +609,26 @@ namespace D3Helper.A_Tools.InputSimulator
                 
             }
         }
-        private static void PressModKey(ModKey ModKey)
+        private static void PressModKey(ModifierKeys ModKey)
         {
-            if (ModKey == ModKey.Undefined || ModKey == ModKey.None)
+            if (ModKey == ModifierKeys.None)
                 return;
 
             //-- log action
             if (Properties.Settings.Default.Logger_extendedLog)
                 lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed ModKey(" + ModKey + ")"));
-            //
+			//
 
-            switch (ModKey)
-            {
-                case ModKey.Alt:
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.MENU);
-                    return;
-
-                case ModKey.Alt_Shift:
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.MENU);
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Ctrl:
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.CONTROL);
-                    return;
-
-                case ModKey.Ctrl_Alt:
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.MENU);
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.CONTROL);
-                    return;
-
-                case ModKey.Ctrl_Alt_Shift:
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.MENU);
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.CONTROL);
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Ctrl_Shift:
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.CONTROL);
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Shift:
-                    WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Undefined:
-                case ModKey.None:
-                    return;
-            }
+			if (ModKey.HasFlag(ModifierKeys.Alt))
+				WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.MENU);
+			if (ModKey.HasFlag(ModifierKeys.Shift))
+				WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.SHIFT);
+			if (ModKey.HasFlag(ModifierKeys.Ctrl))
+				WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.CONTROL);
         }
-        private static void ReleaseModKey(ModKey ModKey)
+        private static void ReleaseModKey(ModifierKeys ModKey)
         {
-            if (ModKey == ModKey.Undefined || ModKey == ModKey.None)
+            if (ModKey == ModifierKeys.None)
                 return;
 
             //-- log action
@@ -702,45 +636,12 @@ namespace D3Helper.A_Tools.InputSimulator
                 lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Released ModKey(" + ModKey + ")"));
             //
 
-            switch (ModKey)
-            {
-                case ModKey.Alt:
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.MENU);
-                    return;
-
-                case ModKey.Alt_Shift:
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.MENU);
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Ctrl:
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.CONTROL);
-                    return;
-
-                case ModKey.Ctrl_Alt:
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.MENU);
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.CONTROL);
-                    return;
-
-                case ModKey.Ctrl_Alt_Shift:
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.MENU);
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.CONTROL);
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Ctrl_Shift:
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.CONTROL);
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Shift:
-                    WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.SHIFT);
-                    return;
-
-                case ModKey.Undefined:
-                case ModKey.None:
-                    return;
-            }
+			if (ModKey.HasFlag(ModifierKeys.Alt))
+				WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.MENU);
+			if (ModKey.HasFlag(ModifierKeys.Shift))
+				WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.SHIFT);
+			if (ModKey.HasFlag(ModifierKeys.Ctrl))
+				WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.CONTROL);
         }
         public static VirtualKeyCode convert_KeyToVirtualKeyCode(Key InternalKey)
         {

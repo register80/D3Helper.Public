@@ -236,7 +236,6 @@
     <EmbeddedResource Include="Window_Info.resx">
       <DependentUpon>Window_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="A_Tools\Authentification\Validation.cs" />
     <EmbeddedResource Include="Window_ActivePowerView.resx">
       <DependentUpon>Window_ActivePowerView.cs</DependentUpon>
     </EmbeddedResource>

@@ -65,11 +65,6 @@ namespace D3Helper
                         Window_Outdated WO = new Window_Outdated();
                         WO.ShowDialog();
                     }
-                    //-- Access Validation
-                    if (!A_Tools.Authentification.Validation.IsValidated())
-                    {
-                        // !!!!! REENABLE THIS!!!!!!
-                    }
                     
                     System.Timers.Timer UpdateUI = new System.Timers.Timer(250);
                     UpdateUI.Elapsed += RefreshUI;

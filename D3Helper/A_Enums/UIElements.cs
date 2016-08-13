@@ -127,8 +127,6 @@ namespace D3Helper.A_Enums
             "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.SelectedSkill.SkillIcon";
 
         public const string ActiveSkillList = "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect";
-        public const string portrait_0_text = "Root.NormalLayer.portraits.stack.party_stack.portrait_0.text";
-        public const string menu_portrait_1_text = "Root.NormalLayer.BattleNetCampaign_main.LayoutRoot.Slot1.LayoutRoot.Portrait.text";
         public const string portrait_0 = "Root.NormalLayer.portraits.stack.party_stack.portrait_0.icon";
         public const string portrait_1 = "Root.NormalLayer.portraits.stack.party_stack.portrait_1.icon";
         public const string portrait_2 = "Root.NormalLayer.portraits.stack.party_stack.portrait_2.icon";

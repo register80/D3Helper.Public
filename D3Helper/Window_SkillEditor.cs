@@ -671,10 +671,10 @@ namespace D3Helper
             Button HoveredButton =
                 Panel.Controls.OfType<Button>()
                     .FirstOrDefault(x =>
-                    x.Bounds.Contains(MovingObject.Bounds.Left, MovingObject.Bounds.Top) ||
+                    (x.Bounds.Contains(MovingObject.Bounds.Left, MovingObject.Bounds.Top) ||
                     x.Bounds.Contains(MovingObject.Bounds.Left, MovingObject.Bounds.Bottom) ||
                     x.Bounds.Contains(MovingObject.Bounds.Right, MovingObject.Bounds.Top) ||
-                    x.Bounds.Contains(MovingObject.Bounds.Right, MovingObject.Bounds.Bottom) && x != MovingObject && x.Name != "SkillIcon");
+                    x.Bounds.Contains(MovingObject.Bounds.Right, MovingObject.Bounds.Bottom)) && x != MovingObject && x.Name != "SkillIcon");
 
             if (HoveredButton != null)
             {

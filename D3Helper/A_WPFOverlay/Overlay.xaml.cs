@@ -45,14 +45,6 @@ namespace D3Helper.A_WPFOverlay
     /// </summary>
     public partial class Overlay : Window
     {
-        [DllImportAttribute("User32.dll")]
-        private static extern int SetForegroundWindow(int hWnd);
-        [DllImport("user32.dll")]
-        private static extern bool GetWindowRect(IntPtr hWnd, out System.Drawing.Rectangle rect);
-        [DllImport("user32.dll")]
-        private static extern bool GetClientRect(IntPtr hWnd, out System.Drawing.Rectangle rect);
-        [DllImport("user32.dll")]
-        private static extern bool ClientToScreen(IntPtr hWnd, out System.Drawing.Rectangle rect);
 
         public static System.Drawing.Rectangle d3WndRect = new System.Drawing.Rectangle();
 
@@ -60,30 +52,6 @@ namespace D3Helper.A_WPFOverlay
 
         static string[] _postFixes = new string[] { "", "k", "M", "bn", "tr", "qr", "qt" };
         static string[] _postFixesKm = new string[] { "", "m", "Km" };
-
-        private static class Win32
-        {
-            private const string User32 = "user32.dll";
-
-            [DllImport(User32)]
-            internal static extern bool GetClientRect(IntPtr windowHandle, out Int32Rect clientRect);
-
-            [DllImport(User32)]
-            internal static extern bool ClientToScreen(IntPtr windowHandle, ref Int32Rect point);
-
-            [DllImport(User32)]
-            internal static extern int GetWindowLong(IntPtr windowHandle, int index);
-
-            [DllImport(User32)]
-            internal static extern int SetWindowLong(IntPtr windowHandle, int index, int newStyle);
-        }
-        private Int32Rect GetClientRect(IntPtr windowHandle)
-        {
-            Int32Rect clientRect;
-            Win32.GetClientRect(windowHandle, out clientRect);
-            Win32.ClientToScreen(windowHandle, ref clientRect);
-            return clientRect;
-        }
 
         public static int ExceptionCount = 0;
         private static int _tick;
@@ -675,74 +643,6 @@ namespace D3Helper.A_WPFOverlay
             this.canvas1.Children.Add(Line);
 
         }
-        void DrawWorldCircle(float radius, float x, float y, float z, Brush Color, double Thickness)
-        {
-
-            List<Vector> SegmentBuffer = new List<Vector>();
-
-            int sectionCount = (int)(radius * 1.25) + 25;
-
-            float sx, sy;
-
-
-
-            for (int i = 0; i < sectionCount; i++)
-            {
-
-
-                float mx = (float)(Math.Cos(((360.0f / sectionCount) * i) * Math.PI / 180.0f) * radius);
-                float my = (float)(Math.Sin(((360.0f / sectionCount) * i) * Math.PI / 180.0f) * radius);
-                A_Tools.T_World.ToScreenCoordinate(x + mx, y + my, z, out sx, out sy);
-
-                SegmentBuffer.Add(new Vector(sx, sy));
-
-            }
-
-            for (int i = 0; i < SegmentBuffer.Count; i++)
-            {
-                if (i > 0)
-                {
-                    Line Segment = new Line();
-                    Segment.Stroke = Color;
-                    Segment.StrokeThickness = Thickness;
-                    Segment.X1 = SegmentBuffer[i - 1].X;
-                    Segment.X2 = SegmentBuffer[i].X;
-                    Segment.Y1 = SegmentBuffer[i - 1].Y;
-                    Segment.Y2 = SegmentBuffer[i].Y;
-
-                    this.canvas1.Children.Add(Segment);
-                }
-                if (i == SegmentBuffer.Count - 1)
-                {
-                    Line Segment = new Line();
-                    Segment.Stroke = Color;
-                    Segment.StrokeThickness = Thickness;
-                    Segment.X1 = SegmentBuffer[i].X;
-                    Segment.X2 = SegmentBuffer[0].X;
-                    Segment.Y1 = SegmentBuffer[i].Y;
-                    Segment.Y2 = SegmentBuffer[0].Y;
-
-                    this.canvas1.Children.Add(Segment);
-                }
-            }
-        }
-        void DrawWorldText(Color Color, double FontSize, FontFamily FontFamily, string Text, float x, float y, float z)
-        {
-            TextBlock WorldText = new TextBlock();
-            WorldText.FontFamily = FontFamily;
-            WorldText.FontSize = FontSize;
-            WorldText.Text = Text;
-            WorldText.Foreground = new SolidColorBrush(Color);
-
-            float RX, RY;
-            A_Tools.T_World.ToScreenCoordinate(x, y, z, out RX, out RY);
-
-            Canvas.SetLeft(WorldText, RX - (d3clientrect.Width * 15 / 1000));
-            Canvas.SetTop(WorldText, RY - (d3clientrect.Height * 10 / 1000));
-
-            canvas1.Children.Add(WorldText);
-            
-        }
         void DrawCursorText(Color Color, double FontSize, FontFamily FontFamily, string Text, double offsetX, double offsetY)
         {
             TextBlock CursorText = new TextBlock();
@@ -777,82 +677,6 @@ namespace D3Helper.A_WPFOverlay
             canvas1.Children.Add(ScreenText);
 
         }
-        void DrawScreenImage(Bitmap image,float x, float y)
-        {
-            
-            ImageBrush newBrush = new ImageBrush(Bitmap2BitmapImage(image));
-
-            Canvas newCanvas = new Canvas();
-            newCanvas.Width = image.Width;
-            newCanvas.Height = image.Height;
-            newCanvas.Background = newBrush;
-
-            Canvas.SetLeft(newCanvas, x);
-            Canvas.SetTop(newCanvas, y);
-
-            canvas1.Children.Add(newCanvas);
-
-        }
-        private BitmapSource Bitmap2BitmapImage(System.Drawing.Bitmap bitmap)
-        {
-            BitmapSource i = Imaging.CreateBitmapSourceFromHBitmap(
-                           bitmap.GetHbitmap(),
-                           IntPtr.Zero,
-                           Int32Rect.Empty,
-                           BitmapSizeOptions.FromEmptyOptions());
-            return i;
-        }
-        void DrawWorldLine(float startX, float startY, float startZ, float stopX, float stopY, float stopZ)
-        {
-
-
-            float Start_sx, Start_sy;
-            float Stop_sx, Stop_sy;
-
-            A_Tools.T_World.ToScreenCoordinate(startX, startY, startZ, out Start_sx, out Start_sy);
-            A_Tools.T_World.ToScreenCoordinate(stopX, stopY, stopZ, out Stop_sx, out Stop_sy);
-
-
-            Line Line = new Line();
-            Line.Stroke = Brushes.GreenYellow;
-            Line.StrokeThickness = 1;
-            Line.X1 = Start_sx;
-            Line.X2 = Stop_sx;
-            Line.Y1 = Start_sy;
-            Line.Y2 = Stop_sy;
-
-            this.canvas1.Children.Add(Line);
-
-        }
-        void DrawWorldLine_Angle(float startX, float startY, float startZ, int angle, float length, out float Stop_sx, out float Stop_sy)
-        {
-            Stop_sx = 0;
-            Stop_sy = 0;
-
-            double radian_angle = (Math.PI / 180.0) * (angle);
-
-            double x1 = startX;
-            double y1 = startY;
-            double x2 = x1 + (Math.Cos(radian_angle) * length);
-            double y2 = y1 + (Math.Sin(radian_angle) * length);
-
-            float Start_sx, Start_sy;
-
-
-            A_Tools.T_World.ToScreenCoordinate(startX, startY, startZ, out Start_sx, out Start_sy);
-            A_Tools.T_World.ToScreenCoordinate((float)x2, (float)y2, startZ, out Stop_sx, out Stop_sy);
-
-            Line Line = new Line();
-            Line.Stroke = Brushes.GreenYellow;
-            Line.StrokeThickness = 1;
-            Line.X1 = Start_sx;
-            Line.X2 = Stop_sx;
-            Line.Y1 = Start_sy;
-            Line.Y2 = Stop_sy;
-
-            this.canvas1.Children.Add(Line);
-
-        }
 
         void DrawSkillButtonOutlines()
         {
@@ -865,7 +689,7 @@ namespace D3Helper.A_WPFOverlay
                 {
                     UIRect SkillButton = A_Tools.T_D3UI.UIElement.getRect(AllSkillButtons[i].ToString());
 
-                    if(AllSkillButtons[i].x166C_PowerSnoId == -1)
+                    if(AllSkillButtons[i].GetPowerSnoId() == -1)
                         continue;
 
                     Rectangle Outline = new Rectangle();
@@ -967,7 +791,7 @@ namespace D3Helper.A_WPFOverlay
                 {
                     UIRect SkillButton = A_Tools.T_D3UI.UIElement.getRect(AllSkillButtons[i].ToString());
 
-                    if (AllSkillButtons[i].x166C_PowerSnoId == -1)
+                    if (AllSkillButtons[i].GetPowerSnoId() == -1)
                         continue;
 
                     Rectangle Outline = new Rectangle();
@@ -1088,7 +912,7 @@ namespace D3Helper.A_WPFOverlay
                         continue;
 
                     int PowerSNO = equippedSkill.Key;
-                    UXIcon ButtonControl = AllSkillButtons.FirstOrDefault(x => x.x166C_PowerSnoId == PowerSNO);
+                    UXIcon ButtonControl = AllSkillButtons.FirstOrDefault(x => x.GetPowerSnoId() == PowerSNO);
                     if (ButtonControl != null)
                     {
                         string HotbarSlot = ButtonControl.ToString();
@@ -1140,58 +964,6 @@ namespace D3Helper.A_WPFOverlay
             {
 
             }
-        }
-        public static int GetAngleBetweenPoints(Vector Start, Vector End)
-        {
-            float dx = (float)(End.X - Start.X);
-            float dy = (float)(End.Y - Start.Y);
-
-            int deg = Convert.ToInt32(Math.Atan2(dy, dx) * (180 / Math.PI));
-            if (deg < 0) { deg += 360; }
-
-            return deg;
-        }
-        public static Vector getPoint_Circle_Line_Intersection_Increase(double LineStart_X, double LineStart_Y, double TargetCenter_X, double TargetCenter_Y, double radius)
-        {
-            try
-            {
-                double dx = TargetCenter_X - LineStart_X;
-                double dy = TargetCenter_Y - LineStart_Y;
-                double length = Math.Sqrt(dx * dx + dy * dy);
-                if (length > 0)
-                {
-                    dx /= length;
-                    dy /= length;
-                }
-                dx *= length + radius;
-                dy *= length + radius;
-                int x3 = (int)(LineStart_X + dx);
-                int y3 = (int)(LineStart_Y + dy);
-
-                return new Vector(x3, y3);
-            }
-            catch { return new Vector(); }
-        }
-        public static Vector getPoint_Circle_Line_Intersection_Shorten(double LineStart_X, double LineStart_Y, double TargetCenter_X, double TargetCenter_Y, double radius)
-        {
-            try
-            {
-                double dx = TargetCenter_X - LineStart_X;
-                double dy = TargetCenter_Y - LineStart_Y;
-                double length = Math.Sqrt(dx * dx + dy * dy);
-                if (length > 0)
-                {
-                    dx /= length;
-                    dy /= length;
-                }
-                dx *= length - radius;
-                dy *= length - radius;
-                int x3 = (int)(LineStart_X + dx);
-                int y3 = (int)(LineStart_Y + dy);
-
-                return new Vector(x3, y3);
-            }
-            catch { return new Vector(); }
         }
         public static Uri getResourceUri(string filename)
         {
@@ -1337,324 +1109,6 @@ namespace D3Helper.A_WPFOverlay
 
 
         }
-        public static void populateSkillButtonRectRenderTargets()
-        {
-            //try
-            //{
-            /*
-                rectSkillButtonRenderTargets.Clear();
-
-                if(A_Collection.Me.HeroStates.isInGame)
-                {
-                    bool skill1status = !A_Collection.Me.AutoCastOverrides.AutoCast1Override;
-                    bool skill2status = !A_Collection.Me.AutoCastOverrides.AutoCast2Override;
-                    bool skill3status = !A_Collection.Me.AutoCastOverrides.AutoCast3Override;
-                    bool skill4status = !A_Collection.Me.AutoCastOverrides.AutoCast4Override;
-                    bool skillrmbstatus = !A_Collection.Me.AutoCastOverrides.AutoCastRMBOverride;
-                    bool skilllmbstatus = !A_Collection.Me.AutoCastOverrides.AutoCastLMBOverride;
-
-                    
-                    UIRect resourceGlobe = tryGetResourceGlobeUIRect();
-
-                    int boxsize = (int)(d3clientrect.Height * 4/100);
-                    int strokeThickness = (int)(d3clientrect.Height * 1/100);
-
-                    
-                        Rectangle skill1 = new Rectangle();
-                        skill1.Width = boxsize;
-                        skill1.Height = boxsize;
-                        skill1.StrokeThickness = strokeThickness;
-
-                        if (skill1status)
-                        {
-                            skill1.Fill = new SolidColorBrush(Colors.Green);
-
-                            skill1.Stroke = new SolidColorBrush(Colors.Green);
-                        }
-                        else
-                        {
-                            skill1.Fill = new SolidColorBrush(Colors.Red);
-
-                            skill1.Stroke = new SolidColorBrush(Colors.Red);
-                        }
-                    
-                        Rectangle skill2 = new Rectangle();
-                        skill2.Width = boxsize;
-                        skill2.Height = boxsize;
-                        skill2.StrokeThickness = strokeThickness;
-
-                        if (skill2status)
-                        {
-                            skill2.Fill = new SolidColorBrush(Colors.Green);
-
-                            skill2.Stroke = new SolidColorBrush(Colors.Green);
-                        }
-                        else
-                        {
-                            skill2.Fill = new SolidColorBrush(Colors.Red);
-
-                            skill2.Stroke = new SolidColorBrush(Colors.Red);
-                        }
-                    
-                    
-                        Rectangle skill3 = new Rectangle();
-                        skill3.Width = boxsize;
-                        skill3.Height = boxsize;
-                        skill3.StrokeThickness = strokeThickness;
-
-                        if (skill3status)
-                        {
-                            skill3.Fill = new SolidColorBrush(Colors.Green);
-
-                            skill3.Stroke = new SolidColorBrush(Colors.Green);
-                        }
-                        else
-                        {
-                            skill3.Fill = new SolidColorBrush(Colors.Red);
-
-                            skill3.Stroke = new SolidColorBrush(Colors.Red);
-                        }
-                    
-                    
-                        Rectangle skill4 = new Rectangle();
-                        skill4.Width = boxsize;
-                        skill4.Height = boxsize;
-                        skill4.StrokeThickness = strokeThickness;
-
-                        if (skill4status)
-                        {
-                            skill4.Fill = new SolidColorBrush(Colors.Green);
-
-                            skill4.Stroke = new SolidColorBrush(Colors.Green);
-                        }
-                        else
-                        {
-                            skill4.Fill = new SolidColorBrush(Colors.Red);
-
-                            skill4.Stroke = new SolidColorBrush(Colors.Red);
-                        }
-
-                        Rectangle skillrmb = new Rectangle();
-                        skillrmb.Width = boxsize;
-                        skillrmb.Height = boxsize;
-                        skillrmb.StrokeThickness = strokeThickness;
-
-                        if (skillrmbstatus)
-                        {
-                            skillrmb.Fill = new SolidColorBrush(Colors.Green);
-
-                            skillrmb.Stroke = new SolidColorBrush(Colors.Green);
-                        }
-                        else
-                        {
-                            skillrmb.Fill = new SolidColorBrush(Colors.Red);
-
-                            skillrmb.Stroke = new SolidColorBrush(Colors.Red);
-                        }
-
-                        Rectangle skilllmb = new Rectangle();
-                        skilllmb.Width = boxsize;
-                        skilllmb.Height = boxsize;
-                        skilllmb.StrokeThickness = strokeThickness;
-
-                        if (skilllmbstatus)
-                        {
-                            skilllmb.Fill = new SolidColorBrush(Colors.Green);
-
-                            skilllmb.Stroke = new SolidColorBrush(Colors.Green);
-                        }
-                        else
-                        {
-                            skilllmb.Fill = new SolidColorBrush(Colors.Red);
-
-                            skilllmb.Stroke = new SolidColorBrush(Colors.Red);
-                        }
-
-                        Rectangle emptySkill = new Rectangle();
-                        emptySkill.Width = boxsize;
-                        emptySkill.Height = boxsize;
-                        emptySkill.StrokeThickness = strokeThickness;
-                        emptySkill.Fill = new SolidColorBrush(Colors.Transparent);
-                        emptySkill.Stroke = new SolidColorBrush(Colors.Transparent);
-                    
-                    float resourceGlobeWidth = resourceGlobe.Right - resourceGlobe.Left;
-                    float resourceGlobeHeight = resourceGlobe.Bottom - resourceGlobe.Top;
-
-                    float startSkillBarLeft = d3clientrect.X + (d3clientrect.Width * A_Collection.Overlay.SkillBar.SkillBar_Left / 100);
-                    float startSkillBarTop = d3clientrect.Y + (d3clientrect.Height * A_Collection.Overlay.SkillBar.SkillBar_Top / 100);
-
-                    if (A_Collection.Skills.SkillInfos._HotBar1Skill != null)
-                    {
-                        rectSkillButtonRenderTargets.Add(new RenderObjectRectangle(skill1, startSkillBarLeft, startSkillBarTop));
-                    }
-                    else { rectSkillButtonRenderTargets.Add(null); }
-
-                    if (A_Collection.Skills.SkillInfos._HotBar2Skill != null)
-                    {
-                        rectSkillButtonRenderTargets.Add(new RenderObjectRectangle(skill2, (float)(startSkillBarLeft + (skill1.Width * 1.1) * 1), startSkillBarTop));
-                    }
-                    else { rectSkillButtonRenderTargets.Add(null); }
-
-                    if (A_Collection.Skills.SkillInfos._HotBar3Skill != null)
-                    {
-                        rectSkillButtonRenderTargets.Add(new RenderObjectRectangle(skill3, (float)(startSkillBarLeft + (skill1.Width * 1.1) * 2), startSkillBarTop));
-                    }
-                    else { rectSkillButtonRenderTargets.Add(null); }
-
-                    if (A_Collection.Skills.SkillInfos._HotBar4Skill != null)
-                    {
-                        rectSkillButtonRenderTargets.Add(new RenderObjectRectangle(skill4, (float)(startSkillBarLeft + (skill1.Width * 1.1) * 3), startSkillBarTop));
-                    }
-                    else { rectSkillButtonRenderTargets.Add(null); }
-
-                    if (A_Collection.Skills.SkillInfos._HotBarLeftClickSkill != null)
-                    {
-                        rectSkillButtonRenderTargets.Add(new RenderObjectRectangle(skilllmb, (float)(startSkillBarLeft + (skill1.Width * 1.1) * 4.5), startSkillBarTop));
-                    }
-                    else { rectSkillButtonRenderTargets.Add(null); }
-
-                    if (A_Collection.Skills.SkillInfos._HotBarRightClickSkill != null)
-                    {
-                        rectSkillButtonRenderTargets.Add(new RenderObjectRectangle(skillrmb, (float)(startSkillBarLeft + (skill1.Width * 1.1) * 5.5), startSkillBarTop));
-                    }
-                    else { rectSkillButtonRenderTargets.Add(null); }
-
-                    
-                    
-               }
-         */       
-            //}
-            //catch { }
-        }
-        public static void populateSkillButtonImages()
-        {
-            //try
-            //{
-            if (A_Collection.Me.HeroStates.isInGame)
-            {
-                canvasSkillButtonImageTargets.Clear();
-
-                var skillButtonRects = rectSkillButtonRenderTargets;
-
-                var btn1 = skillButtonRects[0];
-                if (btn1 != null)
-                {
-                    
-                    BitmapImage newImage = new BitmapImage(getResourceUri(A_Collection.Skills.SkillInfos._HotBar1Skill.Name.ToLower()));
-
-                    ImageBrush newBrush = new ImageBrush(newImage);
-
-                    Canvas newCanvas = new Canvas();
-                    newCanvas.Width = btn1.Rect.Width * 90 / 100;
-                    newCanvas.Height = btn1.Rect.Height * 90 / 100;
-                    newCanvas.Background = newBrush;
-
-                    UIRect newUIRect = new UIRect();
-                    newUIRect.Left = btn1.PosLeft + (float)(btn1.Rect.Width * 5 / 100);
-                    newUIRect.Top = btn1.PosTop + (float)(btn1.Rect.Height * 5 / 100);
-
-                    canvasSkillButtonImageTargets.Add(newCanvas, newUIRect);
-                }
-
-                var btn2 = skillButtonRects[1];
-                if (btn2 != null)
-                {
-                    BitmapImage newImage = new BitmapImage(getResourceUri(A_Collection.Skills.SkillInfos._HotBar2Skill.Name.ToLower()));
-
-                    ImageBrush newBrush = new ImageBrush(newImage);
-
-                    Canvas newCanvas = new Canvas();
-                    newCanvas.Width = btn2.Rect.Width * 90 / 100;
-                    newCanvas.Height = btn2.Rect.Height * 90 / 100;
-                    newCanvas.Background = newBrush;
-
-                    UIRect newUIRect = new UIRect();
-                    newUIRect.Left = btn2.PosLeft + (float)(btn2.Rect.Width * 5 / 100);
-                    newUIRect.Top = btn2.PosTop + (float)(btn2.Rect.Height * 5 / 100);
-
-                    canvasSkillButtonImageTargets.Add(newCanvas, newUIRect);
-                }
-
-                var btn3 = skillButtonRects[2];
-                if (btn3 != null)
-                {
-                    BitmapImage newImage = new BitmapImage(getResourceUri(A_Collection.Skills.SkillInfos._HotBar3Skill.Name.ToLower()));
-
-                    ImageBrush newBrush = new ImageBrush(newImage);
-
-                    Canvas newCanvas = new Canvas();
-                    newCanvas.Width = btn3.Rect.Width * 90 / 100;
-                    newCanvas.Height = btn3.Rect.Height * 90 / 100;
-                    newCanvas.Background = newBrush;
-
-                    UIRect newUIRect = new UIRect();
-                    newUIRect.Left = btn3.PosLeft + (float)(btn3.Rect.Width * 5 / 100);
-                    newUIRect.Top = btn3.PosTop + (float)(btn3.Rect.Height * 5 / 100);
-
-                    canvasSkillButtonImageTargets.Add(newCanvas, newUIRect);
-                }
-
-                var btn4 = skillButtonRects[3];
-                if (btn4 != null)
-                {
-                    BitmapImage newImage = new BitmapImage(getResourceUri(A_Collection.Skills.SkillInfos._HotBar4Skill.Name.ToLower()));
-
-                    ImageBrush newBrush = new ImageBrush(newImage);
-
-                    Canvas newCanvas = new Canvas();
-                    newCanvas.Width = btn4.Rect.Width * 90 / 100;
-                    newCanvas.Height = btn4.Rect.Height * 90 / 100;
-                    newCanvas.Background = newBrush;
-
-                    UIRect newUIRect = new UIRect();
-                    newUIRect.Left = btn4.PosLeft + (float)(btn4.Rect.Width * 5 / 100);
-                    newUIRect.Top = btn4.PosTop + (float)(btn4.Rect.Height * 5 / 100);
-
-                    canvasSkillButtonImageTargets.Add(newCanvas, newUIRect);
-                }
-
-                var btnrmb = skillButtonRects[5];
-                if (btnrmb != null)
-                {
-                    BitmapImage newImage = new BitmapImage(getResourceUri(A_Collection.Skills.SkillInfos._HotBarRightClickSkill.Name.ToLower()));
-
-                    ImageBrush newBrush = new ImageBrush(newImage);
-
-                    Canvas newCanvas = new Canvas();
-                    newCanvas.Width = btnrmb.Rect.Width * 90 / 100;
-                    newCanvas.Height = btnrmb.Rect.Height * 90 / 100;
-                    newCanvas.Background = newBrush;
-
-                    UIRect newUIRect = new UIRect();
-                    newUIRect.Left = btnrmb.PosLeft + (float)(btnrmb.Rect.Width * 5 / 100);
-                    newUIRect.Top = btnrmb.PosTop + (float)(btnrmb.Rect.Height * 5 / 100);
-
-                    canvasSkillButtonImageTargets.Add(newCanvas, newUIRect);
-                }
-
-                var btnlmb = skillButtonRects[4];
-                if (btnlmb != null)
-                {
-                    BitmapImage newImage = new BitmapImage(getResourceUri(A_Collection.Skills.SkillInfos._HotBarLeftClickSkill.Name.ToLower()));
-
-                    ImageBrush newBrush = new ImageBrush(newImage);
-
-                    Canvas newCanvas = new Canvas();
-                    newCanvas.Width = btnlmb.Rect.Width * 90 / 100;
-                    newCanvas.Height = btnlmb.Rect.Height * 90 / 100;
-                    newCanvas.Background = newBrush;
-
-                    UIRect newUIRect = new UIRect();
-                    newUIRect.Left = btnlmb.PosLeft + (float)(btnlmb.Rect.Width * 5 / 100);
-                    newUIRect.Top = btnlmb.PosTop + (float)(btnlmb.Rect.Height * 5 / 100);
-
-                    canvasSkillButtonImageTargets.Add(newCanvas, newUIRect);
-                }
-            }
-               
-            //}
-            //catch { }
-        }
         public static UIRect tryGetResourceGlobeUIRect()
         {
             if (A_Collection.Me.HeroStates.isInGame)
@@ -1666,10 +1120,6 @@ namespace D3Helper.A_WPFOverlay
                 return rect;
             }
             return new UIRect();
-        }
-        static string GetNameOf<T>(Expression<Func<T>> property)
-        {
-            return (property.Body as MemberExpression).Member.Name;
         }
 
         public static void populateRectRenderTargets()
@@ -1873,15 +1323,6 @@ namespace D3Helper.A_WPFOverlay
             }
             return value.ToString("0.00", CultureInfo.InvariantCulture) + postFixes[index];
         }
-        static string ToStringKm(double value, string[] postFixesKm)
-        {
-            if(value >= 1000)
-            {
-                return (value / 1000).ToString("0.00", CultureInfo.InvariantCulture) + postFixesKm[2];
-            }
-            
-            return value.ToString("0.00", CultureInfo.InvariantCulture) + postFixesKm[1];
-        }
     }
     
     public class RenderObjectRectangle
@@ -1943,12 +1384,6 @@ namespace D3Helper.A_WPFOverlay
         private static class Win32
         {
             private const string User32 = "user32.dll";
-
-            [DllImport(User32)]
-            internal static extern bool GetClientRect(IntPtr windowHandle, out Int32Rect clientRect);
-
-            [DllImport(User32)]
-            internal static extern bool ClientToScreen(IntPtr windowHandle, ref Int32Rect point);
 
             [DllImport(User32)]
             internal static extern int GetWindowLong(IntPtr windowHandle, int index);

@@ -8,16 +8,6 @@ using Enigma.D3;
 
 namespace D3Helper.A_Tools
 {
-    public class Vector2D
-    {
-        public Vector2D(float x, float y)
-        {
-            this.X = x;
-            this.Y = y;
-        }
-        public float X { get; set; }
-        public float Y { get; set; }
-    }
     class T_World
     {
         public static void ToScreenCoordinate(float X, float Y, float Z, out float RX, out float RY)

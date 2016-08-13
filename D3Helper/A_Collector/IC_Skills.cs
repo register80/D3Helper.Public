@@ -106,7 +106,7 @@ namespace D3Helper.A_Collector
 
                             lock (A_Collection.Me.HeroGlobals.LocalPlayerData)
                             {
-                                var activeskillslist = A_Collection.Me.HeroGlobals.LocalPlayerData.x12C4_ActiveSkillSavedData;
+								var activeskillslist = A_Collection.Me.HeroGlobals.LocalPlayerData.GetActiveSkills();
 
                                 for (int i = 0; i < activeskillslist.Count(); i++)
                                 {
@@ -146,7 +146,7 @@ namespace D3Helper.A_Collector
                         Local = A_Collection.Me.HeroGlobals.LocalPlayerData;
 
                     List<int> Buffer = new List<int>();
-                    Buffer = Local.x1324_PassivePowerSnoIds.ToList();
+					Buffer = Local.GetPassivePowerSnoIds().ToList();
 
                     lock (A_Collection.Me.HeroDetails.PassiveSkills) A_Collection.Me.HeroDetails.PassiveSkills = Buffer;
                 }
@@ -198,12 +198,12 @@ namespace D3Helper.A_Collector
                 lock (A_Collection.Presets.SkillPowers.AllSkillPowers)
                     AllSkillPowers = A_Collection.Presets.SkillPowers.AllSkillPowers.ToList();
 
-                A_Collection.Skills.SkillInfos._HotBar1Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar1.x166C_PowerSnoId));
-                A_Collection.Skills.SkillInfos._HotBar2Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar2.x166C_PowerSnoId));
-                A_Collection.Skills.SkillInfos._HotBar3Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar3.x166C_PowerSnoId));
-                A_Collection.Skills.SkillInfos._HotBar4Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar4.x166C_PowerSnoId));
-                A_Collection.Skills.SkillInfos._HotBarRightClickSkill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBarRightClick.x166C_PowerSnoId));
-                A_Collection.Skills.SkillInfos._HotBarLeftClickSkill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBarLeftClick.x166C_PowerSnoId));
+                A_Collection.Skills.SkillInfos._HotBar1Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar1.GetPowerSnoId()));
+                A_Collection.Skills.SkillInfos._HotBar2Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar2.GetPowerSnoId()));
+                A_Collection.Skills.SkillInfos._HotBar3Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar3.GetPowerSnoId()));
+                A_Collection.Skills.SkillInfos._HotBar4Skill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBar4.GetPowerSnoId()));
+                A_Collection.Skills.SkillInfos._HotBarRightClickSkill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBarRightClick.GetPowerSnoId()));
+                A_Collection.Skills.SkillInfos._HotBarLeftClickSkill = AllSkillPowers.FirstOrDefault(x => x.PowerSNO == convert_ArchonPowerSNO(HotBarLeftClick.GetPowerSnoId()));
 
             }
             catch (Exception e)

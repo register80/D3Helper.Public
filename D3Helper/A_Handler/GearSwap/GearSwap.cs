@@ -236,46 +236,6 @@ namespace D3Helper.A_Handler.GearSwap
             }
             catch { A_Collection.Me.GearSwap.isEditing = false; }
         }
-        public static List<double> GetInventoryChanges()
-        {
-            try
-            {
-                List<double> Changes_Seeds = new List<double>();
-
-                bool InventoryChanged = false;
-
-                List<ActorCommonData> Inventory_Buffer = ActorCommonDataHelper.EnumerateInventoryItems().ToList();
-
-                while (true)
-                {
-                    var Inventory = ActorCommonDataHelper.EnumerateInventoryItems().ToList();
-
-                    foreach (var item in Inventory)
-                    {
-                        var tryGetEntry = Inventory_Buffer.FirstOrDefault(x => x.x000_Id == item.x000_Id);
-
-                        if (tryGetEntry == null)
-                        {
-                            InventoryChanged = true;
-
-                            Changes_Seeds.Add(item.GetAttributeValue(Enigma.D3.Enums.AttributeId.Seed));
-                        }
-                    }
-
-                    if (InventoryChanged)
-                    {
-                        break;
-                    }
-
-                    Inventory_Buffer = Inventory;
-
-                    Thread.Sleep(50);
-                }
-
-                return Changes_Seeds;
-            }
-            catch { return new List<double>(); }
-        }
         public static void UpdateSwapItems()
         {
             try
@@ -333,29 +293,6 @@ namespace D3Helper.A_Handler.GearSwap
                 }
             }
             catch { }
-        }
-
-        private static ActorCommonData GetItemByHeroLocation(Enigma.D3.Enums.ItemLocation ItemLocation)
-        {
-            try
-            {
-                lock(A_Collection.Me.HeroDetails.EquippedItems)
-                {
-                    var Container = A_Collection.Me.HeroDetails.EquippedItems.ToList();
-
-                    return Container.FirstOrDefault(x => x.x114_ItemLocation == ItemLocation);
-                }
-            }
-            catch { return null; }
-        }
-        private static Enigma.D3.Enums.ItemLocation GetHeroLocationByItemAcd(ActorCommonData ItemAcd)
-        {
-            lock (A_Collection.Me.HeroDetails.EquippedItems)
-            {
-                var Container = A_Collection.Me.HeroDetails.EquippedItems.ToList();
-
-                return Container.FirstOrDefault(x => x.x000_Id == ItemAcd.x000_Id).x114_ItemLocation;
-            }
         }
         private static double GetItemSeed(ActorCommonData ItemAcd)
         {

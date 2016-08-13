@@ -214,13 +214,6 @@ namespace D3Helper.A_Collection
                 public static Dictionary<ConditionType, string> ConditionTypes = new Dictionary<ConditionType, string>(); 
             }
         }
-        public class ParagonPointSpender
-        {
-            public static readonly int[] MaxValues_Core = new[] {-1, -1, 50, 50};
-            public static readonly int[] MaxValues_Offense = new[] {50, 50, 50, 50};
-            public static readonly int[] MaxValues_Defense = new[] {50, 50, 50, 50};
-            public static readonly int[] MaxValues_Utility = new[] {50, 50, 50, 50};
-        }
 
         public class ConventionElements
         {

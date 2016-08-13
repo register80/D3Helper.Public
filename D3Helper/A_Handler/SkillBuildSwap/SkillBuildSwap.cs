@@ -234,37 +234,37 @@ namespace D3Helper.A_Handler.SkillBuildSwap
             string control = "";
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Passive_Skill1))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill1).x166C_PowerSnoId ==
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill1).GetPowerSnoId() ==
                     PowerSno)
                     control = A_Enums.UIElements.SkillPanel_Passive_Skill1;
 
                 else if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Passive_Skill2))
-                    if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill2).x166C_PowerSnoId ==
+                    if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill2).GetPowerSnoId() ==
                         PowerSno)
                         control = A_Enums.UIElements.SkillPanel_Passive_Skill2;
 
                     else if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Passive_Skill3))
                         if (
-                            UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill3).x166C_PowerSnoId ==
+                            UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill3).GetPowerSnoId() ==
                             PowerSno)
                             control = A_Enums.UIElements.SkillPanel_Passive_Skill3;
 
                         else if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Passive_Skill4))
                             if (
                                 UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill4)
-                                    .x166C_PowerSnoId == PowerSno)
+                                    .GetPowerSnoId() == PowerSno)
                                 control = A_Enums.UIElements.SkillPanel_Passive_Skill4;
 
                             else if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Passive_Skill5))
                                 if (
                                     UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill5)
-                                        .x166C_PowerSnoId == PowerSno)
+                                        .GetPowerSnoId() == PowerSno)
                                     control = A_Enums.UIElements.SkillPanel_Passive_Skill5;
 
                                 else if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Passive_Skill6))
                                     if (
                                         UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Skill6)
-                                            .x166C_PowerSnoId == PowerSno)
+                                            .GetPowerSnoId() == PowerSno)
                                         control = A_Enums.UIElements.SkillPanel_Passive_Skill6;
 
                                     else if (
@@ -272,7 +272,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                             A_Enums.UIElements.SkillPanel_Passive_Skill7))
                                         if (
                                             UXHelper.GetControl<UXIcon>(
-                                                A_Enums.UIElements.SkillPanel_Passive_Skill7).x166C_PowerSnoId ==
+                                                A_Enums.UIElements.SkillPanel_Passive_Skill7).GetPowerSnoId() ==
                                             PowerSno)
                                             control = A_Enums.UIElements.SkillPanel_Passive_Skill7;
 
@@ -282,7 +282,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                             if (
                                                 UXHelper.GetControl<UXIcon>(
                                                     A_Enums.UIElements.SkillPanel_Passive_Skill8)
-                                                    .x166C_PowerSnoId == PowerSno)
+                                                    .GetPowerSnoId() == PowerSno)
                                                 control = A_Enums.UIElements.SkillPanel_Passive_Skill8;
 
                                             else if (
@@ -291,7 +291,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                 if (
                                                     UXHelper.GetControl<UXIcon>(
                                                         A_Enums.UIElements.SkillPanel_Passive_Skill9)
-                                                        .x166C_PowerSnoId == PowerSno)
+                                                        .GetPowerSnoId() == PowerSno)
                                                     control =
                                                         A_Enums.UIElements.SkillPanel_Passive_Skill9;
 
@@ -303,7 +303,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                         UXHelper.GetControl<UXIcon>(
                                                             A_Enums.UIElements
                                                                 .SkillPanel_Passive_Skill10)
-                                                            .x166C_PowerSnoId == PowerSno)
+                                                            .GetPowerSnoId() == PowerSno)
                                                         control =
                                                             A_Enums.UIElements
                                                                 .SkillPanel_Passive_Skill10;
@@ -316,7 +316,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                             UXHelper.GetControl<UXIcon>(
                                                                 A_Enums.UIElements
                                                                     .SkillPanel_Passive_Skill11)
-                                                                .x166C_PowerSnoId == PowerSno)
+                                                                .GetPowerSnoId() == PowerSno)
                                                             control =
                                                                 A_Enums.UIElements
                                                                     .SkillPanel_Passive_Skill11;
@@ -330,7 +330,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                 UXHelper.GetControl<UXIcon>(
                                                                     A_Enums.UIElements
                                                                         .SkillPanel_Passive_Skill12)
-                                                                    .x166C_PowerSnoId ==
+                                                                    .GetPowerSnoId() ==
                                                                 PowerSno)
                                                                 control =
                                                                     A_Enums.UIElements
@@ -349,7 +349,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                             A_Enums
                                                                                 .UIElements
                                                                                 .SkillPanel_Passive_Skill13)
-                                                                        .x166C_PowerSnoId ==
+                                                                        .GetPowerSnoId() ==
                                                                     PowerSno)
                                                                     control =
                                                                         A_Enums
@@ -370,7 +370,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                             (A_Enums
                                                                                 .UIElements
                                                                                 .SkillPanel_Passive_Skill14)
-                                                                            .x166C_PowerSnoId ==
+                                                                            .GetPowerSnoId() ==
                                                                         PowerSno)
                                                                         control =
                                                                             A_Enums
@@ -394,7 +394,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                                 (A_Enums
                                                                                     .UIElements
                                                                                     .SkillPanel_Passive_Skill15)
-                                                                                .x166C_PowerSnoId ==
+                                                                                .GetPowerSnoId() ==
                                                                             PowerSno)
                                                                             control
                                                                                 =
@@ -420,7 +420,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                                     (A_Enums
                                                                                         .UIElements
                                                                                         .SkillPanel_Passive_Skill16)
-                                                                                    .x166C_PowerSnoId ==
+                                                                                    .GetPowerSnoId() ==
                                                                                 PowerSno)
                                                                                 control
                                                                                     =
@@ -447,7 +447,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                                         (A_Enums
                                                                                             .UIElements
                                                                                             .SkillPanel_Passive_Skill17)
-                                                                                        .x166C_PowerSnoId ==
+                                                                                        .GetPowerSnoId() ==
                                                                                     PowerSno)
                                                                                     control
                                                                                         =
@@ -474,7 +474,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                                             (A_Enums
                                                                                                 .UIElements
                                                                                                 .SkillPanel_Passive_Skill18)
-                                                                                            .x166C_PowerSnoId ==
+                                                                                            .GetPowerSnoId() ==
                                                                                         PowerSno)
                                                                                         control
                                                                                             =
@@ -501,7 +501,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                                                                                                 (A_Enums
                                                                                                     .UIElements
                                                                                                     .SkillPanel_Passive_Skill19)
-                                                                                                .x166C_PowerSnoId ==
+                                                                                                .GetPowerSnoId() ==
                                                                                             PowerSno)
                                                                                             control
                                                                                                 =
@@ -527,19 +527,19 @@ namespace D3Helper.A_Handler.SkillBuildSwap
             string control = "";
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot1))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot1).x166C_PowerSnoId == PowerSno)
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot1).GetPowerSnoId() == PowerSno)
                     control = A_Enums.UIElements.SkillPanel_Active_SkillSlot1;
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot2))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot2).x166C_PowerSnoId == PowerSno)
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot2).GetPowerSnoId() == PowerSno)
                     control = A_Enums.UIElements.SkillPanel_Active_SkillSlot2;
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot3))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot3).x166C_PowerSnoId == PowerSno)
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot3).GetPowerSnoId() == PowerSno)
                     control = A_Enums.UIElements.SkillPanel_Active_SkillSlot3;
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot4))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot4).x166C_PowerSnoId == PowerSno)
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot4).GetPowerSnoId() == PowerSno)
                     control = A_Enums.UIElements.SkillPanel_Active_SkillSlot4;
 
             if (control != "")
@@ -552,29 +552,6 @@ namespace D3Helper.A_Handler.SkillBuildSwap
 
                 Thread.Sleep(50);
             }
-        }
-        private static void Action_AcceptPassiveSkill()
-        {
-            if (!isSkillsWindowVisible())
-                return;
-
-            UIRect Slot = A_Tools.T_D3UI.UIElement.getRect(A_Enums.UIElements.SkillPanel_AcceptPassive);
-
-            A_Tools.InputSimulator.IS_Mouse.LeftClick((int) Slot.Left, (int) Slot.Top, (int) Slot.Right,
-                (int) Slot.Bottom);
-
-            Thread.Sleep(50);
-        }
-        private static void Action_AcceptActiveSkill()
-        {
-            if (!isSkillsWindowVisible())
-                return;
-
-            UIRect Slot = A_Tools.T_D3UI.UIElement.getRect(A_Enums.UIElements.SkillPanel_AcceptActive);
-
-            A_Tools.InputSimulator.IS_Mouse.LeftClick((int)Slot.Left, (int)Slot.Top, (int)Slot.Right, (int)Slot.Bottom);
-
-            Thread.Sleep(50);
         }
         private static void Action_SelectRune(int PowerSno, int RuneId)
         {
@@ -655,19 +632,19 @@ namespace D3Helper.A_Handler.SkillBuildSwap
         {
 
             if(A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot1))
-                if(UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot1).x166C_PowerSnoId == PowerSno)
+                if(UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot1).GetPowerSnoId() == PowerSno)
                     return true;
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot2))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot2).x166C_PowerSnoId == PowerSno)
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot2).GetPowerSnoId() == PowerSno)
                     return true;
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot3))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot3).x166C_PowerSnoId == PowerSno)
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot3).GetPowerSnoId() == PowerSno)
                     return true;
 
             if (A_Tools.T_D3UI.UIElement.isVisible(A_Enums.UIElements.SkillPanel_Active_SkillSlot4))
-                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot4).x166C_PowerSnoId == PowerSno)
+                if (UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_SkillSlot4).GetPowerSnoId() == PowerSno)
                     return true;
 
             return false;
@@ -790,45 +767,9 @@ namespace D3Helper.A_Handler.SkillBuildSwap
             if (!UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_AssignesSkill).IsVisible())
                 return false;
 
-            int Sno = UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_AssignesSkill).x166C_PowerSnoId;
+            int Sno = UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_AssignesSkill).GetPowerSnoId();
 
             return  Sno == PowerSno;
-        }
-
-        private static bool isPassivePowerAssigned(int slot, int PowerSno)
-        {
-            switch (slot)
-            {
-                case 0:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned1).x166C_PowerSnoId ==
-                        PowerSno;
-
-                case 1:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned2).x166C_PowerSnoId ==
-                        PowerSno;
-
-                case 2:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned3).x166C_PowerSnoId ==
-                        PowerSno;
-
-                case 3:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned4).x166C_PowerSnoId ==
-                        PowerSno;
-
-                default:
-                    return false;
-            }
-        }
-
-        private static bool isActiveRuneAssigned(string RuneName)
-        {
-            return
-                UXHelper.GetControl<UXLabel>(A_Enums.UIElements.SkillPanel_Active_AssignedRune)
-                    .xA20_Text_StructStart_Min84Bytes == RuneName;
         }
 
         private static bool isSkillPanel_MainWindow()
@@ -887,7 +828,7 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                         break;
                 }
 
-                if (UXHelper.GetControl<UXIcon>(control).x166C_PowerSnoId != -1)
+                if (UXHelper.GetControl<UXIcon>(control).GetPowerSnoId() != -1)
                 {
                     UIRect Slot = A_Tools.T_D3UI.UIElement.getRect(control);
 

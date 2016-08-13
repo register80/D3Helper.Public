@@ -65,33 +65,5 @@ namespace D3Helper.A_Tools
             }
             catch { return false; }
         }
-
-        public static double get_GRift_ProgressScore(int GRiftTier)
-        {
-            try
-            {
-                var HpMultiplicator = A_Tools.T_LevelArea.get_GRift_HPMultiplicator(GRiftTier);
-                var BaseHP = A_Collection.Environment.Actors.RiftHitpointsInRange/HpMultiplicator;
-
-                return (A_Collection.Environment.Actors.RiftProgressInRange_Percentage/BaseHP)*(1000000);
-            }
-            catch (Exception)
-            {
-
-                return 0;
-            }
-        }
-        public static double get_GRift_HPMultiplicator(int Tier)
-        {
-            try
-            {
-                return 2*Math.Pow(1.17, Tier - 1);
-            }
-            catch (Exception)
-            {
-
-                return 0;
-            }
-        }
     }
 }

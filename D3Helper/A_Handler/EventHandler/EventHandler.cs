@@ -10,16 +10,6 @@ using D3Helper.A_Enums;
 
 namespace D3Helper.A_Handler.EventHandler
 {
-    public class Pylon
-    {
-        public Pylon(PylonName name, LevelArea levelArea)
-        {
-            this.Name = name;
-            this.LevelArea = levelArea;
-        }
-        public PylonName Name { get; set; }
-        public LevelArea LevelArea { get; set; }
-    }
     class EventHandler
     {
         public static void handleEvents()

@@ -37,7 +37,7 @@ namespace D3Helper
         public static DateTime Start = DateTime.Now;
         public static PrivateFontCollection _FontCollection = new PrivateFontCollection();
 
-        public static readonly Version SupportedVersion = new Version(2, 4, 1, 36595);
+        public static readonly Version SupportedVersion = Engine.SupportedVersion;
         
         public Window_Main()
         {
@@ -64,11 +64,6 @@ namespace D3Helper
                     {
                         Window_Outdated WO = new Window_Outdated();
                         WO.ShowDialog();
-                    }
-                    //-- Access Validation
-                    if (!A_Tools.Authentification.Validation.IsValidated())
-                    {
-                        // !!!!! REENABLE THIS!!!!!!
                     }
                     
                     System.Timers.Timer UpdateUI = new System.Timers.Timer(250);
@@ -162,7 +157,7 @@ namespace D3Helper
         {
             if (!SupportedProcessVersion())
             {
-                this.Text = "You are running a not supported D3Client(" + GetFileVersion().ToString() +
+                this.Text = "You are running a not supported D3Client(" + GetFileVersion() +
                             ") Supported Version is " + SupportedVersion;
 
                 return;

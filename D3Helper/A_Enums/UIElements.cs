@@ -8,45 +8,18 @@ namespace D3Helper.A_Enums
 {
     class UIElements
     {
-        public const string SkillHotBar1_Text = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_text_1";
-        public const string SkillHotBar2_Text = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_text_2";
-        public const string SkillHotBar3_Text = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_text_3";
-        public const string SkillHotBar4_Text = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_text_4";
         public const string SkillHotBar1 = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_1";
         public const string SkillHotBar2 = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_2";
         public const string SkillHotBar3 = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_3";
         public const string SkillHotBar4 = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_skill_hotbar_4";
         public const string SkillHotBarRightclick = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_activeSkillRight";
         public const string SkillHotBarLeftclick = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_activeSkillLeft";
-        public const string PotionSlot = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_potion";
-        public const string PotionSlotText = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_potion_text";
-        public const string PotionSlotBlinker = "Root.NormalLayer.game_dialog_backgroundScreenPC.game_potion.blinker";
-        public const string ActorPortraitFrame = "Root.NormalLayer.portraits.stack.party_stack.portrait_0.Frame";
         public const string ChatEditLine = "Root.NormalLayer.chatentry_dialog_backgroundScreen.chatentry_content.chat_editline";
         public const string LocalMap = "Root.NormalLayer.map_dialog_mainPage.localmap";
         public const string Inventory = "Root.NormalLayer.inventory_dialog_mainPage.inventory_button_backpack";
-        public const string InventoryButton = "Root.NormalLayer.game_dialog_backgroundScreenPC.button_inventory";
         public const string InventoryMainPage = "Root.NormalLayer.inventory_dialog_mainPage";
 
         public const string SkillPanel = "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList";
-
-        public const string SkillPanel_SkillLeftMouse =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SkillLeftMouse.SkillButton";
-
-        public const string SkillPanel_SkillRightMouse =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SkillRightMouse.SkillButton";
-
-        public const string SkillPanel_Skill1 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SkillAction1.SkillButton";
-
-        public const string SkillPanel_Skill2 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SkillAction2.SkillButton";
-
-        public const string SkillPanel_Skill3 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SkillAction3.SkillButton";
-
-        public const string SkillPanel_Skill4 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SkillAction4.SkillButton";
 
         public const string SkillPanel_Passive1 =
             "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SelectedPassive1.PassiveButton";
@@ -59,12 +32,6 @@ namespace D3Helper.A_Enums
 
         public const string SkillPanel_Passive4 =
             "Root.NormalLayer.SkillPane_main.LayoutRoot.SkillsList.SelectedPassive4.PassiveButton";
-
-        public const string SkillPanel_AcceptPassive =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.PassiveSkillSelect.AcceptPassiveSkillsButton";
-
-        public const string SkillPanel_AcceptActive =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.AcceptActiveSkillsButton";
 
         public const string SkillPanel_Active_RuneSlot0 =
             "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.RuneSelectionContainer.RuneSelectionList.RuneSlot0.RuneSelectionButton";
@@ -83,9 +50,6 @@ namespace D3Helper.A_Enums
 
         public const string SkillPanel_Active_RuneSlot5 = "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.RuneSelectionContainer.RuneSelectionList.RuneSlot5.RuneSelectionButton";
         public const string SkillPanel_Active_RuneSlot5_Text = "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.RuneSelectionContainer.RuneSelectionList.RuneSlot5.RuneSelectionName";
-
-        public const string SkillPanel_Active_PageBack =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.ActiveSkillCategoryBack";
 
         public const string SkillPanel_Active_PageNext =
             "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.ActiveSkillCategoryNext";
@@ -162,39 +126,16 @@ namespace D3Helper.A_Enums
         public const string SkillPanel_Active_AssignesSkill =
             "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.SelectedSkill.SkillIcon";
 
-        public const string SkillPanel_Passive_Assigned1 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.PassiveSkillSelect.SkillSelectPassive1.PassiveSelectedIcon";
-
-        public const string SkillPanel_Passive_Assigned2 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.PassiveSkillSelect.SkillSelectPassive2.PassiveSelectedIcon";
-
-        public const string SkillPanel_Passive_Assigned3 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.PassiveSkillSelect.SkillSelectPassive3.PassiveSelectedIcon";
-
-        public const string SkillPanel_Passive_Assigned4 =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.PassiveSkillSelect.SkillSelectPassive4.PassiveSelectedIcon";
-
-        public const string SkillPanel_Active_AssignedRune =
-            "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect.SelectedSkill.SkillRune.SkillRuneName";
-
         public const string ActiveSkillList = "Root.NormalLayer.SkillPane_main.LayoutRoot.ActiveSkillSelect";
-        public const string pet_icon = "Root.NormalLayer.portraits.stack.pet_stack.portrait_0";
-        public const string portrait_0_text = "Root.NormalLayer.portraits.stack.party_stack.portrait_0.text";
-        public const string menu_portrait_1_text = "Root.NormalLayer.BattleNetCampaign_main.LayoutRoot.Slot1.LayoutRoot.Portrait.text";
         public const string portrait_0 = "Root.NormalLayer.portraits.stack.party_stack.portrait_0.icon";
         public const string portrait_1 = "Root.NormalLayer.portraits.stack.party_stack.portrait_1.icon";
         public const string portrait_2 = "Root.NormalLayer.portraits.stack.party_stack.portrait_2.icon";
         public const string portrait_3 = "Root.NormalLayer.portraits.stack.party_stack.portrait_3.icon";
-        public const string acceptLeaveButton = "Root.TopLayer.BattleNetModalNotifications_main.ModalNotification.Buttons.ButtonList.OkButton";
-        public const string contextMenuLeaveParty = "Root.TopLayer.ContextMenus.PlayerContextMenu.PlayerContextMenuContent.PlayerContextMenuList.LeaveParty";
         public const string contextMenu = "Root.TopLayer.ContextMenus.PlayerContextMenu";
-        public const string MenuLeaveGame = "Root.NormalLayer.gamemenu_dialog.gamemenu_bkgrnd.ButtonStackContainer.button_leaveGame";
         public const string GameMenu = "Root.NormalLayer.gamemenu_dialog.gamemenu_bkgrnd";
         public const string BountyMap = "Root.NormalLayer.WaypointMap_main.LayoutRoot.OverlayContainer.OverlayRightClickEater";
         public const string FriendListContent = "Root.NormalLayer.BattleNetFriendsList_main.LayoutRoot.OverlayContainer.FriendsListContent";
         public const string ShopDialogMainPage = "Root.NormalLayer.shop_dialog_mainPage";
-        public const string GreaterRiftVictoryWindow_Button_Ok = "Root.NormalLayer.GreaterRifts_VictoryScreen.LayoutRoot.Middle_Frame.button_exit";
-        public const string Difficulty_Clock = "Root.NormalLayer.minimap_dialog_backgroundScreen.minimap_dialog_pve.BoostWrapper.BoostsDifficultyStackPanel.clock";
         public const string GuildMain = "Root.NormalLayer.Guild_main.LayoutRoot.OverlayContainer";
         public const string LeaderboardsMain = "Root.NormalLayer.BattleNetLeaderboard_main.LayoutRoot.OverlayContainer";
         public const string AchievementsMain = "Root.NormalLayer.BattleNetAchievements_main.LayoutRoot.OverlayContainer";
@@ -222,7 +163,6 @@ namespace D3Helper.A_Enums
 
         public const string ParagonPointSelect_Reset_Button = "Root.NormalLayer.Paragon_main.LayoutRoot.ParagonPointSelect.ResetParagonPointsButton";
         public const string ParagonPointSelect_Accept_Button = "Root.NormalLayer.Paragon_main.LayoutRoot.ParagonPointSelect.AcceptParagonPointsButton";
-        public const string ParagonPointSelect_Close_Button = "Root.NormalLayer.Paragon_main.LayoutRoot.ParagonPointSelect.CancelParagonPointsButton";
 
         public const string ParagonPointSelect_SpentPoint_Bonus0 = "Root.NormalLayer.Paragon_main.LayoutRoot.ParagonPointSelect.Bonuses.bonus0.IncreaseStat";
         public const string ParagonPointSelect_SpentPoint_Bonus1 = "Root.NormalLayer.Paragon_main.LayoutRoot.ParagonPointSelect.Bonuses.bonus1.IncreaseStat";

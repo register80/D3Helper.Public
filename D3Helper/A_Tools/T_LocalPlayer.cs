@@ -241,22 +241,6 @@ namespace D3Helper.A_Tools
             }
             catch { return false; }
         }
-        public static int getBuffCount(int SnoId)
-        {
-            try
-            {
-                lock (A_Collection.Me.HeroDetails.ActivePowers)
-                {
-                    var tryGetBuff = A_Collection.Me.HeroDetails.ActivePowers.ToList().FirstOrDefault(x => x.PowerSnoId == SnoId && PowerCollection.isBuffCount(x.AttribId));
-                    if (tryGetBuff != null)
-                    {
-                        return tryGetBuff.Value;
-                    }
-                    return 0;
-                }
-            }
-            catch { return 0; }
-        }
         public static int getBuffCount(int SnoId, int AttribId)
         {
             try
@@ -274,93 +258,6 @@ namespace D3Helper.A_Tools
                 }
             }
             catch { return 0; }
-        }
-        public class DualWield
-        {
-            public static double GetMostWeaponDmgWeaponId()
-            {
-                try
-                {
-                    lock (A_Collection.Me.HeroDetails.EquippedItems)
-                    {
-                        var container = A_Collection.Me.HeroDetails.EquippedItems.ToList();
-
-                        var MainHand = container.FirstOrDefault(x => x.x114_ItemLocation == Enigma.D3.Enums.ItemLocation.PlayerLeftHand);
-                        var OffHand = container.FirstOrDefault(x => x.x114_ItemLocation == Enigma.D3.Enums.ItemLocation.PlayerRightHand);
-
-                        var MainHand_Min = MainHand.GetAttributeValue(Enigma.D3.Enums.AttributeId.DamageWeaponMinTotalAll);
-                        var MainHand_Max = MainHand.GetAttributeValue(Enigma.D3.Enums.AttributeId.DamageWeaponMaxTotalAll);
-                        var MainHand_Avg = ((MainHand_Min + MainHand_Max) / 2);
-
-                        var OffHand_Min = OffHand.GetAttributeValue(Enigma.D3.Enums.AttributeId.DamageWeaponMinTotalAll);
-                        var OffHand_Max = OffHand.GetAttributeValue(Enigma.D3.Enums.AttributeId.DamageWeaponMaxTotalAll);
-                        var OffHand_Avg = ((OffHand_Min + OffHand_Max) / 2);
-
-                        if (MainHand_Avg > OffHand_Avg)
-                        {
-                            return 1;
-                        }
-                        return 0;
-                    }
-                }
-                catch { return -1; }
-            }
-            public static bool isDualWielding()
-            {
-                try
-                {
-                    lock(A_Collection.Me.HeroGlobals.LocalACD)
-                    {
-                        var LeftHand = A_Collection.Me.HeroGlobals.LocalACD.GetAttributeValue(Enigma.D3.Enums.AttributeId.AttacksPerSecondItemMainHand);
-                        var RightHand = A_Collection.Me.HeroGlobals.LocalACD.GetAttributeValue(Enigma.D3.Enums.AttributeId.AttacksPerSecondItemOffHand);
-
-                        if (LeftHand > 0 && RightHand > 0)
-                        {
-                            return true;
-                        }
-                        return false;
-                    }
-                }
-                catch { return false; }
-            }
-            public static ActorCommonData GetWeaponAcdByHandId(double HandId)
-            {
-                lock (A_Collection.Me.HeroDetails.EquippedItems)
-                {
-                    var container = A_Collection.Me.HeroDetails.EquippedItems.ToList();
-
-                    if (HandId == 0)
-                    {
-                        return container.FirstOrDefault(x => x.x114_ItemLocation == Enigma.D3.Enums.ItemLocation.PlayerLeftHand);
-                    }
-                    return container.FirstOrDefault(x => x.x114_ItemLocation == Enigma.D3.Enums.ItemLocation.PlayerRightHand);
-                }
-            }
-            public static double GetCurrentHand()
-            {
-                double NextHand = GetNextHand();
-
-                if (NextHand > -1)
-                {
-                    if (NextHand == 0)
-                    {
-                        return 1;
-                    }
-                    return 0;
-                }
-                return -1;
-            }
-            public static double GetNextHand()
-            {
-                try
-                {
-                    lock(A_Collection.Me.HeroGlobals.LocalACD)
-                    {
-                        return A_Collection.Me.HeroGlobals.LocalACD.GetAttributeValue(Enigma.D3.Enums.AttributeId.DualWieldHandNext);
-                    }
-                }
-                catch { return -1; }
-            }
         }
 
         public class ConventionOfElements

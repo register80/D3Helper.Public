@@ -110,64 +110,6 @@ namespace D3Helper.A_Collector
                 lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
             }
         }
-        private static void get_AllActivePowers()
-        {
-            try
-            {
-
-                for (int i = 1; i < 4; i++)
-                {
-                    switch (i)
-                    {
-                        case 1:
-                            if (A_Collection.Me.Party.PartyMember1 != null)
-                            {
-                                var acd =
-                                    A_Collection.Me.Party.PartyMemberInRange.FirstOrDefault(
-                                        x => x._ACD.x08C_ActorId == A_Collection.Me.Party.PartyMember1.x0008_ActorId);
-                                if(acd != null)
-                                    lock (A_Collection.Me.Party.PartyMember1_ActivePowers)
-                                        A_Collection.Me.Party.PartyMember1_ActivePowers =
-                                            A_Tools.T_ACD.get_PlayerActivePowers(acd._ACD);
-                            }
-                            break;
-
-                        case 2:
-                            if (A_Collection.Me.Party.PartyMember2 != null)
-                            {
-                                var acd =
-                                    A_Collection.Me.Party.PartyMemberInRange.FirstOrDefault(
-                                        x => x._ACD.x08C_ActorId == A_Collection.Me.Party.PartyMember2.x0008_ActorId);
-                                if (acd != null)
-                                    lock (A_Collection.Me.Party.PartyMember2_ActivePowers)
-                                        A_Collection.Me.Party.PartyMember2_ActivePowers =
-                                            A_Tools.T_ACD.get_PlayerActivePowers(acd._ACD);
-                            }
-                            break;
-
-                        case 3:
-                            if (A_Collection.Me.Party.PartyMember3 != null)
-                            {
-                                var acd =
-                                    A_Collection.Me.Party.PartyMemberInRange.FirstOrDefault(
-                                        x => x._ACD.x08C_ActorId == A_Collection.Me.Party.PartyMember3.x0008_ActorId);
-                                if (acd != null)
-                                    lock (A_Collection.Me.Party.PartyMember3_ActivePowers)
-                                        A_Collection.Me.Party.PartyMember3_ActivePowers =
-                                            A_Tools.T_ACD.get_PlayerActivePowers(acd._ACD);
-                            }
-                            break;
-                    }
-                }
-
-            }
-            catch (Exception e)
-            {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
-            }
-        }
         private static void get_AllConvention()
         {
             try

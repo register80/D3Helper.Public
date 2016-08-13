@@ -104,8 +104,8 @@ namespace D3Helper.A_TCPClient
 
                         stm.Write(ba, 0, ba.Length);
 
-                        byte[] bb = new byte[102400];
-                        int k = stm.Read(bb, 0, 102400);
+                        byte[] bb = new byte[204800];
+                        int k = stm.Read(bb, 0, 204800);
 
                         int _DataSize = BitConverter.ToInt32(bb, 0);
                         int _Header = BitConverter.ToInt32(bb, 4);
@@ -131,6 +131,10 @@ namespace D3Helper.A_TCPClient
 
                             case _ObjectType._Int:
                                 string _Int = Encoding.ASCII.GetString(_Data, 0, _Data.Length);
+								if (_Int == "false")
+									return 0;
+								if (_Int == "true")
+									return 1;
                                 return int.Parse(_Int);
                                
 
@@ -176,7 +180,7 @@ namespace D3Helper.A_TCPClient
 
                 foreach (var rawdata in RawRecievedPowersList)
                 {
-                    if(rawdata.Length < 3)
+                    if(rawdata.Length < 3 || !rawdata.Contains("\t"))
                         continue;
                     
                     int PowerSNO = int.Parse(rawdata.Split('\t')[0]);

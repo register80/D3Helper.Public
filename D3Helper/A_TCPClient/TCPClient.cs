@@ -180,7 +180,7 @@ namespace D3Helper.A_TCPClient
 
                 foreach (var rawdata in RawRecievedPowersList)
                 {
-                    if(rawdata.Length < 3)
+                    if(rawdata.Length < 3 || !rawdata.Contains("\t"))
                         continue;
                     
                     int PowerSNO = int.Parse(rawdata.Split('\t')[0]);

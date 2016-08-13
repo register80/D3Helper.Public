@@ -1,3 +1,10 @@
+-------------------------------------------------------------------------------
+NB:
+This fork uses the *official* Enigma libraries, source found here: https://subversion.assembla.com/svn/enigma-d3/
+
+Below is original readme.
+-------------------------------------------------------------------------------
+
 Enigma.D3 needs to be referenced
 https://github.com/r3peat/Enigma.D3.Public
 

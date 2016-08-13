@@ -10,6 +10,7 @@ using D3Helper.A_Collection;
 using D3Helper.A_Enums;
 using D3Helper.A_Handler.SkillBuildSwap;
 using ProtoBuf;
+using System.Globalization;
 
 namespace D3Helper.A_Tools
 {
@@ -225,7 +226,7 @@ namespace D3Helper.A_Tools
 
                             int PowerSNO = int.Parse(LineSplit[0]);
 
-                            double ProgressPoints = double.Parse(LineSplit[5]);
+                            double ProgressPoints = double.Parse(LineSplit[5], CultureInfo.InvariantCulture);
 
                             A_Collection.Presets.Monsters.Monsters_RiftProgress.Add(PowerSNO, ProgressPoints);
 

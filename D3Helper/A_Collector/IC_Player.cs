@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using Enigma.D3;
 using Enigma.D3.Helpers;
 
-using D3Helper.A_Enigma_Extenstions;
-
 using D3Helper.A_Tools;
 using D3Helper.A_Collector;
 using Enigma.D3.Enums;
@@ -359,28 +357,6 @@ namespace D3Helper.A_Collector
                 A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
 
                 lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
-            }
-        }
-
-        private static double IAS_HiddenBonus()
-        {
-            try
-            {
-                double hiddenbonus = 0;
-
-                if (A_Tools.T_LocalPlayer.isBuff(401424, 746)) // Alacrity from HellfireAmulett
-                    hiddenbonus += 0.15;
-                if (A_Collection.Me.HeroDetails.PassiveSkills.Contains(156492)) // Alacrity from equipped Passive
-                    hiddenbonus += 0.15;
-                if (A_Tools.T_LocalPlayer.isBuff(427799, 746)) // Raiment 2Piece Bonus
-                    hiddenbonus += 0.25;
-
-                return hiddenbonus;
-            }
-            catch (Exception)
-            {
-
-                return 0;
             }
         }
         private static void get_ResourcePrimary()

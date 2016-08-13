@@ -277,36 +277,6 @@ namespace D3Helper.A_Tools.InputSimulator
 
         }
 
-        public static void ChannelKey_Stop(A_Enums.ActionBarSlot Hotkey)
-        {
-            var AllKeys = getKeys_ActionBarSlot(Hotkey);
-
-            foreach (var Key in AllKeys)
-            {
-                if (KeyChannelCache.ContainsKey(Key))
-                {
-                    KeyChannelCache.Remove(Key);
-
-                    if (Key == VirtualKeyCode.LBUTTON)
-                    {
-                        IS_Mouse.LeftUp(0, 0);
-                        continue;
-                    }
-
-                    if (Key == VirtualKeyCode.RBUTTON)
-                    {
-                        IS_Mouse.RightUp(0, 0);
-                        continue;
-                    }
-
-                    WindowsInput.InputSimulator.SimulateKeyUp(Key);
-                }
-                
-            }
-
-
-        }
-
         public static void ChannelKey_StopAll()
         {
             List<VirtualKeyCode> RemoveBuffer = new List<VirtualKeyCode>();

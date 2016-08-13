@@ -20,8 +20,6 @@ namespace D3Helper.A_Tools.InputSimulator
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
         static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
-        [DllImport("user32.dll")]
-        private static extern bool BlockInput(bool block);
         #endregion
         public static void RightCLick()
         {
@@ -155,16 +153,6 @@ namespace D3Helper.A_Tools.InputSimulator
             if (Properties.Settings.Default.Logger_extendedLog)
                 lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "MouseMove (" + x + "," + y + ")"));
             //
-        }
-
-        public static void UserInput_BlockMouse()
-        {
-            BlockInput(true);
-        }
-
-        public static void UserInput_ReleaseMouse()
-        {
-            BlockInput(false);
         }
     }
 }

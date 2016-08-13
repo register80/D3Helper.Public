@@ -553,29 +553,6 @@ namespace D3Helper.A_Handler.SkillBuildSwap
                 Thread.Sleep(50);
             }
         }
-        private static void Action_AcceptPassiveSkill()
-        {
-            if (!isSkillsWindowVisible())
-                return;
-
-            UIRect Slot = A_Tools.T_D3UI.UIElement.getRect(A_Enums.UIElements.SkillPanel_AcceptPassive);
-
-            A_Tools.InputSimulator.IS_Mouse.LeftClick((int) Slot.Left, (int) Slot.Top, (int) Slot.Right,
-                (int) Slot.Bottom);
-
-            Thread.Sleep(50);
-        }
-        private static void Action_AcceptActiveSkill()
-        {
-            if (!isSkillsWindowVisible())
-                return;
-
-            UIRect Slot = A_Tools.T_D3UI.UIElement.getRect(A_Enums.UIElements.SkillPanel_AcceptActive);
-
-            A_Tools.InputSimulator.IS_Mouse.LeftClick((int)Slot.Left, (int)Slot.Top, (int)Slot.Right, (int)Slot.Bottom);
-
-            Thread.Sleep(50);
-        }
         private static void Action_SelectRune(int PowerSno, int RuneId)
         {
             if (!isSkillsWindowVisible())
@@ -793,42 +770,6 @@ namespace D3Helper.A_Handler.SkillBuildSwap
             int Sno = UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Active_AssignesSkill).GetPowerSnoId();
 
             return  Sno == PowerSno;
-        }
-
-        private static bool isPassivePowerAssigned(int slot, int PowerSno)
-        {
-            switch (slot)
-            {
-                case 0:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned1).GetPowerSnoId() ==
-                        PowerSno;
-
-                case 1:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned2).GetPowerSnoId() ==
-                        PowerSno;
-
-                case 2:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned3).GetPowerSnoId() ==
-                        PowerSno;
-
-                case 3:
-                    return
-                        UXHelper.GetControl<UXIcon>(A_Enums.UIElements.SkillPanel_Passive_Assigned4).GetPowerSnoId() ==
-                        PowerSno;
-
-                default:
-                    return false;
-            }
-        }
-
-        private static bool isActiveRuneAssigned(string RuneName)
-        {
-            return
-                UXHelper.GetControl<UXLabel>(A_Enums.UIElements.SkillPanel_Active_AssignedRune)
-                    .xA20_Text_StructStart_Min84Bytes == RuneName;
         }
 
         private static bool isSkillPanel_MainWindow()

@@ -552,16 +552,10 @@ namespace D3Helper.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to *Add_Property_Channeling
-        ///- This skill will be channeled while Conditions are TRUE instead of just single used/clicked
+        ///- (If Value = -1 This skill will be channeled while Conditions are TRUE instead of just single used/clicked) (If Value &gt; 0/-1 This skill will be channeled for X Amount(VALUE) of Ticks(60 ticks = 1 sec) after all Conditions are TRUE)
         ///
-        ///*Key_ForceStandStill
-        ///- IF CHECKED it Is TRUE if the ForceStandStill Key is pressed IF UNCHECKED it Is TRUE if the ForceStandStill Key is NOT pressed
-        ///
-        ///*MonstersInRange_HaveArcaneEnchanted
-        ///- IF CHECKED it Is TRUE if there is ATLEAST ONE monster in range with that affix IF UNCHECKED it Is TRUE if there are NO MONSTERS in range with the given AFFIX
-        ///
-        ///*MonstersInRange_HaveAvenger
-        ///- IF C [rest of string was truncated]&quot;;.
+        ///*Add_Property_APSSnapShot
+        ///- (Requires ConditionType.Player_MinAPS) (If this Property is added D3Helper will cache Player&apos;s APS on AreaChange,UseHealthPotion,Death) (If cached APS is greater then or equal set Player_MinAPS this Skill will not be cast [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string conditiontype_manual {
             get {
@@ -1895,7 +1889,7 @@ namespace D3Helper.Properties {
         ///2892	25930	1883453276	A1C4Guard	none	1.25	Wortham Guard
         ///51286	25943	2702914655	A1C4Villager	normal	0.00	Frightened Villager
         ///51287	25946	1666073867	A1C4ZombieSkinny	normal	1.00	Risen
-        ///58018	63 [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string monster {
             get {

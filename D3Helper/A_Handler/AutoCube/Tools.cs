@@ -152,32 +152,6 @@ namespace D3Helper.A_Handler.AutoCube
             }
         }
 
-        public static List<ActorCommonData> Get_RareUpgradableItems()
-        {
-            List<ActorCommonData> Items = new List<ActorCommonData>();
-
-            try
-            {
-                var inventory = ActorCommonDataHelper.EnumerateInventoryItems();
-
-                foreach (var item in inventory)
-                {
-                    var name = item.x004_Name; // not needed but nice for debug
-                    var quality = item.GetAttributeValue(AttributeId.ItemQualityLevel);
-
-
-                    if (quality >= 6 && quality <= 8) //Rare
-                        Items.Add(item);
-                }
-
-                return Items;
-            }
-            catch (Exception)
-            {
-                return Items;
-            }
-        }
-
         private static int[] Costs_UpgradeRare = new int[] { 25, 50, 50, 50 }; // Deaths Breath | Reusable Parts | Arcane Dust | Veiled Crystal
 
         public static double Get_AvailableEnchants_UpgradeRare(out List<ActorCommonData> Materials)

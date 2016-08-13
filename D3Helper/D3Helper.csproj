@@ -95,19 +95,14 @@
     <Compile Include="A_Collector\IC_Party.cs" />
     <Compile Include="A_Enums\ActionBarSlot.cs" />
     <Compile Include="A_Enums\BonusPoints.cs" />
-    <Compile Include="A_Enums\ConditionPrefix.cs" />
     <Compile Include="A_Enums\ConditionType.cs" />
     <Compile Include="A_Enums\ConditionValueName.cs" />
     <Compile Include="A_Enums\DamageType.cs" />
-    <Compile Include="A_Enums\Skills.cs" />
-    <Compile Include="A_Experimental\Demonhunter.cs" />
-    <Compile Include="A_Experimental\Wizard.cs" />
     <Compile Include="A_Collection\D3Client.cs" />
     <Compile Include="A_Collection\D3UI.cs" />
     <Compile Include="A_Collection\Environment.cs" />
     <Compile Include="A_Collection\Hotkeys.cs" />
     <Compile Include="A_Collection\Me.cs" />
-    <Compile Include="A_Collection\Overlay.cs" />
     <Compile Include="A_Collection\Preferences.cs" />
     <Compile Include="A_Collection\Skills.cs" />
     <Compile Include="A_Collection\Stats.cs" />
@@ -120,10 +115,8 @@
     <Compile Include="A_Collector\IC_D3UI.cs" />
     <Compile Include="A_Collector\IC_Player.cs" />
     <Compile Include="A_Collector\H_Keyboard.cs" />
-    <Compile Include="A_Enigma_Extenstions\MemoryReaderExtensions.cs" />
     <Compile Include="A_Enums\ExceptionThread.cs" />
     <Compile Include="A_Enums\HeroClass.cs" />
-    <Compile Include="A_Enums\LevelAreas.cs" />
     <Compile Include="A_Enums\ParagonXPTable.cs" />
     <Compile Include="A_Enums\Powers.cs" />
     <Compile Include="A_Enums\TCPInstructions.cs" />
@@ -144,7 +137,6 @@
     <Compile Include="A_Handler\StatHandler\StatHandler.cs" />
     <Compile Include="A_Initialize\Th_Handler.cs" />
     <Compile Include="A_Initialize\Th_ICollector.cs" />
-    <Compile Include="A_SMTPClient\SMTPClient.cs" />
     <Compile Include="A_TCPClient\TCPClient.cs" />
     <Compile Include="A_Tools\Buffs\Buffs.cs" />
     <Compile Include="A_Tools\InputSimulator\IS_Keyboard.cs" />
@@ -159,8 +151,6 @@
     <Compile Include="A_Tools\T_World.cs" />
     <Compile Include="A_Tools\Version\AppVersion.cs" />
     <Compile Include="A_Enums\ItemTypes.cs" />
-    <Compile Include="A_Enums\PylonName.cs" />
-    <Compile Include="A_Web\Web.cs" />
     <Compile Include="EnigmaAdapter.cs" />
     <Compile Include="Window_ActivePowerView.cs">
       <SubType>Form</SubType>
@@ -198,14 +188,12 @@
     <Compile Include="Window_Settings.Designer.cs">
       <DependentUpon>Window_Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="A_Enums\VirtualKeys.cs" />
     <Compile Include="Window_Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Window_Main.Designer.cs">
       <DependentUpon>Window_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="A_Tools\T_Chat.cs" />
     <Compile Include="A_WPFOverlay\Overlay.xaml.cs">
       <DependentUpon>Overlay.xaml</DependentUpon>
     </Compile>
@@ -217,8 +205,6 @@
     <Compile Include="Window_Info.Designer.cs">
       <DependentUpon>Window_Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="Skills.cs" />
-    <Compile Include="TODO.cs" />
     <EmbeddedResource Include="Window_ImportExport.resx">
       <DependentUpon>Window_ImportExport.cs</DependentUpon>
     </EmbeddedResource>

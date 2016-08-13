@@ -36,14 +36,6 @@ namespace D3Helper.A_Tools
                 }
                 catch { return false; }
             }
-            public static string Label_getText(string LabelControlName)
-            {
-                try
-                {
-                    return UXHelper.GetControl<UXLabel>(LabelControlName).xA20_Text_StructStart_Min84Bytes;
-                }
-                catch { return ""; }
-            }
             public static UIRect getRect(string control)
             {
                 
@@ -68,39 +60,6 @@ namespace D3Helper.A_Tools
             {
                 var Inventory = "Root.NormalLayer.inventory_dialog_mainPage.inventory_button_backpack";
                 return UIElement.getRect(Inventory);
-            }
-            public static UIRect get_InventoryMainPageUIRect()
-            {
-                var mainPage = A_Enums.UIElements.InventoryMainPage;
-                return UIElement.getRect(mainPage);
-            }
-            public static UIRect get_VersionInfoUIRect()
-            {
-                if (A_Collection.Me.HeroStates.isInGame)
-                {
-                    UIRect inventoryMainPage = UIElement.getRect("Root.NormalLayer.inventory_dialog_mainPage");
-
-                    UIRect versionInfoUIRect = new UIRect();
-                    versionInfoUIRect.Left = inventoryMainPage.Left + ((inventoryMainPage.Right - inventoryMainPage.Left) * 300 / 1000);
-                    versionInfoUIRect.Top = inventoryMainPage.Top + ((inventoryMainPage.Bottom - inventoryMainPage.Top) * 8 / 1000);
-
-                    return versionInfoUIRect;
-                }
-                return new UIRect();
-            }
-            public static UIRect get_EditModeStatusUIRect()
-            {
-                if (A_Collection.Me.HeroStates.isInGame)
-                {
-                    UIRect inventoryMainPage = UIElement.getRect("Root.NormalLayer.inventory_dialog_mainPage");
-
-                    UIRect editModeStatusUIRect = new UIRect();
-                    editModeStatusUIRect.Left = inventoryMainPage.Left + ((inventoryMainPage.Right - inventoryMainPage.Left) * 630 / 1000);
-                    editModeStatusUIRect.Top = inventoryMainPage.Top + ((inventoryMainPage.Bottom - inventoryMainPage.Top) * 8 / 1000);
-
-                    return editModeStatusUIRect;
-                }
-                return new UIRect();
             }
             public static void create_InventoryMesh()
             {

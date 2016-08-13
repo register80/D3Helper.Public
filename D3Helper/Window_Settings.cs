@@ -666,19 +666,6 @@ namespace D3Helper
             Properties.Settings.Default.Save();
         }
 
-        private void tb_autopotionhpvalue_TextChanged(object sender, EventArgs e)
-        {
-            int value;
-            if (int.TryParse(this.tb_autopotionhpvalue.Text, out value))
-            {
-                if (value > 0 && value <= 100)
-                {
-                    Properties.Settings.Default.AutoPotionValue = value;
-                    Properties.Settings.Default.Save();
-                }
-            }
-        }
-
         private void cb_fps_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.overlayfps = this.cb_fps.Checked;
@@ -1481,11 +1468,6 @@ namespace D3Helper
             SkillBuild_UpdateView();
         }
 
-        private void BTN_SkillBuilds_UpdateView_Click(object sender, EventArgs e)
-        {
-            SkillBuild_UpdateView();
-        }
-
         private void bt_delete_hotkey_skillbuild1_Click(object sender, EventArgs e)
         {
             if (this.tb_assignedSkillBuild1.Text.Length > 1)
@@ -1627,41 +1609,6 @@ namespace D3Helper
         {
             Properties.Settings.Default.DisableAutocastOnNoOverride = this.cb_DisableAutocastOnNoOverride.Checked;
             Properties.Settings.Default.Save();
-        }
-
-        private void cbox_ConvertMaterialFromTo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Change variables accordingly
-            switch (cbox_ConvertMaterialFromTo.Text)
-            {
-                case "White (Reusable Parts) to Blue (Arcane Dust)":
-                    Properties.Settings.Default.ConvertMaterialFrom = "normal";
-                    Properties.Settings.Default.ConvertMaterialTo = "magic";
-                    break;
-                case "White (Reusable Parts) to Yellow (Veiled Crystal)":
-                    Properties.Settings.Default.ConvertMaterialFrom = "normal";
-                    Properties.Settings.Default.ConvertMaterialTo = "rare";
-                    break;
-                case "Blue (Arcane Dust) to White (Reusable Parts)":
-                    Properties.Settings.Default.ConvertMaterialFrom = "magic";
-                    Properties.Settings.Default.ConvertMaterialTo = "normal";
-                    break;
-                case "Blue (Arcane Dust) to Yellow (Veiled Crystal)":
-                    Properties.Settings.Default.ConvertMaterialFrom = "magic";
-                    Properties.Settings.Default.ConvertMaterialTo = "rare";
-                    break;
-                case "Yellow (Veiled Crystal) to White (Reusable Parts)":
-                    Properties.Settings.Default.ConvertMaterialFrom = "rare";
-                    Properties.Settings.Default.ConvertMaterialTo = "normal";
-                    break;
-                case "Yellow (Veiled Crystal) to Blue (Arcane Dust)":
-                    Properties.Settings.Default.ConvertMaterialFrom = "rare";
-                    Properties.Settings.Default.ConvertMaterialTo = "magic";
-                    break;
-            }
-
-            // Save the settings
-            Properties.Settings.Default.ConvertMaterialText = cbox_ConvertMaterialFromTo.Text;
         }
     }
 }

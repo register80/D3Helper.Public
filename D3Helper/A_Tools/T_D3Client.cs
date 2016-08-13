@@ -34,12 +34,6 @@ namespace D3Helper.A_Tools
 
             [DllImport(User32)]
             internal static extern bool ClientToScreen(IntPtr windowHandle, ref Int32Rect point);
-
-            [DllImport(User32)]
-            internal static extern int GetWindowLong(IntPtr windowHandle, int index);
-
-            [DllImport(User32)]
-            internal static extern int SetWindowLong(IntPtr windowHandle, int index, int newStyle);
         }
         public static Int32Rect getClient_Rect(IntPtr windowHandle)
         {

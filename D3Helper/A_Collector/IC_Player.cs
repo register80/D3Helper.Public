@@ -283,9 +283,9 @@ namespace D3Helper.A_Collector
             {
                 lock(A_Collection.Me.HeroGlobals.LocalPlayerData)
                 {
-                    A_Collection.Me.HeroGlobals.HeroID = A_Collection.Me.HeroGlobals.LocalPlayerData.x9180_HeroId;
-                    lock (A_Collection.Me.HeroGlobals.HeroName) A_Collection.Me.HeroGlobals.HeroName = A_Collection.Me.HeroGlobals.LocalPlayerData.x9188_HeroName;
-                    A_Collection.Me.HeroGlobals.HeroClass = (A_Enums.HeroClass)A_Collection.Me.HeroGlobals.LocalPlayerData.x964C_HeroClass;
+                    A_Collection.Me.HeroGlobals.HeroID = A_Collection.Me.HeroGlobals.LocalPlayerData.GetHeroId();
+                    lock (A_Collection.Me.HeroGlobals.HeroName) A_Collection.Me.HeroGlobals.HeroName = A_Collection.Me.HeroGlobals.LocalPlayerData.GetHeroName();
+                    A_Collection.Me.HeroGlobals.HeroClass = (A_Enums.HeroClass)A_Collection.Me.HeroGlobals.LocalPlayerData.GetHeroClass();
                 }
             }
             catch (Exception e)
@@ -301,8 +301,8 @@ namespace D3Helper.A_Collector
             {
                 lock(A_Collection.Me.HeroGlobals.LocalPlayerData)
                 {
-                    A_Collection.Me.HeroGlobals.Lvl = A_Collection.Me.HeroGlobals.LocalPlayerData.x9650_Level;
-                    A_Collection.Me.HeroGlobals.Alt_Lvl = A_Collection.Me.HeroGlobals.LocalPlayerData.x9654_AltLevel;
+                    A_Collection.Me.HeroGlobals.Lvl = A_Collection.Me.HeroGlobals.LocalPlayerData.GetLevel();
+                    A_Collection.Me.HeroGlobals.Alt_Lvl = A_Collection.Me.HeroGlobals.LocalPlayerData.GetAltLevel();
                 }
             }
             catch (Exception e)
@@ -317,7 +317,7 @@ namespace D3Helper.A_Collector
             try
             {
                 lock(A_Collection.Me.HeroGlobals.LocalACD) A_Collection.Me.HeroDetails.Hitpoints = A_Collection.Me.HeroGlobals.LocalACD.GetAttributeValue(Enigma.D3.Enums.AttributeId.HitpointsCur);
-                lock(A_Collection.Me.HeroGlobals.LocalPlayerData) A_Collection.Me.HeroDetails.Hitpoints_Percentage = A_Collection.Me.HeroGlobals.LocalPlayerData.x9640_LifePercentage * 100;
+                lock(A_Collection.Me.HeroGlobals.LocalPlayerData) A_Collection.Me.HeroDetails.Hitpoints_Percentage = A_Collection.Me.HeroGlobals.LocalPlayerData.GetLifePercentage() * 100;
 
                 if (A_Collection.Me.HeroDetails.Hitpoints < 0.001)
                     A_Collection.Me.HeroDetails.SnapShotted_APS = A_Collection.Me.HeroDetails.AttacksPerSecondTotal;
@@ -643,7 +643,7 @@ namespace D3Helper.A_Collector
             {
                 lock(A_Collection.Me.HeroGlobals.LocalPlayerData)
                 {
-                    switch (A_Collection.Me.HeroGlobals.LocalPlayerData.xA0F4_PowerCast)
+                    switch (A_Collection.Me.HeroGlobals.LocalPlayerData.GetPowerCast())
                     {
                         case A_Enums.Powers.UseStoneOfRecall:
                         case A_Enums.Powers.UseDungeonStoneOfRecall:
@@ -673,7 +673,7 @@ namespace D3Helper.A_Collector
             {
                 lock(A_Collection.Me.HeroGlobals.LocalPlayerData)
                 {
-                    switch (A_Collection.Me.HeroGlobals.LocalPlayerData.xA0E8_PowerUse)
+                    switch (A_Collection.Me.HeroGlobals.LocalPlayerData.GetPowerUse())
                     {
                         case A_Enums.Powers.RessurectPlayer:
 
@@ -771,14 +771,14 @@ namespace D3Helper.A_Collector
 
                 if (local != null)
                 {
-                    A_Collection.Me.HeroDetails.CurrentlyUsingPower = local.xA150_Power;
+                    A_Collection.Me.HeroDetails.CurrentlyUsingPower = local.GetPowerUse();
 
-                    if (local.xA0E0_PowerUse == LastUsedPower)
+                    if (local.GetPowerUse() == LastUsedPower)
                         A_Collection.Me.HeroStates.usedNewPower = false;
                     else
                         A_Collection.Me.HeroStates.usedNewPower = true;
 
-                    LastUsedPower = local.xA0E0_PowerUse;
+                    LastUsedPower = local.GetPowerUse();
 
                     if (local.xA0E0_PowerUse != -1)
                     {

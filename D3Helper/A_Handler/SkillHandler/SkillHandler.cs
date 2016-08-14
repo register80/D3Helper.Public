@@ -157,20 +157,6 @@ namespace D3Helper.A_Handler.SkillHandler
         {
             try
             {
-                if (A_Collection.D3UI.isOpenBountyMap || A_Collection.D3UI.isOpenPlayerContextMenu)
-                {
-                    while (true)
-                    {
-                        if (A_Collection.Me.HeroStates.isWalking)
-                            break;
-
-                        if (A_Collection.Me.HeroStates.usedNewPower)
-                            break;
-
-                        System.Threading.Thread.Sleep(Sleep);
-                    }
-                }
-
                 return
                     A_Collection.D3Client.Window.isForeground &&
                     A_Collection.Me.HeroStates.isAlive &&
@@ -187,9 +173,6 @@ namespace D3Helper.A_Handler.SkillHandler
                     !A_Collection.D3UI.isOpenSkillPanel &&
                     !A_Collection.Me.ParagonPointSpender.Is_SpendingPoints &&
                     !A_Collection.D3UI.isLeavingGame;
-                ;
-
-
             }
             catch (Exception e)
             {

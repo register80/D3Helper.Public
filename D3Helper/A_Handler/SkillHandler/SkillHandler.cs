@@ -155,21 +155,41 @@ namespace D3Helper.A_Handler.SkillHandler
         }
         private static bool can_Cast()
         {
+
             try
+
             {
+
                 if (A_Collection.D3UI.isOpenBountyMap || A_Collection.D3UI.isOpenPlayerContextMenu)
+
                 {
+
+                    return false;
+
+                    /* can cause endless loop. unnecessary code since this function is already in called by loop from thread
+
                     while (true)
+
                     {
+
                         if (A_Collection.Me.HeroStates.isWalking)
+
                             break;
+
+
 
                         if (A_Collection.Me.HeroStates.usedNewPower)
+
                             break;
 
+
+
                         System.Threading.Thread.Sleep(Sleep);
+
                     }
+                    */
                 }
+
 
                 return
                     A_Collection.D3Client.Window.isForeground &&

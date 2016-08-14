@@ -643,23 +643,14 @@ namespace D3Helper.A_Collector
             {
                 lock(A_Collection.Me.HeroGlobals.LocalPlayerData)
                 {
-                    switch (A_Collection.Me.HeroGlobals.LocalPlayerData.GetPowerCast())
-                    {
-                        case A_Enums.Powers.UseStoneOfRecall:
-                        case A_Enums.Powers.UseDungeonStoneOfRecall:
-                        case A_Enums.Powers.TeleportToWaypoint:
-                        case A_Enums.Powers.TeleportToPlayer_1:
-                        case A_Enums.Powers.TeleportToPlayer_2:
-
-                            A_Collection.Me.HeroStates.isTeleporting = true;
-                            break;
-
-                        default:
-                            A_Collection.Me.HeroStates.isTeleporting = false;
-                            break;
-                    }
-                }
-            }
+					var tag = A_Collection.Me.HeroGlobals.LocalACD.GetAnimTag();
+					
+					// Casting/channeling teleport sets anim tag 0x68500 during cast. Instant teleport does not use an anim tag.
+					// Reaching teleport destination animates tag 0x68000 which may or may not be seen depending on load time.
+					// Those tags are valid at least in 2.4.2
+					A_Collection.Me.HeroStates.isTeleporting = tag == 0x68500;
+				}
+			}
             catch (Exception e)
             {
                 A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);

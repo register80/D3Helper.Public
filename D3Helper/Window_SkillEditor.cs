@@ -122,9 +122,11 @@ namespace D3Helper
         {
             ConditionType type = (ConditionType) Enum.Parse(typeof (ConditionType), ItemText);
 
-            string tooltip = A_Collection.Presets.Manual.Tooltips.ConditionTypes[type];
+			string tooltip;
+			if (!A_Collection.Presets.Manual.Tooltips.ConditionTypes.TryGetValue(type, out tooltip))
+				tooltip = $"!ERROR! NO TOOLTIP DEFINED FOR CONDITION TYPE '{ItemText}'";
 
-            if (tooltip.Length >= 80)
+			if (tooltip.Length >= 80)
                 tooltip = tooltip.Insert(80, "\n");
 
             return tooltip;

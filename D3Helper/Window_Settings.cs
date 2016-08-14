@@ -666,6 +666,20 @@ namespace D3Helper
             Properties.Settings.Default.Save();
         }
 
+        private void tb_autopotionhpvalue_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (int.TryParse(this.tb_autopotionhpvalue.Text, out value))
+            {
+                if (value > 0 && value <= 100)
+                {
+                    Properties.Settings.Default.AutoPotionValue = value;
+                    Properties.Settings.Default.Save();
+                }
+            }
+        }
+
+
         private void cb_fps_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.overlayfps = this.cb_fps.Checked;
@@ -1610,5 +1624,7 @@ namespace D3Helper
             Properties.Settings.Default.DisableAutocastOnNoOverride = this.cb_DisableAutocastOnNoOverride.Checked;
             Properties.Settings.Default.Save();
         }
+
+
     }
 }

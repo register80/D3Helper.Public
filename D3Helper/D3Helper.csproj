@@ -1001,15 +1001,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Enigma.D3.Public\Enigma.D3.Core\Enigma.D3.Core.csproj">
+    <ProjectReference Include="..\..\Enigma.D3\Enigma.D3.Core\Enigma.D3.Core.csproj">
       <Project>{e01f9c34-f404-48dc-92e2-991da7adf9eb}</Project>
       <Name>Enigma.D3.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Enigma.D3.Public\Enigma.D3.Memory\Enigma.D3.Memory.csproj">
+    <ProjectReference Include="..\..\Enigma.D3\Enigma.D3.Memory\Enigma.D3.Memory.csproj">
       <Project>{23848103-7dc0-4ab0-958f-b8793ffd1f2d}</Project>
       <Name>Enigma.D3.Memory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Enigma.D3.Public\Enigma.Memory\Enigma.Memory.csproj">
+    <ProjectReference Include="..\..\Enigma.D3\Enigma.Memory\Enigma.Memory.csproj">
       <Project>{3a385f29-42e2-4caf-b1f2-2a1a7b90a971}</Project>
       <Name>Enigma.Memory</Name>
     </ProjectReference>

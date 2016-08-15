@@ -85,8 +85,26 @@ namespace D3Helper.A_Tools
         public bool Enabled { get; set; }
     }
 
-    internal class T_ExternalFile
+    internal static class T_ExternalFile
     {
+		/// <summary>
+		/// Use a <see cref="StringReader"/> to split the <paramref name="text"/> into non-empty lines.
+		/// This supports \n, \r and \r\n as line endings.
+		/// </summary>
+		private static string[] ReadNonEmptyLines(this string text)
+		{
+			var lines = new List<string>();
+			using (var reader = new StringReader(text))
+			{
+				string line;
+				while ((line = reader.ReadLine()) != null)
+				{
+					if (line != string.Empty)
+						lines.Add(line);
+				}
+			}
+			return lines.ToArray();
+		}
 
         public static bool AutoCastOverrides_changed = false;
 
@@ -94,17 +112,11 @@ namespace D3Helper.A_Tools
         {
             public static void Load()
             {
-                string resource_data = Properties.Resources.levelarea;
-                List<string> lines =
-                    resource_data.Split(new[] {System.Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
-                        .ToList();
-
-                for (int i = 1; i < lines.Count; i++)
+				var lines = Properties.Resources.levelarea.ReadNonEmptyLines();
+                foreach (var line in lines.Skip(1))
                 {
                     try
                     {
-                        var line = lines[i];
-
                         var splitline = line.Split(',');
 
                         int sno = Convert.ToInt32(splitline[0]);
@@ -129,14 +141,10 @@ namespace D3Helper.A_Tools
             {
                 try
                 {
-                    List<string> AllLines =
-                        // Properties.Resources.power_stats.Split(new[] {System.Environment.NewLine}, // original code by r3peat
-                        Properties.Resources.power_stats.Split(new[] { "\n" }, // modified code by d3bug1
-                            StringSplitOptions.RemoveEmptyEntries).ToList();
-
-                    for (int i = 1; i < AllLines.Count(); i++)
+					var lines = Properties.Resources.power_stats.ReadNonEmptyLines();
+                    foreach(var line in lines.Skip(1))
                     {
-                        var LineSplit = AllLines[i].Split('\t');
+                        var LineSplit = line.Split('\t');
 
                         int PowerSNO = int.Parse(LineSplit[0]);
                         int RuneIndex = int.Parse(LineSplit[1]) - 1;
@@ -185,14 +193,10 @@ namespace D3Helper.A_Tools
             {
                 try
                 {
-                    List<string> AllLines =
-                        // Properties.Resources.Powers.Split(new[] {System.Environment.NewLine}, // original code by r3peat
-                        Properties.Resources.Powers.Split(new[] { "\n" }, // modified code by d3bug1                       
-                            StringSplitOptions.RemoveEmptyEntries).ToList();
-
-                    for (int i = 1; i < AllLines.Count(); i++)
+					var lines = Properties.Resources.Powers.ReadNonEmptyLines();
+                    foreach (var line in lines.Skip(1))
                     {
-                        var LineSplit = AllLines[i].Split('\t');
+                        var LineSplit = line.Split('\t');
 
                         int PowerSNO = int.Parse(LineSplit[0]);
 
@@ -216,13 +220,10 @@ namespace D3Helper.A_Tools
                 {
                     try
                     {
-                        List<string> AllLines =
-                            Properties.Resources.monster.Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries)
-                                .ToList();
-
-                        for (int i = 0; i < AllLines.Count(); i++)
+						var lines = Properties.Resources.monster.ReadNonEmptyLines();
+                        foreach (var line in lines) // NB: No header in this file.
                         {
-                            var LineSplit = AllLines[i].Split('\t');
+                            var LineSplit = line.Split('\t');
 
                             int PowerSNO = int.Parse(LineSplit[0]);
 
@@ -1086,20 +1087,16 @@ namespace D3Helper.A_Tools
                 {
                     try
                     {
-                        List<string> AllLines =
-                            Properties.Resources.conditiontype_manual.Split(new[] {"\n"},
-                                StringSplitOptions.RemoveEmptyEntries).ToList();
-
-                        for (int i = 0; i < AllLines.Count(); i++)
+						var lines = Properties.Resources.conditiontype_manual.ReadNonEmptyLines();
+                        for (int i = 0; i < lines.Length; i++)
                         {
-                            var line = AllLines[i];
-
+                            var line = lines[i];
                             if (line.StartsWith("*"))
                             {
                                 ConditionType type =
                                     (ConditionType) Enum.Parse(typeof (ConditionType), line.TrimStart('*'));
 
-                                string tooltip = AllLines[i + 1].TrimStart('-', ' ');
+                                string tooltip = lines[i + 1].TrimStart('-', ' ');
 
                                 A_Collection.Presets.Manual.Tooltips.ConditionTypes.Add(type, tooltip);
                             }

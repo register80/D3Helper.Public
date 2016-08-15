@@ -1087,7 +1087,7 @@ namespace D3Helper.A_Tools
                     try
                     {
                         List<string> AllLines =
-                            Properties.Resources.conditiontype_manual.Split(new[] {System.Environment.NewLine},
+                            Properties.Resources.conditiontype_manual.Split(new[] {"\n"},
                                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
                         for (int i = 0; i < AllLines.Count(); i++)

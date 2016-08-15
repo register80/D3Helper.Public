@@ -282,6 +282,7 @@
             this.tb_autopotionhpvalue.Name = "tb_autopotionhpvalue";
             this.tb_autopotionhpvalue.Size = new System.Drawing.Size(40, 20);
             this.tb_autopotionhpvalue.TabIndex = 20;
+            this.tb_autopotionhpvalue.TextChanged += new System.EventHandler(this.tb_autopotionhpvalue_TextChanged);
             // 
             // label7
             // 

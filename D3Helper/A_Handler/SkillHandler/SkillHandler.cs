@@ -155,8 +155,11 @@ namespace D3Helper.A_Handler.SkillHandler
         }
         private static bool can_Cast()
         {
+
             try
+
             {
+
                 return
                     A_Collection.D3Client.Window.isForeground &&
                     A_Collection.Me.HeroStates.isAlive &&

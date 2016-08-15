@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Helper", "D3Helper\D3Helper.csproj", "{070A821F-4207-47C7-9D10-4CE8080597E0}"
 EndProject
@@ -19,10 +19,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Enigma.D3.Memory.Generated"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\Enigma.D3\Enigma.D3.Memory.Generated\Enigma.D3.Memory.Generated.projitems*{23848103-7dc0-4ab0-958f-b8793ffd1f2d}*SharedItemsImports = 4
-		..\Enigma.D3\Enigma.D3.Memory.Generated\Enigma.D3.Memory.Generated.projitems*{862a67ee-9ceb-42fe-9406-d7feafc55b00}*SharedItemsImports = 13
-		..\Enigma.D3\Enigma.D3.Core.Generated\Enigma.D3.Core.Generated.projitems*{da9978d2-8f71-4399-8a57-a789f082e501}*SharedItemsImports = 13
 		..\Enigma.D3\Enigma.D3.Core.Generated\Enigma.D3.Core.Generated.projitems*{e01f9c34-f404-48dc-92e2-991da7adf9eb}*SharedItemsImports = 4
+		..\Enigma.D3\Enigma.D3.Memory.Generated\Enigma.D3.Memory.Generated.projitems*{862a67ee-9ceb-42fe-9406-d7feafc55b00}*SharedItemsImports = 13
+		..\Enigma.D3\Enigma.D3.Memory.Generated\Enigma.D3.Memory.Generated.projitems*{23848103-7dc0-4ab0-958f-b8793ffd1f2d}*SharedItemsImports = 4
+		..\Enigma.D3\Enigma.D3.Core.Generated\Enigma.D3.Core.Generated.projitems*{da9978d2-8f71-4399-8a57-a789f082e501}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

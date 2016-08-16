@@ -46,7 +46,10 @@ namespace D3Helper.A_Handler.Log
 
         public static void addLogEntry(string text)
         {
-            lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new A_Handler.Log.LogEntry(DateTime.Now, text));
+            if (Properties.Settings.Default.Logger_extendedLog)
+            {
+                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new A_Handler.Log.LogEntry(DateTime.Now, text));
+            }
         }
 
     }
@@ -94,9 +97,7 @@ namespace D3Helper.A_Handler.Log
             }
             catch (System.Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.Handler);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.Handler);
             }
         }
         public static void log_Handler()
@@ -130,9 +131,7 @@ namespace D3Helper.A_Handler.Log
             }
             catch (System.Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.Handler);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.Handler);
             }
         }
 

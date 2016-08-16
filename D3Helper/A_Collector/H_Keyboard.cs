@@ -24,11 +24,11 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ECollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ECollector);
             }
         }
+
+
         private static void UpdateHotkeyList()
         {
             try
@@ -88,11 +88,10 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ECollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ECollector);
             }
         }
+
 
         public static Hotkey get_HotkeyFromSettingsString(string HotkeyString)
         {
@@ -129,6 +128,8 @@ namespace D3Helper.A_Collector
                 throw;
             }
         }
+
+
         private static void processPressedKeys()
         {
             try
@@ -340,11 +341,11 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ECollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ECollector);
             }
         }
+
+
         private static void ResetLastProcessedHotkey()
         {
             try
@@ -356,11 +357,11 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ECollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ECollector);
             }
         }
+
+
         private static void get_PressedIngameKeys()
         {
             try
@@ -375,10 +376,7 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now,
-                    A_Enums.ExceptionThread.ECollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ECollector);
             }
         }
     }

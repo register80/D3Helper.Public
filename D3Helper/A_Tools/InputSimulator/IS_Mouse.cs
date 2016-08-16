@@ -30,10 +30,11 @@ namespace D3Helper.A_Tools.InputSimulator
             mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed RMB()"));
+            A_Handler.Log.LogEntry.addLogEntry("Pressed RMB()");
             //
         }
+
+
         public static void LeftClick(int xLow, int yLow, int xHigh, int yHigh)
         {
             
@@ -46,10 +47,11 @@ namespace D3Helper.A_Tools.InputSimulator
             mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed LMB(" + xLow + "," + yLow + "," + xHigh + "," + yHigh + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("Pressed LMB(" + xLow + "," + yLow + "," + xHigh + "," + yHigh + ")");
             //
         }
+
+
         public static void RightCLick(int xLow, int yLow, int xHigh, int yHigh)
         {
             Random random = new Random();
@@ -61,10 +63,11 @@ namespace D3Helper.A_Tools.InputSimulator
             mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed RMB(" + xLow + "," + yLow + "," + xHigh + "," + yHigh + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("Pressed RMB(" + xLow + "," + yLow + "," + xHigh + "," + yHigh + ")");
             //
         }
+
+
         public static void LeftClick()
         {
             uint x = (uint)Cursor.Position.X;
@@ -73,71 +76,67 @@ namespace D3Helper.A_Tools.InputSimulator
             mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed LMB()"));
+            A_Handler.Log.LogEntry.addLogEntry("Pressed LMB()");
             //
         }
+
+
         public static void LeftClick(uint x, uint y)
         {
-            
             mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed LMB(" + x + "," + y + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("Pressed LMB(" + x + "," + y + ")");
             //
         }
+
+
         public static void LeftDown(uint x, uint y)
         {
-
             mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "KeyDown LMB(" + x + "," + y + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("KeyDown LMB(" + x + "," + y + ")");
             //
         }
+
 
         public static void RightDown(uint x, uint y)
         {
-
             mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "KeyDown RMB(" + x + "," + y + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("KeyDown RMB(" + x + "," + y + ")");
             //
         }
+
+
         public static void LeftUp(uint x, uint y)
         {
-
-
             mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "KeyUp LMB(" + x + "," + y + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("KeyUp LMB(" + x + "," + y + ")");
             //
         }
+
+
         public static void RightUp(uint x, uint y)
         {
-
-
             mouse_event(MOUSEEVENTF_RIGHTUP, x, y, 0, 0);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "KeyUp RMB(" + x + "," + y + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("KeyUp RMB(" + x + "," + y + ")");
             //
         }
+
+
         public static void MoveCursor(uint x, uint y)
         {
-
             Cursor.Position = new Point((int)x, (int)y);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "MouseMove (" + x + "," + y + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("MouseMove (" + x + "," + y + ")");
             //
         }
 
@@ -150,8 +149,7 @@ namespace D3Helper.A_Tools.InputSimulator
             Cursor.Position = new Point((int) x, (int) y);
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "MouseMove (" + x + "," + y + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("MouseMove (" + x + "," + y + ")");
             //
         }
     }

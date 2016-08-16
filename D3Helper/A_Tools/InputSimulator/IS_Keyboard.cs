@@ -398,11 +398,11 @@ namespace D3Helper.A_Tools.InputSimulator
 
             return Buffer;
         } 
+
         public static void ParagonWindow()
         {
             //-- log action
-            if(Properties.Settings.Default.Logger_extendedLog)
-            lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for open up ParagonWindow"));
+            A_Handler.Log.LogEntry.addLogEntry("Initiating KeyPress for open up ParagonWindow");
             //
 
             if (A_Collection.Preferences.Hotkeys.ModKey1_OpenParagon != null)
@@ -420,11 +420,11 @@ namespace D3Helper.A_Tools.InputSimulator
             else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon != null)
                 ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenParagon.Value);
         }
+
         public static void Close_AllWindows()
         {
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for closing all windows"));
+            A_Handler.Log.LogEntry.addLogEntry("Initiating KeyPress for closing all windows");
             //
 
             if (A_Collection.Preferences.Hotkeys.ModKey1_CloseAllWindows != null)
@@ -442,11 +442,11 @@ namespace D3Helper.A_Tools.InputSimulator
             else if (A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows != null)
                 ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_CloseAllWindows.Value);
         }
+
         public static void SkillsWindow()
         {
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for open up SkillsWindow"));
+            A_Handler.Log.LogEntry.addLogEntry("Initiating KeyPress for open up SkillsWindow");
             //
 
             if (A_Collection.Preferences.Hotkeys.ModKey1_SkillsWindow != null)
@@ -464,11 +464,11 @@ namespace D3Helper.A_Tools.InputSimulator
             else if (A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow != null)
                 ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_SkillsWindow.Value);
         }
+
         public static void Inventory()
         {
             //-- log action
-            if(Properties.Settings.Default.Logger_extendedLog)
-            lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Initiating KeyPress for open up Inventory"));
+            A_Handler.Log.LogEntry.addLogEntry("Initiating KeyPress for open up Inventory");
             //
 
             if (A_Collection.Preferences.Hotkeys.ModKey1_OpenInventory != null)
@@ -486,6 +486,7 @@ namespace D3Helper.A_Tools.InputSimulator
             else if (A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory != null)
                 ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_OpenInventory.Value);
         }
+
         private static void execute_ForceMove()
         {
             if (A_Collection.Preferences.Hotkeys.ModKey1_ForceMove != null)
@@ -503,6 +504,7 @@ namespace D3Helper.A_Tools.InputSimulator
             else if (A_Collection.Preferences.Hotkeys.ModKey2_ForceMove != null)
                 ReleaseModKey(A_Collection.Preferences.Hotkeys.ModKey2_ForceMove.Value);
         }
+
         private static void execute_StandStill_LeftClick()
         {
             if (A_Collection.Preferences.Hotkeys.ModKey1_ForceStandStill != null)
@@ -516,8 +518,7 @@ namespace D3Helper.A_Tools.InputSimulator
                     convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key1_ForceStandStill));
 
                 //-- log action
-                if (Properties.Settings.Default.Logger_extendedLog)
-                    lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed Key(" + A_Collection.Preferences.Hotkeys.Key1_ForceStandStill + ")"));
+                A_Handler.Log.LogEntry.addLogEntry("Pressed Key(" + A_Collection.Preferences.Hotkeys.Key1_ForceStandStill + ")");
                 //
             }
             else if (A_Collection.Preferences.Hotkeys.Key2_ForceStandStill != Key.Undefined)
@@ -526,8 +527,7 @@ namespace D3Helper.A_Tools.InputSimulator
                     convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_ForceStandStill));
 
                 //-- log action
-                if (Properties.Settings.Default.Logger_extendedLog)
-                    lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed Key(" + A_Collection.Preferences.Hotkeys.Key2_ForceStandStill + ")"));
+                A_Handler.Log.LogEntry.addLogEntry("Pressed Key(" + A_Collection.Preferences.Hotkeys.Key2_ForceStandStill + ")");
                 //
             }
 
@@ -545,8 +545,7 @@ namespace D3Helper.A_Tools.InputSimulator
                 // release Key1 for StandStill
 
                 //-- log action
-                if (Properties.Settings.Default.Logger_extendedLog)
-                    lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Released Key(" + A_Collection.Preferences.Hotkeys.Key1_ForceStandStill + ")"));
+                A_Handler.Log.LogEntry.addLogEntry("Released Key(" + A_Collection.Preferences.Hotkeys.Key1_ForceStandStill + ")");
                 //
             }
             else if (A_Collection.Preferences.Hotkeys.Key2_ForceStandStill != Key.Undefined)
@@ -555,11 +554,11 @@ namespace D3Helper.A_Tools.InputSimulator
                     convert_KeyToVirtualKeyCode(A_Collection.Preferences.Hotkeys.Key2_ForceStandStill));
 
                 //-- log action
-                if (Properties.Settings.Default.Logger_extendedLog)
-                    lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Released Key(" + A_Collection.Preferences.Hotkeys.Key2_ForceStandStill + ")"));
+                A_Handler.Log.LogEntry.addLogEntry("Released Key(" + A_Collection.Preferences.Hotkeys.Key2_ForceStandStill + ")");
                 //
             }
         }
+
         private static void PressKey(VirtualKeyCode Key)
         {
             try
@@ -569,9 +568,8 @@ namespace D3Helper.A_Tools.InputSimulator
 
                 WindowsInput.InputSimulator.SimulateKeyPress(Key);
 
-                //-- log action
-                if (Properties.Settings.Default.Logger_extendedLog)
-                    lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed Key(" + Key + ")"));
+                //-- log actions
+                A_Handler.Log.LogEntry.addLogEntry("Pressed Key(" + Key + ")");
                 //
             }
             catch (Exception)
@@ -579,17 +577,17 @@ namespace D3Helper.A_Tools.InputSimulator
                 
             }
         }
+
         private static void PressModKey(ModifierKeys ModKey)
         {
             if (ModKey == ModifierKeys.None)
                 return;
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Pressed ModKey(" + ModKey + ")"));
-			//
+            A_Handler.Log.LogEntry.addLogEntry("Pressed ModKey(" + ModKey + ")");
+            //
 
-			if (ModKey.HasFlag(ModifierKeys.Alt))
+            if (ModKey.HasFlag(ModifierKeys.Alt))
 				WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.MENU);
 			if (ModKey.HasFlag(ModifierKeys.Shift))
 				WindowsInput.InputSimulator.SimulateKeyDown(VirtualKeyCode.SHIFT);
@@ -602,11 +600,10 @@ namespace D3Helper.A_Tools.InputSimulator
                 return;
 
             //-- log action
-            if (Properties.Settings.Default.Logger_extendedLog)
-                lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new LogEntry(DateTime.Now, "Released ModKey(" + ModKey + ")"));
+            A_Handler.Log.LogEntry.addLogEntry("Released ModKey(" + ModKey + ")");
             //
 
-			if (ModKey.HasFlag(ModifierKeys.Alt))
+            if (ModKey.HasFlag(ModifierKeys.Alt))
 				WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.MENU);
 			if (ModKey.HasFlag(ModifierKeys.Shift))
 				WindowsInput.InputSimulator.SimulateKeyUp(VirtualKeyCode.SHIFT);

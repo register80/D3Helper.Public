@@ -38,12 +38,11 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now,
-                    A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_ForceMove()
         {
             try
@@ -56,11 +55,11 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_Potion()
         {
             try
@@ -73,11 +72,11 @@ namespace D3Helper.A_Collector
 			}
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_Townportal()
         {
             try
@@ -90,11 +89,11 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_SkillsWindow()
         {
             try
@@ -107,11 +106,11 @@ namespace D3Helper.A_Collector
 			}
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_CloseAllWindows()
         {
             try
@@ -124,11 +123,11 @@ namespace D3Helper.A_Collector
 			}
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_ForceStandStill()
         {
             try
@@ -141,11 +140,11 @@ namespace D3Helper.A_Collector
 			}
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_ToggleInventory()
         {
             try
@@ -158,11 +157,11 @@ namespace D3Helper.A_Collector
 			}
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_ToggleParagon()
         {
             try
@@ -174,11 +173,11 @@ namespace D3Helper.A_Collector
 			}
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_ActionBarSkills()
         {
             try
@@ -210,9 +209,7 @@ namespace D3Helper.A_Collector
 			}
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
     }

@@ -21,11 +21,11 @@ namespace D3Helper.A_Handler.EventHandler
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.Handler);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.Handler);
             }
         }
+
+
         private static void start_AutoGamble()
         {
             try
@@ -40,11 +40,11 @@ namespace D3Helper.A_Handler.EventHandler
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.Handler);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.Handler);
             }
         }
+
+
         private static void start_GearSwapSelection()
         {
             try
@@ -56,9 +56,7 @@ namespace D3Helper.A_Handler.EventHandler
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.Handler);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.Handler);
             }
         }
     }

@@ -22,6 +22,7 @@ namespace D3Helper.A_Collector
             this.Distance = distance;
             this.Progress = progress;
         }
+
         public ActorCommonData _ACD { get; set; }
         public bool IsMonster { get; set; }
         public bool IsPlayer { get; set; }
@@ -29,6 +30,8 @@ namespace D3Helper.A_Collector
         public double Progress { get; set; }
 
     }
+
+
     class IC_Actors
     {
         public static void Collect()
@@ -39,11 +42,11 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
+
+
         private static void get_AllActors()
         {
             try
@@ -97,9 +100,7 @@ namespace D3Helper.A_Collector
             }
             catch (Exception e)
             {
-                A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, A_Enums.ExceptionThread.ICollector);
-
-                lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+                A_Handler.Log.Exception.addExceptionLogEntry(e, A_Enums.ExceptionThread.ICollector);
             }
         }
     }

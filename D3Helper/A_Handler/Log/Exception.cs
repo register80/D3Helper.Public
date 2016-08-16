@@ -19,7 +19,18 @@ namespace D3Helper.A_Handler.Log
         public System.Exception E { get; set; }
         public DateTime Timestamp { get; set; }
         public A_Enums.ExceptionThread ExceptionThread { get; set; }
+
+
+        public static void addExceptionLogEntry(System.Exception e, A_Enums.ExceptionThread exceptionthread)
+        {
+            A_Handler.Log.ExceptionLogEntry newEntry = new A_Handler.Log.ExceptionLogEntry(e, DateTime.Now, exceptionthread);
+
+            lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
+        }
+
     }
+
+
     public class LogEntry
     {
         public LogEntry(DateTime timestamp, string text)
@@ -31,7 +42,16 @@ namespace D3Helper.A_Handler.Log
         
         public DateTime Timestamp { get; set; }
         public string Text { get; set; }
+
+
+        public static void addLogEntry(string text)
+        {
+            lock (A_Handler.Log.Exception.HandlerLog) A_Handler.Log.Exception.HandlerLog.Add(new A_Handler.Log.LogEntry(DateTime.Now, text));
+        }
+
     }
+
+
     class Exception
     {
         private static string ExceptionsFilePath = path.AppDir + @"\logs\exceptions.txt";
@@ -114,6 +134,11 @@ namespace D3Helper.A_Handler.Log
 
                 lock (A_Handler.Log.Exception.ExceptionLog) A_Handler.Log.Exception.ExceptionLog.Add(newEntry);
             }
+        }
+
+        public static void addExceptionLogEntry(System.Exception e, A_Enums.ExceptionThread exceptionthread)
+        {
+            ExceptionLogEntry.addExceptionLogEntry(e, exceptionthread);
         }
     }
 }

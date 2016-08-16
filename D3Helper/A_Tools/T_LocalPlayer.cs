@@ -62,6 +62,8 @@ namespace D3Helper.A_Tools
                 }
             }
         }
+
+
         public static int get_PartyMemberInRange(double Distance)
         {
             try
@@ -76,22 +78,21 @@ namespace D3Helper.A_Tools
 
                 foreach (var member in partyMemberContainer)
                 {
-
-
-                    if (member.Distance <= Distance && member.Distance >= 3)
+                    if(member._ACD.GetAttributeValue(AttributeId.HitpointsCur) > 0) // is partymember alive/not dead?
                     {
-                        counter++;
-
+                        if (member.Distance <= Distance && member.Distance >= 3)
+                        {
+                            counter++;
+                        }
                     }
-
                 }
 
                 return counter;
-
-
             }
             catch { return 0; }
         }
+
+
         public static bool IsPartyMemberInRange_MinHitpoints(double Distance, int MinHitpoints)
         {
             try
